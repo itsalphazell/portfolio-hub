@@ -8,6 +8,11 @@ Premium front-end portfolio hub for showcasing freelance work across marketing s
 - English-first public hub for client-facing case studies
 - Built to aggregate separate project repos rather than hide work behind branches
 
+## Public Links
+
+- Live portfolio: `https://portfolio-hub.pages.dev`
+- Repository: `https://github.com/itsalphazell/portfolio-hub`
+
 ## Included case studies
 
 - `Coconut Paradise Spa` - multilingual hospitality marketing surface with promotions/admin workflow
