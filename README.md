@@ -24,7 +24,6 @@ Premium front-end portfolio hub for showcasing freelance work across marketing s
 ```bash
 npm run dev
 npm run build
-npm run cf:deploy
 ```
 
 ## Routes
@@ -39,4 +38,4 @@ npm run cf:deploy
 - Case study content lives in `content/work/*.mdx`
 - Contact links intentionally hide missing social or booking data instead of rendering placeholders
 - Set `NEXT_PUBLIC_BOOKING_URL` and `NEXT_PUBLIC_LINKEDIN_URL` before building if you want those CTAs visible
-- The project is prepared for static deployment to Cloudflare Pages via the generated `out/` directory
+- Cloudflare Pages is connected to the GitHub repo, so pushes to `main` trigger production deploys automatically
