@@ -10,7 +10,7 @@ Premium front-end portfolio hub for showcasing freelance work across marketing s
 
 ## Public Links
 
-- Live portfolio: `https://portfolio-hub.pages.dev`
+- Live portfolio: `https://portfolio-hub-ehh.pages.dev`
 - Repository: `https://github.com/itsalphazell/portfolio-hub`
 
 ## Included case studies

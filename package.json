@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve out",
-    "cf:deploy": "npm run build && npx wrangler pages deploy out --project-name=portfolio-hub",
+    "cf:deploy": "npm run build && npx wrangler pages deploy out --project-name=portfolio-hub --branch=main",
     "cf:dev": "npm run build && npx wrangler pages dev out"
   },
   "dependencies": {
