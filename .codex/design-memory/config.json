@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "provider": "21st",
+  "reuse_guardrail": "semi-strict",
+  "history_scope": "hybrid",
+  "global_history_root": "C:\\Users\\Thomas\\.codex\\memory",
+  "global_history_path": "C:\\Users\\Thomas\\.codex\\memory\\21st\\global-history.json",
+  "thresholds": {
+    "reuse_required": 0.78,
+    "reuse_preferred": 0.62
+  },
+  "shareable_default": true
+}

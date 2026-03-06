@@ -1,0 +1,31 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="64" fill="#0C1326"/>
+  <circle cx="1260" cy="210" r="220" fill="#2D66FF" fill-opacity="0.28"/>
+  <circle cx="360" cy="860" r="240" fill="#FF9B70" fill-opacity="0.2"/>
+  <rect x="84" y="74" width="1432" height="76" rx="28" fill="#111A33"/>
+  <rect x="122" y="102" width="170" height="18" rx="9" fill="#D6E0FF"/>
+  <rect x="1216" y="94" width="112" height="34" rx="17" fill="#203057"/>
+  <rect x="1348" y="94" width="130" height="34" rx="17" fill="#2D66FF"/>
+  <rect x="84" y="190" width="776" height="726" rx="42" fill="#101B36"/>
+  <rect x="128" y="236" width="190" height="18" rx="9" fill="#8DA5E2"/>
+  <rect x="128" y="282" width="560" height="118" rx="32" fill="#F5F7FF"/>
+  <rect x="128" y="430" width="420" height="20" rx="10" fill="#9AB0E8"/>
+  <rect x="128" y="468" width="470" height="20" rx="10" fill="#7089C4"/>
+  <rect x="128" y="528" width="176" height="54" rx="27" fill="#2D66FF"/>
+  <rect x="330" y="528" width="176" height="54" rx="27" fill="#1A274A"/>
+  <rect x="128" y="624" width="688" height="246" rx="32" fill="#0C1326"/>
+  <rect x="166" y="662" width="186" height="18" rx="9" fill="#869BCF"/>
+  <rect x="166" y="706" width="284" height="126" rx="26" fill="#172546"/>
+  <rect x="478" y="706" width="300" height="126" rx="26" fill="#0F1A33"/>
+  <rect x="914" y="190" width="602" height="330" rx="42" fill="#F5F7FF"/>
+  <rect x="954" y="230" width="226" height="18" rx="9" fill="#5A6EAA"/>
+  <rect x="954" y="276" width="522" height="88" rx="28" fill="#E5EBFF"/>
+  <circle cx="1278" cy="420" r="70" fill="#FF9B70"/>
+  <rect x="914" y="562" width="602" height="354" rx="42" fill="#111A33"/>
+  <rect x="954" y="604" width="196" height="18" rx="9" fill="#95A9DD"/>
+  <rect x="954" y="650" width="522" height="76" rx="28" fill="#19274A"/>
+  <rect x="954" y="756" width="250" height="118" rx="26" fill="#203057"/>
+  <rect x="1230" y="756" width="246" height="118" rx="26" fill="#2D66FF"/>
+  <text x="128" y="958" fill="#F5F7FF" font-family="Georgia, serif" font-size="54">AnimAid</text>
+  <text x="128" y="994" fill="#8DA5E2" font-family="Arial, sans-serif" font-size="24">Upload, preview, unlock, and paid conversion in one flow.</text>
+</svg>

@@ -1,0 +1,155 @@
+﻿name: Design Quality
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "quality or autopilot"
+        required: false
+        default: "quality"
+      page_scope:
+        description: "home|key|wide"
+        required: false
+        default: "key"
+      base_url:
+        description: "Optional base URL override"
+        required: false
+        default: ""
+      target_branch:
+        description: "PR target branch for autopilot"
+        required: false
+        default: "main"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  quality:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.mode != 'autopilot' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Node dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f pnpm-lock.yaml ]; then
+            npm i -g pnpm
+            pnpm install --frozen-lockfile || pnpm install
+          elif [ -f yarn.lock ]; then
+            corepack enable
+            yarn install --frozen-lockfile || yarn install
+          elif [ -f package-lock.json ]; then
+            npm ci
+          elif [ -f package.json ]; then
+            npm install
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Playwright
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install chromium
+
+      - name: Run full visual audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXTRA_ARGS=""
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.base_url }}" ]; then
+            EXTRA_ARGS="--base-url ${{ inputs.base_url }} --start-server never"
+          fi
+          python scripts/design_visual_audit.py --root . --page-scope key --start-server auto --timeout 45 $EXTRA_ARGS
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-quality-artifacts
+          path: .playwright-gate
+          if-no-files-found: ignore
+
+  autopilot:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'autopilot' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Node dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f pnpm-lock.yaml ]; then
+            npm i -g pnpm
+            pnpm install --frozen-lockfile || pnpm install
+          elif [ -f yarn.lock ]; then
+            corepack enable
+            yarn install --frozen-lockfile || yarn install
+          elif [ -f package-lock.json ]; then
+            npm ci
+          elif [ -f package.json ]; then
+            npm install
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Playwright
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install chromium
+
+      - name: Run autopilot loop
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXTRA_ARGS=""
+          if [ -n "${{ inputs.base_url }}" ]; then
+            EXTRA_ARGS="--base-url ${{ inputs.base_url }} --start-server never"
+          fi
+          python scripts/run_design_autopilot.py \
+            --root . \
+            --page-scope "${{ inputs.page_scope }}" \
+            --target-branch "${{ inputs.target_branch }}" \
+            --publish-branch-pr yes \
+            --with-llm-judge auto \
+            $EXTRA_ARGS
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-autopilot-artifacts
+          path: .playwright-gate
+          if-no-files-found: ignore

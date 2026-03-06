@@ -1,0 +1,27 @@
+﻿#!/usr/bin/env sh
+set -eu
+
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+PYTHON_BIN="${PYTHON_BIN:-python}"
+AUTOPILOT_SCRIPT="$ROOT/scripts/run_design_autopilot.py"
+
+if [ ! -f "$AUTOPILOT_SCRIPT" ]; then
+  echo "[design-autopilot] script not found, skipping pre-push gate"
+  exit 0
+fi
+
+echo "[design-autopilot] running smoke gate (max 2 iterations)"
+"$PYTHON_BIN" "$AUTOPILOT_SCRIPT" \
+  --root "$ROOT" \
+  --page-scope key \
+  --max-iterations 2 \
+  --with-llm-judge off \
+  --publish-branch-pr no
+
+if [ "$?" -ne 0 ]; then
+  echo "[design-autopilot] push blocked: visual gate failed"
+  exit 1
+fi
+
+echo "[design-autopilot] smoke gate passed"
+exit 0

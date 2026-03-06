@@ -1,0 +1,30 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="64" fill="#F6EBDD"/>
+  <circle cx="1330" cy="170" r="170" fill="#F2C9A0" fill-opacity="0.55"/>
+  <circle cx="250" cy="860" r="220" fill="#C1D8CD" fill-opacity="0.65"/>
+  <rect x="80" y="76" width="1440" height="76" rx="30" fill="#FFF9F2"/>
+  <rect x="120" y="102" width="170" height="22" rx="11" fill="#5D4D42"/>
+  <rect x="1110" y="102" width="120" height="18" rx="9" fill="#D7C4B2"/>
+  <rect x="1250" y="102" width="120" height="18" rx="9" fill="#D7C4B2"/>
+  <rect x="1390" y="95" width="92" height="32" rx="16" fill="#275BFF"/>
+  <rect x="80" y="190" width="900" height="640" rx="42" fill="#FFF9F2"/>
+  <rect x="120" y="236" width="320" height="20" rx="10" fill="#A8876B"/>
+  <rect x="120" y="280" width="640" height="98" rx="28" fill="#43362F"/>
+  <rect x="120" y="404" width="520" height="22" rx="11" fill="#D1B8A1"/>
+  <rect x="120" y="442" width="560" height="22" rx="11" fill="#D9C6B6"/>
+  <rect x="120" y="510" width="170" height="52" rx="26" fill="#275BFF"/>
+  <rect x="314" y="510" width="170" height="52" rx="26" fill="#EFE1D3"/>
+  <rect x="690" y="508" width="236" height="272" rx="28" fill="#E7D6C7"/>
+  <rect x="720" y="540" width="176" height="168" rx="24" fill="#B9D0C5"/>
+  <rect x="1020" y="190" width="500" height="310" rx="38" fill="#3D2E28"/>
+  <rect x="1058" y="228" width="240" height="20" rx="10" fill="#F6EBDD" fill-opacity="0.78"/>
+  <rect x="1058" y="270" width="260" height="18" rx="9" fill="#E1C7AD" fill-opacity="0.72"/>
+  <rect x="1058" y="304" width="320" height="18" rx="9" fill="#E1C7AD" fill-opacity="0.56"/>
+  <rect x="1058" y="356" width="422" height="106" rx="26" fill="#F6EBDD"/>
+  <rect x="1020" y="534" width="500" height="296" rx="38" fill="#FFF9F2"/>
+  <rect x="1058" y="572" width="170" height="18" rx="9" fill="#A8876B"/>
+  <rect x="1058" y="618" width="422" height="44" rx="22" fill="#EFE1D3"/>
+  <rect x="1058" y="688" width="422" height="96" rx="28" fill="#DCE8E2"/>
+  <text x="122" y="735" fill="#5D4D42" font-family="Georgia, serif" font-size="54">Coconut Paradise Spa</text>
+  <text x="122" y="786" fill="#8D7A6B" font-family="Arial, sans-serif" font-size="24">Multilingual hospitality, promotions, and trust-first conversion.</text>
+</svg>

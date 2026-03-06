@@ -1,0 +1,26 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="64" fill="#121A31"/>
+  <rect x="82" y="82" width="1436" height="836" rx="42" fill="#0D1324"/>
+  <rect x="126" y="126" width="738" height="748" rx="32" fill="#131F3B"/>
+  <rect x="164" y="166" width="200" height="18" rx="9" fill="#8CA2D9"/>
+  <rect x="164" y="212" width="662" height="96" rx="28" fill="#25365E"/>
+  <rect x="164" y="342" width="310" height="486" rx="30" fill="#F5F7FF"/>
+  <rect x="512" y="342" width="314" height="486" rx="30" fill="#1B294A"/>
+  <rect x="198" y="380" width="166" height="18" rx="9" fill="#657AB5"/>
+  <rect x="198" y="422" width="230" height="126" rx="26" fill="#DEE6FF"/>
+  <rect x="198" y="580" width="230" height="52" rx="26" fill="#2D66FF"/>
+  <rect x="546" y="380" width="166" height="18" rx="9" fill="#B2C2F0"/>
+  <rect x="546" y="422" width="244" height="126" rx="26" fill="#24355E"/>
+  <rect x="546" y="580" width="244" height="52" rx="26" fill="#FF9B70"/>
+  <rect x="912" y="126" width="562" height="748" rx="32" fill="#F5F7FF"/>
+  <rect x="952" y="170" width="188" height="18" rx="9" fill="#677CB5"/>
+  <rect x="952" y="214" width="482" height="128" rx="30" fill="#E2E9FF"/>
+  <rect x="952" y="384" width="482" height="150" rx="30" fill="#0D1324"/>
+  <rect x="988" y="422" width="160" height="18" rx="9" fill="#B9C9F8"/>
+  <rect x="988" y="466" width="246" height="18" rx="9" fill="#7F94CF"/>
+  <rect x="952" y="576" width="482" height="254" rx="30" fill="#DCE4FC"/>
+  <rect x="988" y="614" width="172" height="18" rx="9" fill="#677CB5"/>
+  <rect x="988" y="658" width="406" height="52" rx="26" fill="#F4F7FF"/>
+  <rect x="988" y="738" width="192" height="54" rx="27" fill="#2D66FF"/>
+  <text x="956" y="946" fill="#DDE6FF" font-family="Arial, sans-serif" font-size="24">Checkout and unlock surfaces feel integrated into the product story.</text>
+</svg>

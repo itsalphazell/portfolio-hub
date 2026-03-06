@@ -1,0 +1,22 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="64" fill="#EEF4FD"/>
+  <rect x="84" y="84" width="1432" height="832" rx="42" fill="#0F172A"/>
+  <rect x="120" y="120" width="290" height="760" rx="32" fill="#111E38"/>
+  <rect x="154" y="158" width="130" height="18" rx="9" fill="#D9E7FF"/>
+  <rect x="154" y="212" width="222" height="52" rx="18" fill="#1E40AF"/>
+  <rect x="154" y="286" width="222" height="52" rx="18" fill="#152443"/>
+  <rect x="442" y="120" width="1038" height="110" rx="32" fill="#101B33"/>
+  <rect x="478" y="156" width="220" height="20" rx="10" fill="#D9E7FF"/>
+  <rect x="442" y="262" width="1038" height="618" rx="32" fill="#0B1323"/>
+  <rect x="478" y="300" width="154" height="18" rx="9" fill="#C2D8FF"/>
+  <rect x="478" y="348" width="966" height="86" rx="28" fill="#162B4F"/>
+  <rect x="478" y="474" width="454" height="368" rx="30" fill="#111E38"/>
+  <rect x="966" y="474" width="478" height="368" rx="30" fill="#111E38"/>
+  <rect x="514" y="512" width="180" height="18" rx="9" fill="#B0CBFF"/>
+  <rect x="514" y="558" width="382" height="220" rx="26" fill="#0F172A"/>
+  <rect x="1002" y="512" width="170" height="18" rx="9" fill="#B0CBFF"/>
+  <rect x="1002" y="558" width="406" height="54" rx="18" fill="#162B4F"/>
+  <rect x="1002" y="634" width="406" height="54" rx="18" fill="#162B4F"/>
+  <rect x="1002" y="710" width="406" height="92" rx="24" fill="#1E40AF"/>
+  <text x="478" y="948" fill="#EAF2FF" font-family="Arial, sans-serif" font-size="24">Projects board and table patterns stay dense without becoming noisy.</text>
+</svg>

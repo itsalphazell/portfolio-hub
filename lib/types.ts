@@ -1,0 +1,49 @@
+export type ProjectType = "real" | "concept";
+
+export type ProjectFilter = "all" | "real" | "concept" | "marketing" | "product" | "motion";
+
+export interface ProjectFrontmatter {
+  slug: string;
+  title: string;
+  type: ProjectType;
+  industry: string;
+  status: string;
+  summary: string;
+  stack: string[];
+  tags: string[];
+  liveUrl?: string;
+  repoUrl?: string;
+  coverImage: string;
+  featured: boolean;
+  order: number;
+}
+
+export interface ProjectRecord extends ProjectFrontmatter {
+  content: string;
+}
+
+export interface ServiceCard {
+  title: string;
+  deliverable: string;
+  fit: string;
+  ctaLabel: string;
+}
+
+export interface ContactLinks {
+  email: string;
+  bookingUrl?: string;
+  github?: string;
+  linkedin?: string;
+}
+
+export interface ProjectShot {
+  src: string;
+  alt: string;
+  caption: string;
+  viewport: "desktop" | "detail" | "mobile";
+}
+
+export interface ProjectShowcase {
+  metrics: Array<{ label: string; value: string }>;
+  shots: ProjectShot[];
+}

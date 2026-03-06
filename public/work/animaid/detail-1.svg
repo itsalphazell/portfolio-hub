@@ -1,0 +1,26 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="64" fill="#0D1324"/>
+  <rect x="82" y="82" width="1436" height="836" rx="42" fill="#111A33"/>
+  <rect x="126" y="126" width="564" height="748" rx="32" fill="#F3F6FF"/>
+  <rect x="160" y="162" width="160" height="18" rx="9" fill="#6B7FB8"/>
+  <rect x="160" y="208" width="496" height="118" rx="28" fill="#DDE6FF"/>
+  <rect x="160" y="356" width="496" height="204" rx="28" fill="#EEF2FF"/>
+  <rect x="194" y="390" width="176" height="18" rx="9" fill="#7287C1"/>
+  <rect x="194" y="432" width="196" height="96" rx="24" fill="#FFB087"/>
+  <rect x="420" y="432" width="202" height="96" rx="24" fill="#23355F"/>
+  <rect x="160" y="590" width="200" height="50" rx="25" fill="#2D66FF"/>
+  <rect x="382" y="590" width="200" height="50" rx="25" fill="#DCE4FC"/>
+  <rect x="736" y="126" width="738" height="748" rx="32" fill="#0D1324"/>
+  <rect x="774" y="164" width="198" height="18" rx="9" fill="#8196CC"/>
+  <rect x="774" y="210" width="662" height="146" rx="30" fill="#162344"/>
+  <rect x="806" y="246" width="198" height="18" rx="9" fill="#DDE6FF"/>
+  <rect x="806" y="286" width="234" height="18" rx="9" fill="#8EA5DC"/>
+  <rect x="774" y="394" width="318" height="432" rx="30" fill="#15203D"/>
+  <rect x="1120" y="394" width="316" height="202" rx="30" fill="#F3F6FF"/>
+  <rect x="1152" y="430" width="180" height="18" rx="9" fill="#677CB5"/>
+  <rect x="1152" y="472" width="252" height="92" rx="24" fill="#DDE6FF"/>
+  <rect x="1120" y="624" width="316" height="202" rx="30" fill="#23355F"/>
+  <rect x="1152" y="660" width="176" height="18" rx="9" fill="#D9E4FF"/>
+  <rect x="1152" y="700" width="190" height="90" rx="24" fill="#2D66FF"/>
+  <text x="128" y="946" fill="#BFD0FF" font-family="Arial, sans-serif" font-size="24">Preview states stay visible and directional instead of feeling like a black box.</text>
+</svg>
