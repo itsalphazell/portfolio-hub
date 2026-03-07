@@ -1,3 +1,8 @@
 {
-  "page_scope": "key"
+  "page_scope": "key",
+  "key_pages": [
+    "/",
+    "/work",
+    "/contact"
+  ]
 }

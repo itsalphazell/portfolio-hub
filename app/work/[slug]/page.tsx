@@ -58,7 +58,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
-                  className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-deep"
+                  className="rounded-full border border-[rgba(16,36,95,0.22)] bg-accent-deep px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white"
                   key={tag}
                 >
                   {tag}
@@ -78,7 +78,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <div className="mt-6 flex flex-wrap gap-3">
               {project.liveUrl ? (
                 <Link
-                  className="inline-flex cursor-pointer items-center rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white"
+                  className="inline-flex cursor-pointer items-center rounded-full bg-ink px-4 py-2 text-sm font-semibold text-[rgb(255_255_255)]"
                   href={project.liveUrl}
                   rel="noreferrer"
                   target="_blank"
@@ -114,7 +114,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
-                className="inline-flex cursor-pointer items-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white"
+                className="inline-flex cursor-pointer items-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-[rgb(255_255_255)]"
                 href="/contact"
               >
                 Discuss a project

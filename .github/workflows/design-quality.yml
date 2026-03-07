@@ -84,6 +84,7 @@ jobs:
           name: design-quality-artifacts
           path: .playwright-gate
           if-no-files-found: ignore
+          include-hidden-files: true
 
   autopilot:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'autopilot' }}

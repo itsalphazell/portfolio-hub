@@ -25,7 +25,7 @@ export default function ContactPage() {
             <p className="text-xs uppercase tracking-[0.16em] text-muted">Primary contact</p>
             <div className="mt-4 space-y-3">
               <Link
-                className="inline-flex w-full cursor-pointer items-center justify-between rounded-[1.4rem] bg-ink px-5 py-4 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"
+                className="inline-flex w-full cursor-pointer items-center justify-between rounded-[1.4rem] bg-ink px-5 py-4 text-sm font-semibold text-[rgb(255_255_255)] transition-transform duration-200 hover:-translate-y-0.5"
                 href={`mailto:${contactLinks.email}`}
               >
                 <span className="inline-flex items-center gap-3">
@@ -76,7 +76,7 @@ export default function ContactPage() {
                   <h2 className="font-display text-3xl leading-none text-ink">{service.title}</h2>
                   <p className="max-w-3xl text-base leading-7 text-muted">{service.deliverable}</p>
                 </div>
-                <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-deep">
+                <span className="rounded-full border border-[rgba(16,36,95,0.22)] bg-accent-deep px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                   {service.ctaLabel}
                 </span>
               </div>

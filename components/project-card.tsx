@@ -27,9 +27,9 @@ export function ProjectCard({ project, variant = "archive" }: ProjectCardProps) 
       <div className="space-y-5 p-6 md:p-7">
         <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.18em] text-muted">
           <span>{project.type}</span>
-          <span className="h-1 w-1 rounded-full bg-[rgba(22,17,13,0.25)]" />
+          <i aria-hidden className="h-1 w-1 rounded-full bg-[rgba(22,17,13,0.25)]" />
           <span>{project.industry}</span>
-          <span className="h-1 w-1 rounded-full bg-[rgba(22,17,13,0.25)]" />
+          <i aria-hidden className="h-1 w-1 rounded-full bg-[rgba(22,17,13,0.25)]" />
           <span>{project.status}</span>
         </div>
         <div className="space-y-3">
@@ -48,7 +48,7 @@ export function ProjectCard({ project, variant = "archive" }: ProjectCardProps) 
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
-              className="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent-deep"
+              className="rounded-full border border-[rgba(16,36,95,0.22)] bg-accent-deep px-3 py-1 text-xs font-medium text-white"
               key={tag}
             >
               {tag}
@@ -65,7 +65,7 @@ export function ProjectCard({ project, variant = "archive" }: ProjectCardProps) 
         <div className="flex flex-wrap gap-3">
           {project.liveUrl ? (
             <Link
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-semibold text-[rgb(255_255_255)] transition-transform duration-200 hover:-translate-y-0.5"
               href={project.liveUrl}
               rel="noreferrer"
               target="_blank"
