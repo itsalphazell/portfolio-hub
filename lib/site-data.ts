@@ -19,42 +19,42 @@ export const contactLinks: ContactLinks = {
 export const services: ServiceCard[] = [
   {
     title: "Landing / rebrand refresh",
-    deliverable: "High-clarity pages that improve first impression, message hierarchy, and call-to-action rhythm.",
-    fit: "For service businesses, launches, and founders who need a sharper front-end surface without a long build cycle.",
-    ctaLabel: "Refresh the surface",
+    deliverable: "High-clarity pages and launch surfaces that sharpen message hierarchy, trust cues, and conversion flow.",
+    fit: "For service businesses, founders, and teams that need a stronger public presence without dragging into a full rebuild.",
+    ctaLabel: "Refresh the launch",
   },
   {
     title: "Premium marketing UI",
-    deliverable: "Editorial sections, motion-led storytelling, and polished responsive components for high-end public pages.",
-    fit: "For brands that need a stronger identity, richer composition, and visuals that still convert cleanly.",
-    ctaLabel: "Design a premium launch",
+    deliverable: "Editorial landing systems, motion-led storytelling, and polished responsive components for high-end public pages.",
+    fit: "For brands that need a stronger identity, richer composition, and a page system that can scale across campaigns.",
+    ctaLabel: "Shape the public surface",
   },
   {
     title: "Product UI / dashboard",
-    deliverable: "Structured app screens, analytics views, onboarding flows, and restrained premium systems for product teams.",
-    fit: "For startups that need product-grade front-end direction without sacrificing clarity or speed.",
-    ctaLabel: "Shape the product UI",
+    deliverable: "Operational dashboards, analytics views, onboarding flows, and internal tools designed with product logic.",
+    fit: "For startups and product teams that need interface direction plus implementation support, with full-stack awareness where it matters.",
+    ctaLabel: "Design the product layer",
   },
 ];
 
 export const proofPoints = [
   { label: "Interface registers", value: "3 distinct modes" },
-  { label: "Languages shipped", value: "4 on one client site" },
+  { label: "Delivery range", value: "Launches to product UI" },
   { label: "Deployment posture", value: "GitHub + Cloudflare-ready" },
 ];
 
 export const processSteps = [
   {
-    title: "Frame the message",
-    body: "I reduce the surface to its offer, trust signal, and action path before styling anything.",
+    title: "Frame the business case",
+    body: "I reduce the work to offer, audience, trust, and action before choosing how expressive the interface should be.",
   },
   {
-    title: "Build a visual system",
-    body: "Typography, spacing, motion, and contrast are treated as one system instead of separate decisions.",
+    title: "Design the interaction system",
+    body: "Typography, layout, motion, and state design are treated as one system so the experience feels deliberate on every screen.",
   },
   {
-    title: "Ship a credible front-end",
-    body: "Responsive states, reduced motion, and build checks matter as much as the hero shot.",
+    title: "Ship a credible product experience",
+    body: "Responsive states, reduced motion, implementation detail, and production constraints matter as much as the hero shot.",
   },
 ];
 
@@ -81,7 +81,7 @@ export const projectShowcases: Record<string, ProjectShowcase> = {
       {
         src: "/work/coconut/detail-2.svg",
         alt: "Coconut Paradise Spa promotion and admin preview",
-        caption: "Promotions and admin hooks show the front-end is wired for real updates.",
+        caption: "Promotions and admin hooks show the system can stay fresh without relying on manual code edits.",
         viewport: "detail",
       },
       {
@@ -141,7 +141,7 @@ export const projectShowcases: Record<string, ProjectShowcase> = {
       {
         src: "/work/signal-desk/detail-1.svg",
         alt: "Signal Desk projects board and table concept",
-        caption: "Operational tables, progress panels, and filters stay legible under a richer visual system.",
+        caption: "Operational tables, progress panels, and filters stay legible under a denser product system.",
         viewport: "detail",
       },
       {

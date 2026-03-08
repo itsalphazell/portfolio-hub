@@ -15,10 +15,10 @@ export default function ContactPage() {
         <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-5">
             <p className="section-kicker">Contact</p>
-            <h1 className="section-title max-w-4xl">If the next release needs a sharper front-end, start here.</h1>
+            <h1 className="section-title max-w-4xl">If the next release needs a stronger website or product experience, start here.</h1>
             <p className="max-w-2xl text-lg leading-8 text-muted">
-              I take on selective freelance work around premium public-facing UI and product surfaces. The fastest path
-              is to send the current site, the goal, and where the interface is underperforming.
+              I take on selective freelance work across design-led websites, product surfaces, and digital systems. The
+              fastest path is to send the current product, the business goal, and where the experience is underperforming.
             </p>
           </div>
           <div className="glass-panel rounded-[2rem] p-6">
@@ -75,6 +75,7 @@ export default function ContactPage() {
                 <div className="space-y-2">
                   <h2 className="font-display text-3xl leading-none text-ink">{service.title}</h2>
                   <p className="max-w-3xl text-base leading-7 text-muted">{service.deliverable}</p>
+                  <p className="max-w-3xl text-sm leading-7 text-muted">{service.fit}</p>
                 </div>
                 <span className="rounded-full border border-[rgba(16,36,95,0.22)] bg-accent-deep px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
                   {service.ctaLabel}

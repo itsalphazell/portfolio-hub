@@ -15,13 +15,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Thomas | Premium Front-End Portfolio",
+  title: "Thomas | UI, UX & Product Engineering Portfolio",
   description:
-    "Premium front-end portfolio focused on conversion-led landing pages, product UI, and motion-rich case studies.",
+    "Design-led portfolio for websites, product surfaces, and digital systems built end-to-end.",
   openGraph: {
-    title: "Thomas | Premium Front-End Portfolio",
+    title: "Thomas | UI, UX & Product Engineering Portfolio",
     description:
-      "A front-end portfolio built to sell premium marketing UI, product surfaces, and design-led rebuilds.",
+      "A design-led portfolio built to sell websites, product surfaces, and digital systems delivered end-to-end.",
     type: "website",
   },
 };

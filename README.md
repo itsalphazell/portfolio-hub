@@ -1,12 +1,13 @@
 ## Thomas Portfolio Hub
 
-Premium front-end portfolio hub for showcasing freelance work across marketing surfaces, conversion-led product pages, and product UI concepts.
+Design-led portfolio hub for showcasing freelance work across websites, conversion-led product pages, and product UI concepts.
 
 ## Positioning
 
 - `Thomas` portfolio with a studio-grade visual system
 - English-first public hub for client-facing case studies
 - Built to aggregate separate project repos rather than hide work behind branches
+- Positioned around UI, UX, and product engineering with explicit end-to-end delivery language
 
 ## Public Links
 

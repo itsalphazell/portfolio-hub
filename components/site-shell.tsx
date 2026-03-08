@@ -20,7 +20,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <div className="glass-panel flex items-center justify-between rounded-full px-4 py-3 md:px-6">
           <Link className="link-reset flex items-baseline gap-2 text-sm font-medium" href="/">
             <span className="font-display text-xl">Thomas</span>
-            <span className="text-muted">Front-end studio portfolio</span>
+            <span className="text-muted">UI, UX &amp; product engineering</span>
           </Link>
           <nav className="hidden items-center gap-6 text-sm text-muted md:flex">
             {navigation.map((item) => (
@@ -49,7 +49,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <div className="flex flex-col gap-6 border-t border-[rgba(22,17,13,0.08)] py-8 text-sm text-muted md:flex-row md:items-center md:justify-between">
           <div>
             <p className="font-display text-2xl text-ink">Thomas</p>
-            <p>Premium front-end surfaces for launches, redesigns, and product UI.</p>
+            <p>Design-led products, launches, and digital systems.</p>
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <Link className="link-reset transition-colors hover:text-ink" href={`mailto:${contactLinks.email}`}>

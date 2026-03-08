@@ -7,27 +7,29 @@ import { contactLinks, processSteps, proofPoints, services } from "@/lib/site-da
 
 export default function HomePage() {
   const featuredProjects = getFeaturedProjects();
+  const [leadProject, ...secondaryProjects] = featuredProjects;
 
   return (
     <SiteShell>
       <main className="space-y-24 pb-10 pt-10 md:space-y-32">
-        <section className="page-shell relative overflow-hidden rounded-[2.5rem] border border-[rgba(22,17,13,0.08)] px-6 py-10 soft-grid md:px-10 md:py-14">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(255,255,255,0.86),rgba(255,248,240,0.62))]" />
-          <div className="grid gap-10 lg:grid-cols-[1.25fr_0.85fr] lg:items-end">
-            <div className="space-y-7">
+        <section className="page-shell relative overflow-hidden rounded-[2.75rem] border border-[rgba(22,17,13,0.08)] px-6 py-10 soft-grid md:px-10 md:py-14">
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(255,255,255,0.88),rgba(255,247,239,0.7))]" />
+          <div className="grid gap-10 xl:grid-cols-[1.18fr_0.82fr] xl:items-end">
+            <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(22,17,13,0.1)] bg-white/75 px-4 py-2 text-sm text-muted">
                 <Sparkles className="h-4 w-4 text-accent" />
-                English-first front-end portfolio for premium freelance work
+                UI designer, product engineer, full-stack delivery
               </div>
-              <div className="space-y-5">
-                <p className="section-kicker">Thomas · front-end designer-builder</p>
+              <div className="space-y-6">
+                <p className="section-kicker">Thomas / UI, UX &amp; Product Engineering Portfolio</p>
                 <h1 className="section-title max-w-4xl">
-                  Premium interfaces
-                  <span className="block text-accent-deep">that explain, convert, and feel built with intent.</span>
+                  Design-led websites and product surfaces{" "}
+                  <span className="block text-accent-deep">that sell the offer and hold up in production.</span>
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-muted md:text-xl">
-                  I design and build front-end surfaces for launches, redesigns, and product experiences. The goal is
-                  simple: make the work look sharp, scan fast, and feel credible under real use.
+                  I design and build websites, product surfaces, and digital systems with a strong eye for message
+                  clarity, interaction quality, and implementation detail. The portfolio stays interface-led because
+                  that is what prospects need to see first, not because the work stops at the UI.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -39,41 +41,72 @@ export default function HomePage() {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-[rgba(22,17,13,0.12)] bg-white/80 px-5 py-3 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-white"
-                  href={contactLinks.bookingUrl || "/contact"}
-                  rel={contactLinks.bookingUrl ? "noreferrer" : undefined}
-                  target={contactLinks.bookingUrl ? "_blank" : undefined}
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-[rgba(22,17,13,0.12)] bg-white/82 px-5 py-3 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-white"
+                  href="/contact"
                 >
-                  Start a project
+                  Discuss a project
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
+              <div className="grid gap-3 md:grid-cols-3">
+                <div className="rounded-[1.5rem] border border-[rgba(22,17,13,0.08)] bg-white/80 p-4">
+                  <p className="text-xs uppercase tracking-[0.16em] text-muted">Public launches</p>
+                  <p className="mt-3 text-sm leading-7 text-ink">
+                    Rebrands, campaign pages, hospitality sites, and premium marketing surfaces with clearer value
+                    framing.
+                  </p>
+                </div>
+                <div className="rounded-[1.5rem] border border-[rgba(22,17,13,0.08)] bg-white/80 p-4">
+                  <p className="text-xs uppercase tracking-[0.16em] text-muted">Product surfaces</p>
+                  <p className="mt-3 text-sm leading-7 text-ink">
+                    Dashboards, onboarding, analytics, and internal tooling where structure matters as much as polish.
+                  </p>
+                </div>
+                <div className="rounded-[1.5rem] border border-[rgba(22,17,13,0.08)] bg-white/80 p-4">
+                  <p className="text-xs uppercase tracking-[0.16em] text-muted">Implementation posture</p>
+                  <p className="mt-3 text-sm leading-7 text-ink">
+                    Design-led and end-to-end, with full-stack awareness when the delivery path needs more than a UI pass.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="glass-panel rounded-[2rem] p-6">
-              <div className="space-y-6">
+
+            <div className="glass-panel rounded-[2.15rem] p-6 md:p-7">
+              <div className="space-y-5">
                 <div className="flex items-center justify-between text-sm text-muted">
                   <span>Offer focus</span>
-                  <span>Front-end only</span>
+                  <span>Design-led, end-to-end</span>
                 </div>
-                <div className="space-y-3">
-                  <div className="rounded-[1.4rem] bg-[rgba(18,36,95,0.94)] p-5 text-white shadow-[var(--shadow-strong)]">
-                    <p className="text-xs uppercase tracking-[0.16em] text-white/85">Primary positioning</p>
-                    <p className="mt-2 font-display text-3xl">Marketing surfaces with product discipline.</p>
+                <div className="rounded-[1.5rem] bg-[rgba(18,36,95,0.94)] p-5 text-white shadow-[var(--shadow-strong)]">
+                  <p className="text-xs uppercase tracking-[0.16em] text-white/85">Primary positioning</p>
+                  <p className="mt-3 font-display text-3xl leading-[0.98]">
+                    UI, UX and product engineering for launches, redesigns, and product surfaces.
+                  </p>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-[1.4rem] bg-white/90 p-5">
+                    <p className="text-xs uppercase tracking-[0.16em] text-muted">Delivery shape</p>
+                    <p className="mt-2 text-sm leading-6 text-ink">
+                      Interface direction, content hierarchy, visual systems, and production-ready implementation.
+                    </p>
                   </div>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-[1.4rem] bg-white/90 p-5">
-                      <p className="text-xs uppercase tracking-[0.16em] text-muted">Public pages</p>
-                      <p className="mt-2 text-sm leading-6 text-ink">
-                        Launch pages, rebrands, storytelling layouts, and conversion-led refreshes.
-                      </p>
-                    </div>
-                    <div className="rounded-[1.4rem] bg-white/90 p-5">
-                      <p className="text-xs uppercase tracking-[0.16em] text-muted">Product UI</p>
-                      <p className="mt-2 text-sm leading-6 text-ink">
-                        Dashboards, onboarding, analytics, settings, and premium internal tooling.
-                      </p>
-                    </div>
+                  <div className="rounded-[1.4rem] bg-white/90 p-5">
+                    <p className="text-xs uppercase tracking-[0.16em] text-muted">Working range</p>
+                    <p className="mt-2 text-sm leading-6 text-ink">
+                      Public websites, conversion flows, dashboards, onboarding, and calmer internal product surfaces.
+                    </p>
                   </div>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {proofPoints.map((item) => (
+                    <div
+                      className="rounded-[1.35rem] border border-[rgba(22,17,13,0.08)] bg-white/86 p-4"
+                      key={item.label}
+                    >
+                      <p className="text-[11px] uppercase tracking-[0.18em] text-muted">{item.label}</p>
+                      <p className="mt-3 font-display text-2xl leading-none text-ink">{item.value}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -84,26 +117,37 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="space-y-3">
               <p className="section-kicker">Featured work</p>
-              <h2 className="section-subtitle max-w-3xl">Three interface registers, one consistent standard.</h2>
+              <h2 className="section-subtitle max-w-3xl">Three distinct project registers, one consistent standard.</h2>
+              <p className="max-w-3xl text-base leading-7 text-muted">
+                One hospitality brand, one conversion-led AI product, and one restrained B2B concept. Together they
+                show taste, structure, and delivery range without diluting the standard.
+              </p>
             </div>
             <Link className="text-sm font-semibold text-accent-deep underline underline-offset-4" href="/work">
               See the full archive
             </Link>
           </div>
-          <div className="grid gap-6 xl:grid-cols-[1.25fr_1.25fr_1fr]">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.slug} project={project} variant="featured" />
-            ))}
-          </div>
+          {leadProject ? (
+            <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+              <ProjectCard project={leadProject} variant="featured" />
+              <div className="grid gap-6">
+                {secondaryProjects.map((project) => (
+                  <ProjectCard key={project.slug} project={project} variant="featured" />
+                ))}
+              </div>
+            </div>
+          ) : null}
         </section>
 
         <section className="page-shell grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="space-y-4">
             <p className="section-kicker">Services</p>
-            <h2 className="section-subtitle">Three offers built to make the next surface easier to sell.</h2>
+            <h2 className="section-subtitle">
+              Three offers built to make the next surface easier to trust and easier to sell.
+            </h2>
             <p className="max-w-xl text-lg leading-8 text-muted">
-              The public site, the campaign page, and the product UI do not need the same rhythm. The offer is split
-              so each project gets the right level of structure and visual pressure.
+              The public launch, the campaign page, and the product surface do not need the same rhythm. The offer is
+              split so each project gets the right level of structure, motion, and product discipline.
             </p>
           </div>
           <div className="grid gap-5">
@@ -143,6 +187,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+
           <div className="rounded-[2rem] border border-[rgba(22,17,13,0.08)] bg-[rgba(16,36,95,0.95)] p-6 text-white md:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/90">Proof</p>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
@@ -160,14 +205,14 @@ export default function HomePage() {
               <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
                 <p className="font-semibold text-white">Tooling in the stack</p>
                 <p className="mt-2 leading-7 text-white/90">
-                  Next.js 15, React 19, Tailwind 4, Cloudflare-ready delivery, and Playwright smoke checks for UI
-                  quality.
+                  Next.js 15, React 19, Tailwind 4, Cloudflare-ready delivery, and Playwright smoke checks for release
+                  confidence.
                 </p>
               </div>
               <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
                 <p className="font-semibold text-white">What I optimise for</p>
                 <p className="mt-2 leading-7 text-white/90">
-                  Strong first impression, tight CTA hierarchy, responsive polish, and motion that never blocks
+                  Strong first impression, tight CTA hierarchy, credible product behavior, and motion that never blocks
                   readability.
                 </p>
               </div>
@@ -180,10 +225,12 @@ export default function HomePage() {
             <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
               <div className="space-y-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/90">Next step</p>
-                <h2 className="section-subtitle text-white">If the surface matters to the sale, I can help shape it.</h2>
+                <h2 className="section-subtitle text-white">
+                  If the project needs stronger direction and sharper execution, I can help shape it.
+                </h2>
                 <p className="max-w-2xl text-lg leading-8 text-white/90">
-                  I take on premium landing rebuilds, product UI direction, and front-end refreshes that need a sharper
-                  identity without becoming noisy.
+                  I take on premium landing rebuilds, product UI direction, and design-led digital work that needs to go
+                  from interface strategy to implementation without losing clarity on the way.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
