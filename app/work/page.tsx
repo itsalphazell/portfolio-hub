@@ -12,8 +12,9 @@ export default function WorkPage() {
           <p className="section-kicker">Work archive</p>
           <h1 className="section-title max-w-4xl">Case studies that show both taste and execution.</h1>
           <p className="max-w-2xl text-lg leading-8 text-muted">
-            The archive is intentionally small in V1. Each project exists to prove a different interface register:
-            hospitality storytelling, conversion-led product landing, and product-grade dashboard delivery.
+            The archive stays intentionally selective. Each project exists to prove a different register: hospitality
+            storytelling, conversion-led product landing, restrained dashboard design, and denser analytics-driven
+            product work.
           </p>
         </section>
         <WorkArchive projects={projects} />

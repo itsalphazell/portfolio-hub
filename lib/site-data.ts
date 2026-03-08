@@ -158,4 +158,37 @@ export const projectShowcases: Record<string, ProjectShowcase> = {
       },
     ],
   },
+  "dashboard-meta": {
+    metrics: [
+      { label: "Type", value: "Shipped app" },
+      { label: "Focus", value: "Ads + profit ops" },
+      { label: "Runtime", value: "Cloudflare functions" },
+    ],
+    shots: [
+      {
+        src: "/work/dashboard-meta/cover.svg",
+        alt: "DashboardMeta overview and operations dashboard preview",
+        caption: "A denser operational dashboard built for media-buying diagnostics, profit reading, and recurring decision-making.",
+        viewport: "desktop",
+      },
+      {
+        src: "/work/dashboard-meta/detail-1.svg",
+        alt: "DashboardMeta analytics and diagnostics detail",
+        caption: "The product balances trend visibility, diagnostics, and deep-dive modules without drifting into presentation-only charts.",
+        viewport: "detail",
+      },
+      {
+        src: "/work/dashboard-meta/detail-2.svg",
+        alt: "DashboardMeta alerts and operational modules detail",
+        caption: "Auth, billing, alerts, and operational screens push the project beyond a front-end dashboard mock.",
+        viewport: "detail",
+      },
+      {
+        src: "/work/dashboard-meta/mobile.svg",
+        alt: "DashboardMeta mobile analytics summary preview",
+        caption: "The mobile view compresses KPI, alerting, and chart signal into a tighter operator-first layout.",
+        viewport: "mobile",
+      },
+    ],
+  },
 };

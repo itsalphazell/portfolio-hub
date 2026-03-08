@@ -19,6 +19,7 @@ Design-led portfolio hub for showcasing freelance work across websites, conversi
 - `Coconut Paradise Spa` - multilingual hospitality marketing surface with promotions/admin workflow
 - `AnimAid` - conversion-focused product landing with upload, preview, and paid unlock flow
 - `Signal Desk` - concept B2B dashboard showing overview, analytics, onboarding, and settings UI
+- `DashboardMeta` - shipped analytics product for Meta Ads, profit reading, auth, billing, and Cloudflare-backed app delivery
 
 ## Commands
 

@@ -1,0 +1,34 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#07111F"/>
+  <rect x="40" y="40" width="1520" height="920" rx="36" fill="url(#bg)"/>
+  <rect x="88" y="92" width="230" height="816" rx="28" fill="#0D1B2E" stroke="#20314A"/>
+  <rect x="356" y="92" width="1156" height="110" rx="28" fill="#0D1B2E" stroke="#24344E"/>
+  <rect x="356" y="232" width="1156" height="636" rx="28" fill="#0B1728" stroke="#24344E"/>
+  <rect x="386" y="264" width="250" height="138" rx="22" fill="#111F35"/>
+  <rect x="658" y="264" width="250" height="138" rx="22" fill="#111F35"/>
+  <rect x="930" y="264" width="250" height="138" rx="22" fill="#111F35"/>
+  <rect x="1202" y="264" width="280" height="138" rx="22" fill="#13253F"/>
+  <rect x="386" y="436" width="720" height="396" rx="24" fill="#101E33"/>
+  <rect x="1128" y="436" width="354" height="186" rx="24" fill="#101E33"/>
+  <rect x="1128" y="646" width="354" height="186" rx="24" fill="#101E33"/>
+  <path d="M438 726C510 672 572 604 644 564C716 524 787 535 848 480C909 425 975 360 1054 330" stroke="#61A5FA" stroke-width="8" stroke-linecap="round"/>
+  <path d="M438 764C509 753 586 736 668 716C751 696 826 682 903 646C981 609 1029 579 1082 546" stroke="#F5B23D" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 14"/>
+  <rect x="418" y="126" width="256" height="18" rx="9" fill="#DCE7F7"/>
+  <rect x="418" y="156" width="376" height="12" rx="6" fill="#6782A7"/>
+  <rect x="119" y="150" width="114" height="12" rx="6" fill="#8AA6CF"/>
+  <rect x="119" y="197" width="160" height="12" rx="6" fill="#4B678F"/>
+  <rect x="119" y="290" width="168" height="12" rx="6" fill="#4B678F"/>
+  <rect x="119" y="337" width="140" height="12" rx="6" fill="#4B678F"/>
+  <rect x="416" y="292" width="118" height="18" rx="9" fill="#7AB7FF"/>
+  <rect x="688" y="292" width="118" height="18" rx="9" fill="#F5B23D"/>
+  <rect x="960" y="292" width="118" height="18" rx="9" fill="#6EE7B7"/>
+  <rect x="1234" y="292" width="166" height="18" rx="9" fill="#DCE7F7"/>
+  <text x="416" y="950" fill="#DCE7F7" font-family="Arial, sans-serif" font-size="32" font-weight="700">DashboardMeta</text>
+  <text x="416" y="982" fill="#7E97BA" font-family="Arial, sans-serif" font-size="20">Meta Ads diagnostics, profit reading, protected product UI</text>
+  <defs>
+    <linearGradient id="bg" x1="800" y1="40" x2="800" y2="960" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1628"/>
+      <stop offset="1" stop-color="#08111D"/>
+    </linearGradient>
+  </defs>
+</svg>
