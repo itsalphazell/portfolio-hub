@@ -1,6 +1,6 @@
 ## Thomas Portfolio Hub
 
-Design-led portfolio hub for showcasing freelance work across websites, conversion-led product pages, and product UI concepts.
+Design-led portfolio hub for showcasing freelance work across launches, conversion-led product pages, analytics apps, and interactive product prototypes.
 
 ## Positioning
 
@@ -18,8 +18,8 @@ Design-led portfolio hub for showcasing freelance work across websites, conversi
 
 - `Coconut Paradise Spa` - multilingual hospitality marketing surface with promotions/admin workflow
 - `AnimAid` - conversion-focused product landing with upload, preview, and paid unlock flow
-- `Signal Desk` - concept B2B dashboard showing overview, analytics, onboarding, and settings UI
 - `DashboardMeta` - shipped analytics product for Meta Ads, profit reading, auth, billing, and Cloudflare-backed app delivery
+- `Signal Desk` - interactive B2B prototype showing overview, analytics, projects, onboarding, and settings UI
 
 ## Commands
 

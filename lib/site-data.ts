@@ -38,8 +38,8 @@ export const services: ServiceCard[] = [
 ];
 
 export const proofPoints = [
-  { label: "Interface registers", value: "3 distinct modes" },
-  { label: "Delivery range", value: "Launches to product UI" },
+  { label: "Interface registers", value: "4 distinct modes" },
+  { label: "Delivery range", value: "Shipped sites to interactive product UI" },
   { label: "Deployment posture", value: "GitHub + Cloudflare-ready" },
 ];
 
@@ -127,27 +127,27 @@ export const projectShowcases: Record<string, ProjectShowcase> = {
   },
   "signal-desk": {
     metrics: [
-      { label: "Type", value: "Concept app" },
+      { label: "Type", value: "Interactive prototype" },
       { label: "Focus", value: "B2B operations" },
-      { label: "Views", value: "Overview to settings" },
+      { label: "Views", value: "5 explorable screens" },
     ],
     shots: [
       {
         src: "/work/signal-desk/cover.svg",
         alt: "Signal Desk overview dashboard concept",
-        caption: "A premium but disciplined overview where density and hierarchy coexist.",
+        caption: "An interactive prototype overview where mode changes, focus states, and denser product rhythm all read like a real board.",
         viewport: "desktop",
       },
       {
         src: "/work/signal-desk/detail-1.svg",
         alt: "Signal Desk projects board and table concept",
-        caption: "Operational tables, progress panels, and filters stay legible under a denser product system.",
+        caption: "Selectable rows, detail states, and operational filters help the projects view feel explorable instead of staged.",
         viewport: "detail",
       },
       {
         src: "/work/signal-desk/detail-2.svg",
         alt: "Signal Desk analytics screen concept",
-        caption: "Analytics views emphasize trend reading instead of decorative chart noise.",
+        caption: "Analytics now lean on segment switching, comparative reading, and stateful metric focus rather than decorative chart noise.",
         viewport: "detail",
       },
       {
@@ -168,7 +168,7 @@ export const projectShowcases: Record<string, ProjectShowcase> = {
       {
         src: "/work/dashboard-meta/cover.svg",
         alt: "DashboardMeta overview and operations dashboard preview",
-        caption: "A denser operational dashboard built for media-buying diagnostics, profit reading, and recurring decision-making.",
+        caption: "A denser operational dashboard built for media-buying diagnostics, profit reading, and recurring decision-making in a live app context.",
         viewport: "desktop",
       },
       {
@@ -180,7 +180,7 @@ export const projectShowcases: Record<string, ProjectShowcase> = {
       {
         src: "/work/dashboard-meta/detail-2.svg",
         alt: "DashboardMeta alerts and operational modules detail",
-        caption: "Auth, billing, alerts, and operational screens push the project beyond a front-end dashboard mock.",
+        caption: "Auth, billing, alerts, and operational screens make the case feel product-complete rather than front-end-only.",
         viewport: "detail",
       },
       {

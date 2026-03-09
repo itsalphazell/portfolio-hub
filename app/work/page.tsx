@@ -12,9 +12,8 @@ export default function WorkPage() {
           <p className="section-kicker">Work archive</p>
           <h1 className="section-title max-w-4xl">Case studies that show both taste and execution.</h1>
           <p className="max-w-2xl text-lg leading-8 text-muted">
-            The archive stays intentionally selective. Each project exists to prove a different register: hospitality
-            storytelling, conversion-led product landing, restrained dashboard design, and denser analytics-driven
-            product work.
+            The archive stays selective on purpose. Each project proves a different register: hospitality storytelling,
+            conversion-led product landing, a shipped analytics app, and an interactive product prototype.
           </p>
         </section>
         <WorkArchive projects={projects} />

@@ -21,7 +21,10 @@ export function ProjectCard({ project, variant = "archive" }: ProjectCardProps) 
       <div className="relative overflow-hidden border-b border-[rgba(22,17,13,0.08)] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.02))]">
         <img
           alt={`${project.title} case study cover`}
-          className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          className={clsx(
+            "w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]",
+            variant === "featured" ? "aspect-[16/10]" : "aspect-[16/10]",
+          )}
           src={project.coverImage}
         />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(18,15,12,0.04))]" />
@@ -33,19 +36,34 @@ export function ProjectCard({ project, variant = "archive" }: ProjectCardProps) 
             {project.industry}
           </span>
         </div>
+        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3">
+          <span className="rounded-full border border-white/18 bg-[rgba(17,15,14,0.68)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+            {project.status}
+          </span>
+          <div className="flex flex-wrap gap-2">
+            {project.liveUrl ? (
+              <span className="rounded-full border border-white/18 bg-white/86 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink">
+                Live
+              </span>
+            ) : null}
+            <span className="rounded-full border border-white/18 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink">
+              {project.type === "concept" ? "Prototype" : "Delivery"}
+            </span>
+          </div>
+        </div>
       </div>
-      <div className="space-y-5 p-6 md:p-7">
-        <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.18em] text-muted">
-          <span>{project.status}</span>
+      <div className="space-y-4 p-6 md:p-7">
+        <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted">
+          <span>{project.industry}</span>
           <i aria-hidden className="h-1 w-1 rounded-full bg-[rgba(22,17,13,0.25)]" />
           <span>Case study</span>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           <div className="flex items-start justify-between gap-4">
             <h3
               className={clsx(
                 "font-display leading-[0.95] text-ink",
-                variant === "featured" ? "text-[clamp(1.85rem,3vw,2.8rem)]" : "text-3xl",
+                variant === "featured" ? "text-[clamp(1.65rem,2.4vw,2.4rem)]" : "text-[2rem]",
               )}
             >
               {project.title}
@@ -58,7 +76,7 @@ export function ProjectCard({ project, variant = "archive" }: ProjectCardProps) 
               <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
           </div>
-          <p className="max-w-2xl text-base leading-7 text-muted">{project.summary}</p>
+          <p className="max-w-2xl text-[0.98rem] leading-7 text-muted">{project.summary}</p>
         </div>
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (

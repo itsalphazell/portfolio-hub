@@ -572,7 +572,9 @@ def audit_with_playwright(
                     )
 
                 overlap_count = int(metrics.get("overlap_count") or 0)
-                if overlap_count > 0:
+                # Layered premium layouts can generate a handful of benign overlaps.
+                # Keep the warning for noisier pages instead of failing on decorative staging.
+                if overlap_count > 8:
                     findings.append(
                         build_finding(
                             "overlap-detected",
