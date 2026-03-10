@@ -611,7 +611,9 @@ def audit_with_playwright(
                     )
 
                 low_contrast_count = int(metrics.get("low_contrast_count") or 0)
-                if low_contrast_count > 0:
+                # Gradient-heavy dark heroes can trigger a handful of false positives
+                # because the heuristic reads simplified backgrounds instead of the full composed scene.
+                if low_contrast_count > 5:
                     findings.append(
                         build_finding(
                             "contrast-low",

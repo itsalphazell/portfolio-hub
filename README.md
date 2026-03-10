@@ -40,4 +40,5 @@ npm run build
 - Case study content lives in `content/work/*.mdx`
 - Contact links intentionally hide missing social or booking data instead of rendering placeholders
 - Set `NEXT_PUBLIC_BOOKING_URL` and `NEXT_PUBLIC_LINKEDIN_URL` before building if you want those CTAs visible
+- The home page now uses `Motion` plus React Bits-adapted visual moments for the hero and featured-work signal strip
 - Cloudflare Pages is connected to the GitHub repo, so pushes to `main` trigger production deploys automatically
