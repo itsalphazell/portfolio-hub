@@ -1,6 +1,22 @@
-import type { ProjectShowcase } from "@/lib/types";
+"use client";
 
-export function ProjectGallery({ showcase }: { showcase: ProjectShowcase }) {
+import { useLocale } from "@/components/locale-provider";
+import { caseStudyCopy } from "@/lib/locale-data";
+import type { Locale, ProjectShowcase } from "@/lib/types";
+
+interface ProjectGalleryProps {
+  showcasesByLocale: Record<Locale, ProjectShowcase | undefined>;
+}
+
+export function ProjectGallery({ showcasesByLocale }: ProjectGalleryProps) {
+  const { locale } = useLocale();
+  const copy = caseStudyCopy[locale];
+  const showcase = showcasesByLocale[locale];
+
+  if (!showcase) {
+    return null;
+  }
+
   const leadShot = showcase.shots.find((shot) => shot.viewport === "desktop") ?? showcase.shots[0];
   const detailShots = showcase.shots.filter((shot) => shot.viewport === "detail");
   const mobileShot = showcase.shots.find((shot) => shot.viewport === "mobile");
@@ -12,7 +28,7 @@ export function ProjectGallery({ showcase }: { showcase: ProjectShowcase }) {
           <figure className="project-shot">
             <img alt={leadShot.alt} src={leadShot.src} />
             <figcaption className="border-t border-[rgba(22,17,13,0.08)] px-5 py-4">
-              <p className="text-xs uppercase tracking-[0.16em] text-muted">Lead surface</p>
+              <p className="text-xs uppercase tracking-[0.16em] text-muted">{copy.leadSurface}</p>
               <p className="mt-2 text-sm leading-7 text-muted">{leadShot.caption}</p>
             </figcaption>
           </figure>
@@ -33,7 +49,7 @@ export function ProjectGallery({ showcase }: { showcase: ProjectShowcase }) {
             <figure className="project-shot mx-auto max-w-sm xl:mx-0 xl:max-w-none">
               <img alt={mobileShot.alt} src={mobileShot.src} />
               <figcaption className="border-t border-[rgba(22,17,13,0.08)] px-5 py-4">
-                <p className="text-xs uppercase tracking-[0.16em] text-muted">Mobile view</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-muted">{copy.mobileView}</p>
                 <p className="mt-2 text-sm leading-7 text-muted">{mobileShot.caption}</p>
               </figcaption>
             </figure>
@@ -45,7 +61,9 @@ export function ProjectGallery({ showcase }: { showcase: ProjectShowcase }) {
           <figure className="project-shot" key={shot.src}>
             <img alt={shot.alt} src={shot.src} />
             <figcaption className="border-t border-[rgba(22,17,13,0.08)] px-5 py-4">
-              <p className="text-xs uppercase tracking-[0.16em] text-muted">Detail 0{index + 1}</p>
+              <p className="text-xs uppercase tracking-[0.16em] text-muted">
+                {copy.detailPrefix} 0{index + 1}
+              </p>
               <p className="mt-2 text-sm leading-7 text-muted">{shot.caption}</p>
             </figcaption>
           </figure>

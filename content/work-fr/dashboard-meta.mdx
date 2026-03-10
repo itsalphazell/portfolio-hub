@@ -1,0 +1,53 @@
+---
+slug: dashboard-meta
+title: DashboardMeta
+type: real
+industry: Analytics marketing
+status: Livre
+summary: Un dashboard Meta Ads et profit intelligence concu pour des workflows de media buying, qui combine analytics denses, alerting, auth, billing et delivery Cloudflare-ready dans une seule surface produit operationnelle.
+stack:
+  - Vite + React 19
+  - TypeScript
+  - Tailwind CSS
+  - ECharts + TanStack Table
+  - Cloudflare Pages Functions
+tags:
+  - real
+  - product
+  - analytics
+liveUrl: https://dashboardmeta.pages.dev
+repoUrl: https://github.com/itsalphazell/DashboardMeta
+coverImage: /work/dashboard-meta/cover.svg
+featured: true
+order: 3
+---
+
+## Challenge
+
+Ce projet devait faire plus que montrer de beaux charts. Il devait supporter de vrais workflows de media buying avec clarte operationnelle : diagnostics Meta Ads, lecture de profit, deep-dive analysis, alerting et surface produit protegee capable de scaler au-dela d'une simple maquette statique.
+
+## Role
+
+Je l'ai traite comme un vrai dashboard produit et non comme un concept portfolio. Le travail combine densite d'interface, lisibilite des donnees, architecture de routes et contraintes de delivery concretes comme l'auth, le billing, les migrations DB et un comportement backend compatible Cloudflare.
+
+## Systeme
+
+Le produit est construit sur un front end Vite + React + TypeScript avec Tailwind, ECharts pour les charts, TanStack Table pour les vues de donnees denses et Cloudflare Pages Functions pour la logique API. Le codebase inclut aussi des fondations d'auth et d'abonnements basees sur D1, des routes app protegees et une ingestion de donnees pilotee par Google Sheets.
+
+## Interactions
+
+- Les KPI et panneaux diagnostics sont regles pour un scan operationnel rapide plutot que pour un simple dashboard de presentation.
+- Les tables, vues detaillees et alertes supportent une prise de decision plus dense sans perdre la hierarchie.
+- Les routes publiques, flows de login et zones protegees montrent que la surface produit peut depasser le dashboard lui-meme.
+
+## Implementation
+
+- Shell produit multi-routes couvrant overview, performances Meta, alertes, profit, clients et settings.
+- Cloudflare Pages Functions pour auth, billing, subscription et endpoints data.
+- Migrations D1 et logique de compte pour soutenir une vraie base SaaS au lieu d'une simple maquette front-end.
+
+## Outcome
+
+- Le portfolio gagne un registre analytics et operations plus solide, ancre dans un vrai codebase applicatif.
+- Il montre que je peux travailler sur l'UI, la structure produit et la logique de delivery quand un projet demande plus qu'un front end polish.
+- Il complete les pieces plus editoriales du portfolio avec un exemple produit plus dense et plus technique.

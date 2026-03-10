@@ -1,24 +1,36 @@
 "use client";
 
-import { useDeferredValue, useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import clsx from "clsx";
+import { useLocale } from "@/components/locale-provider";
 import { ProjectCard } from "@/components/project-card";
-import type { ProjectFilter, ProjectFrontmatter } from "@/lib/types";
+import { workArchiveLabels } from "@/lib/locale-data";
+import type { Locale, ProjectFilter, ProjectFrontmatter } from "@/lib/types";
 
 const filterOrder: ProjectFilter[] = ["all", "real", "concept", "marketing", "product", "motion"];
 
-export function WorkArchive({ projects }: { projects: ProjectFrontmatter[] }) {
+interface WorkArchiveProps {
+  projectsByLocale: Record<Locale, ProjectFrontmatter[]>;
+}
+
+export function WorkArchive({ projectsByLocale }: WorkArchiveProps) {
+  const { locale } = useLocale();
+  const labels = workArchiveLabels[locale];
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>("all");
   const deferredFilter = useDeferredValue(activeFilter);
+  const projects = projectsByLocale[locale];
 
-  const filteredProjects =
-    deferredFilter === "all"
-      ? projects
-      : projects.filter((project) =>
-          deferredFilter === "real" || deferredFilter === "concept"
-            ? project.type === deferredFilter
-            : project.tags.includes(deferredFilter),
-        );
+  const filteredProjects = useMemo(
+    () =>
+      deferredFilter === "all"
+        ? projects
+        : projects.filter((project) =>
+            deferredFilter === "real" || deferredFilter === "concept"
+              ? project.type === deferredFilter
+              : project.tags.includes(deferredFilter),
+          ),
+    [deferredFilter, projects],
+  );
 
   return (
     <div className="space-y-8">
@@ -36,7 +48,7 @@ export function WorkArchive({ projects }: { projects: ProjectFrontmatter[] }) {
             onClick={() => setActiveFilter(filter)}
             type="button"
           >
-            {filter}
+            {labels[filter]}
           </button>
         ))}
       </div>
@@ -47,7 +59,7 @@ export function WorkArchive({ projects }: { projects: ProjectFrontmatter[] }) {
       </div>
       {!filteredProjects.length ? (
         <div className="rounded-[1.75rem] border border-dashed border-[rgba(22,17,13,0.12)] px-6 py-10 text-center text-muted">
-          No projects match this filter yet.
+          {labels.empty}
         </div>
       ) : null}
     </div>

@@ -1,6 +1,7 @@
 export type ProjectType = "real" | "concept";
 
 export type ProjectFilter = "all" | "real" | "concept" | "marketing" | "product" | "motion";
+export type Locale = "en" | "fr";
 
 export interface ProjectFrontmatter {
   slug: string;
@@ -46,4 +47,20 @@ export interface ProjectShot {
 export interface ProjectShowcase {
   metrics: Array<{ label: string; value: string }>;
   shots: ProjectShot[];
+}
+
+export interface HomeMode {
+  slug: string;
+  label: string;
+  eyebrow: string;
+  heroLine: string;
+  valueLine: string;
+  stageTitle: string;
+  stageSummary: string;
+  pulse: string;
+  accent: string;
+  accentSoft: string;
+  metrics: Array<{ label: string; value: string }>;
+  cues: string[];
+  modules: Array<{ label: string; value: string }>;
 }

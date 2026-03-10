@@ -2,9 +2,12 @@ import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { cache } from "react";
 import matter from "gray-matter";
-import type { ProjectFrontmatter, ProjectRecord } from "@/lib/types";
+import type { Locale, ProjectFrontmatter, ProjectRecord } from "@/lib/types";
 
-const workDirectory = path.join(process.cwd(), "content", "work");
+const workDirectories: Record<Locale, string> = {
+  en: path.join(process.cwd(), "content", "work"),
+  fr: path.join(process.cwd(), "content", "work-fr"),
+};
 
 function normalizeProject(data: Record<string, unknown>): ProjectFrontmatter {
   return {
@@ -24,28 +27,32 @@ function normalizeProject(data: Record<string, unknown>): ProjectFrontmatter {
   };
 }
 
-export const getAllProjects = cache((): ProjectFrontmatter[] => {
-  const files = readdirSync(workDirectory).filter((file) => file.endsWith(".mdx"));
+function getWorkDirectory(locale: Locale) {
+  return workDirectories[locale];
+}
+
+export const getAllProjects = cache((locale: Locale = "en"): ProjectFrontmatter[] => {
+  const files = readdirSync(getWorkDirectory(locale)).filter((file) => file.endsWith(".mdx"));
 
   return files
     .map((file) => {
-      const source = readFileSync(path.join(workDirectory, file), "utf8");
+      const source = readFileSync(path.join(getWorkDirectory(locale), file), "utf8");
       const { data } = matter(source);
       return normalizeProject(data);
     })
     .sort((left, right) => left.order - right.order);
 });
 
-export const getFeaturedProjects = cache(() =>
-  getAllProjects()
+export const getFeaturedProjects = cache((locale: Locale = "en") =>
+  getAllProjects(locale)
     .filter((project) => project.featured)
     .sort((left, right) => left.order - right.order),
 );
 
-export const getProjectSlugs = cache(() => getAllProjects().map((project) => project.slug));
+export const getProjectSlugs = cache(() => getAllProjects("en").map((project) => project.slug));
 
-export const getProjectBySlug = cache((slug: string): ProjectRecord | null => {
-  const filePath = path.join(workDirectory, `${slug}.mdx`);
+export const getProjectBySlug = cache((slug: string, locale: Locale = "en"): ProjectRecord | null => {
+  const filePath = path.join(getWorkDirectory(locale), `${slug}.mdx`);
 
   try {
     const source = readFileSync(filePath, "utf8");
@@ -55,6 +62,10 @@ export const getProjectBySlug = cache((slug: string): ProjectRecord | null => {
       content,
     };
   } catch {
+    if (locale !== "en") {
+      return getProjectBySlug(slug, "en");
+    }
+
     return null;
   }
 });
