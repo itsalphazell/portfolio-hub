@@ -22,7 +22,7 @@ export function ProjectCard({ project, variant = "archive", active = false, onAc
   return (
     <article
       className={clsx(
-        "group relative overflow-hidden rounded-[2rem] border border-[rgba(22,17,13,0.08)] bg-white/80 transition-transform duration-300 hover:-translate-y-1",
+        "group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-[rgba(22,17,13,0.08)] bg-white/80 transition-transform duration-300 hover:-translate-y-1",
         variant === "featured"
           ? "featured-project-card h-full overflow-hidden border-[rgba(74,110,255,0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(247,250,255,0.92))] shadow-[0_24px_64px_rgba(18,15,12,0.12)]"
           : "shadow-[0_18px_46px_rgba(18,15,12,0.08)]",
@@ -71,25 +71,25 @@ export function ProjectCard({ project, variant = "archive", active = false, onAc
           </div>
         </div>
       </div>
-      <div className="space-y-4 p-6 md:p-7">
+      <div className="flex h-full flex-col space-y-4 p-6 md:p-7">
         <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted">
           <span>{project.industry}</span>
           <i aria-hidden className="h-1 w-1 rounded-full bg-[rgba(22,17,13,0.25)]" />
           <span>{labels.caseStudy}</span>
         </div>
         <div className="space-y-2.5">
-          <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <h3
               className={clsx(
-                "font-display leading-[0.95] text-ink",
-                variant === "featured" ? "text-[clamp(1.75rem,2.55vw,2.55rem)]" : "text-[2rem]",
+                "max-w-[16ch] text-balance font-display leading-[0.95] text-ink",
+                variant === "featured" ? "text-[clamp(1.7rem,2.2vw,2.45rem)]" : "text-[1.95rem]",
               )}
             >
               {project.title}
             </h3>
             <Link
               className={clsx(
-                "inline-flex cursor-pointer items-center gap-1 rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] transition-colors duration-200",
+                "inline-flex shrink-0 cursor-pointer items-center gap-1 self-start rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] transition-colors duration-200",
                 variant === "featured"
                   ? "border border-[rgba(74,110,255,0.18)] bg-[rgba(255,255,255,0.8)] text-accent-deep hover:bg-accent-deep hover:text-white"
                   : "border border-[rgba(22,17,13,0.1)] text-ink hover:bg-ink hover:text-white",
@@ -100,7 +100,14 @@ export function ProjectCard({ project, variant = "archive", active = false, onAc
               <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
           </div>
-          <p className="max-w-2xl text-[0.98rem] leading-7 text-muted">{project.summary}</p>
+          <p
+            className={clsx(
+              "card-summary-clamp max-w-2xl text-[0.98rem] leading-7 text-muted",
+              variant === "featured" ? "card-summary-clamp-featured" : "",
+            )}
+          >
+            {project.summary}
+          </p>
         </div>
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
@@ -119,7 +126,7 @@ export function ProjectCard({ project, variant = "archive", active = false, onAc
             </span>
           ))}
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="mt-auto flex flex-wrap gap-3 pt-2">
           {project.liveUrl ? (
             <Link
               className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-semibold text-[rgb(255_255_255)] transition-transform duration-200 hover:-translate-y-0.5"

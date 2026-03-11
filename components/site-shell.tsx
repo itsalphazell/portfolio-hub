@@ -11,6 +11,7 @@ import { contactLinks } from "@/lib/site-data";
 export function SiteShell({ children }: { children: ReactNode }) {
   const { locale } = useLocale();
   const copy = siteShellCopy[locale];
+  const mobileCta = copy.ctaMobile;
   const navigation = [
     { href: "/", label: copy.nav.home },
     { href: "/work", label: copy.nav.work },
@@ -25,10 +26,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <div className="floating-orb left-[45%] top-44 h-28 w-28 bg-[rgba(18,36,95,0.14)]" />
       </div>
       <header className="page-shell sticky top-0 z-40 pt-4">
-        <div className="glass-panel flex items-center justify-between rounded-full px-4 py-3 md:px-6">
-          <Link className="link-reset flex items-baseline gap-2 text-sm font-medium" href="/">
+        <div className="glass-panel flex items-center justify-between gap-3 rounded-[1.8rem] px-4 py-3 md:rounded-full md:px-6">
+          <Link className="link-reset flex min-w-0 items-baseline gap-2 text-sm font-medium" href="/">
             <span className="font-display text-xl">Thomas</span>
-            <span className="text-muted">{copy.strapline}</span>
+            <span className="hidden truncate text-muted lg:block">{copy.strapline}</span>
           </Link>
           <div className="hidden items-center gap-4 md:flex">
             <nav className="flex items-center gap-6 text-sm text-muted">
@@ -44,17 +45,18 @@ export function SiteShell({ children }: { children: ReactNode }) {
             </nav>
             <LanguageSwitcher />
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <div className="md:hidden">
               <LanguageSwitcher />
             </div>
             <Link
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-[rgb(255_255_255)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+              className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full bg-accent px-3 py-2 text-xs font-semibold text-[rgb(255_255_255)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 sm:gap-2 sm:px-4 sm:text-sm"
               href={contactLinks.bookingUrl || "/contact"}
               rel={contactLinks.bookingUrl ? "noreferrer" : undefined}
               target={contactLinks.bookingUrl ? "_blank" : undefined}
             >
-              {copy.cta}
+              <span className="sm:hidden">{mobileCta}</span>
+              <span className="hidden sm:inline">{copy.cta}</span>
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>

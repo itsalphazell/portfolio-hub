@@ -9,15 +9,17 @@ export const siteShellCopy = {
   en: {
     nav: { home: "Home", work: "Work", contact: "Contact" },
     cta: "Start a project",
+    ctaMobile: "Contact",
     strapline: "UI, UX & product engineering",
     footerLine: "Design-led products, launches, and digital systems.",
     languageLabel: "Language",
   },
   fr: {
     nav: { home: "Accueil", work: "Projets", contact: "Contact" },
-    cta: "Demarrer un projet",
-    strapline: "UI, UX & ingenierie produit",
-    footerLine: "Produits, lancements et systemes digitaux design-led.",
+    cta: "Lancer un projet",
+    ctaMobile: "Contact",
+    strapline: "UI, UX et ingenierie produit",
+    footerLine: "Produits, lancements et systemes digitaux, du cadrage a la mise en ligne.",
     languageLabel: "Langue",
   },
 } as const;
@@ -65,39 +67,39 @@ export const homeCopy = {
     finalSecondaryCta: "Contact page",
   },
   fr: {
-    badge: "UI, UX, produit et delivery full-stack",
-    kicker: "Thomas / Portfolio editorial x produit",
+    badge: "UI, UX et execution full-stack",
+    kicker: "Thomas / portfolio editorial et produit",
     heroTitle: "Sites web et surfaces produit",
     heroBody:
-      "Je concois et je developpe des lancements, des interfaces produit et des systemes digitaux qui demandent une hierarchie de message plus nette, une logique d'interaction plus solide et un chemin vers la prod plus propre.",
-    heroPrimaryCta: "Voir les case studies",
+      "Je concois et je developpe des sites, des lancements et des interfaces produit qui ont besoin d'un meilleur cadrage, d'une hierarchie plus nette et d'une mise en ligne propre jusqu'a la production.",
+    heroPrimaryCta: "Voir les projets",
     heroSecondaryCta: "Parler d'un projet",
     capabilities: [
-      { label: "Lancements", body: "Rebrands et pages publiques qui vendent mieux et paraissent plus maitrisees." },
-      { label: "Produits", body: "Dashboards, onboarding et analytics avec une vraie profondeur d'interface." },
-      { label: "Execution", body: "Une vision end-to-end quand l'UI doit tenir jusqu'a la production." },
+      { label: "Lancements", body: "Rebrands et pages publiques qui gagnent en clarte, en desirabilite et en impact commercial." },
+      { label: "Produits", body: "Dashboards, onboarding et analytics qui paraissent credibles, pas simplement bien dessines." },
+      { label: "Execution", body: "Une vision end-to-end quand l'interface doit tenir en production, pas seulement en maquette." },
     ],
     featuredKicker: "Projets mis en avant",
     featuredTitle: "Quatre registres. Un meme niveau d'execution.",
     featuredBody:
-      "Branding hospitality, IA orientee conversion, app analytics deja livree et prototype B2B interactif. La grille reste lisible, mais chaque case affirme clairement son role et sa valeur.",
+      "Marque hospitality premium, produit IA oriente conversion, application analytics deja en ligne et prototype B2B interactif. Quatre registres distincts, un meme standard de direction et d'execution.",
     featuredArchiveLink: "Voir toute l'archive",
     servicesKicker: "Services",
-    servicesTitle: "Trois offres calibrees selon le bon niveau de clarte, de polish et de profondeur.",
+    servicesTitle: "Trois offres, selon le bon niveau de clarte, de mise en scene et de profondeur produit.",
     servicesBody:
-      "Un lancement public, une campaign page et une surface produit ne demandent pas le meme traitement. L'offre est separee pour que structure, motion et discipline produit collent au besoin reel.",
+      "Un site de lancement, une page de campagne et une interface produit ne demandent pas le meme traitement. L'offre est decoupee pour que structure, motion et discipline produit collent au besoin reel.",
     processKicker: "Process",
     proofKicker: "Preuves",
-    toolingTitle: "Stack et delivery",
+    toolingTitle: "Stack et mise en ligne",
     toolingBody:
-      "Next.js 15, React 19, Tailwind 4, livraison prete pour Cloudflare et smoke checks Playwright pour garder de la confiance au release.",
+      "Next.js 15, React 19, Tailwind 4, mise en ligne GitHub + Cloudflare et smoke checks Playwright pour garder de la confiance jusqu'a la mise en prod.",
     optimiseTitle: "Ce que j'optimise",
     optimiseBody:
       "Une premiere impression forte, une hierarchie CTA claire, une profondeur produit credible et une motion qui ne gene jamais la lecture.",
-    currentSignalLabel: "Signal actuel",
-    commandStageLabel: "Scene active",
+    currentSignalLabel: "Signal actif",
+    commandStageLabel: "Scene directrice",
     currentRegisterLabel: "Registre actif",
-    linkedCaseLabel: "Case liee",
+    linkedCaseLabel: "Projet lie",
     finalKicker: "Etape suivante",
     finalTitle: "Si le projet a besoin de plus de direction et d'une meilleure execution, je peux l'aider a monter d'un cran.",
     finalBody:
@@ -130,20 +132,20 @@ export const servicesByLocale: Record<Locale, ServiceCard[]> = {
   ],
   fr: [
     {
-      title: "Landing / refresh de rebrand",
-      deliverable: "Des pages publiques plus nettes pour des marques de service, des lancements et des repositionnements qui sous-vendent aujourd'hui leur vraie valeur.",
+      title: "Landing / repositionnement",
+      deliverable: "Des pages publiques plus nettes pour des marques de service, des lancements et des repositionnements qui sous-vendent encore leur vraie valeur.",
       fit: "Ideal quand le business est credible mais que le site parait date, trop generique ou trop faible sur la confiance et la hierarchie CTA.",
       ctaLabel: "Recaler le signal public",
     },
     {
       title: "Premium marketing UI",
       deliverable: "Des surfaces editoriales de campagne avec plus de motion, de composition et de maitrise du message qu'une landing standard.",
-      fit: "Pour les marques qui ont besoin de plus d'identite, plus de precision et d'un systeme de pages capable de s'etendre a plusieurs lancements.",
+      fit: "Pour les marques qui ont besoin de plus d'identite, plus de precision et d'un systeme de pages capable de tenir sur plusieurs lancements.",
       ctaLabel: "Elever le lancement",
     },
     {
       title: "Product UI / dashboard",
-      deliverable: "Des dashboards, onboarding, analytics et outils internes qui lisent comme du vrai software, pas comme des concepts maquilles.",
+      deliverable: "Des dashboards, onboarding, analytics et outils internes qui ressemblent a du vrai software, pas a des concepts maquilles.",
       fit: "Pour les equipes produit qui ont besoin de direction d'interface et de support d'implementation, avec une conscience full-stack quand le produit l'exige.",
       ctaLabel: "Designer la couche produit",
     },
@@ -158,8 +160,8 @@ export const proofPointsByLocale = {
   ],
   fr: [
     { label: "Registres d'interface", value: "4 modes distincts" },
-    { label: "Amplitude de delivery", value: "Lancements premium jusqu'a surfaces produit livrees" },
-    { label: "Posture de deploiement", value: "GitHub + Cloudflare-ready" },
+    { label: "Champ d'intervention", value: "Lancements premium jusqu'aux surfaces produit deja livrees" },
+    { label: "Mise en ligne", value: "GitHub + Cloudflare" },
   ],
 } as const;
 
@@ -189,7 +191,7 @@ export const processStepsByLocale = {
     },
     {
       title: "Livrer une experience credible",
-      body: "Etats responsive, reduced motion et contraintes de production comptent autant que la premiere impression.",
+      body: "Etats responsive, mode de mouvement reduit et contraintes de production comptent autant que la premiere impression.",
     },
   ],
 } as const;
@@ -297,23 +299,23 @@ export const homeModesByLocale: Record<Locale, HomeMode[]> = {
     {
       slug: "coconut-paradise-spa",
       label: "Marque hospitality",
-      eyebrow: "Lancement public atmosphere-led",
-      heroLine: "avec atmosphere et confiance qui convertissent quand meme.",
-      valueLine: "Ambiance hospitality / confiance multilingue / signal de reservation premium",
+      eyebrow: "Lancement de marque guide par l'atmosphere",
+      heroLine: "avec atmosphere, desirabilite et confiance.",
+      valueLine: "Ambiance premium / confiance multilingue / reservation claire",
       stageTitle: "Une surface de marque de service doit paraitre calme, premium et immediatement fiable.",
       stageSummary:
         "Ce registre parle de rythme editorial, de tonalite hospitality et de clarte publique sans ecraser l'atmosphere.",
-      pulse: "L'atmosphere de marque reste intentionnelle pendant que les details de service et la confiance se lisent vite.",
+      pulse: "L'ambiance de marque reste intentionnelle pendant que les services, la preuve et le CTA se lisent vite.",
       accent: "#f2b36a",
       accentSoft: "rgba(242, 179, 106, 0.18)",
       metrics: [
-        { label: "Langues", value: "4 live" },
+        { label: "Langues", value: "4 langues" },
         { label: "Surface", value: "Marketing + admin" },
         { label: "Confiance", value: "Credibilite locale" },
       ],
       cues: ["Rythme editorial du hero", "Luxe doux sans flou", "CTA et preuve restent visibles"],
       modules: [
-        { label: "Atmosphere", value: "Story-led" },
+        { label: "Atmosphere", value: "Narration" },
         { label: "Confiance", value: "Preuve locale" },
         { label: "Action", value: "Reserver clairement" },
       ],
@@ -321,43 +323,43 @@ export const homeModesByLocale: Record<Locale, HomeMode[]> = {
     {
       slug: "animaidstudioai",
       label: "IA orientee conversion",
-      eyebrow: "Upload vers unlock",
+      eyebrow: "De l'upload a l'achat",
       heroLine: "qui expliquent vite la valeur et convertissent proprement.",
-      valueLine: "Offre mono-parcours / boucle de preview / unlock payant",
-      stageTitle: "Une landing produit doit enlever l'ambiguite avant de demander de payer.",
+      valueLine: "Offre mono-parcours / boucle de preview / deblocage payant",
+      stageTitle: "Une landing produit doit lever l'ambiguite avant de demander de payer.",
       stageSummary:
-        "Ce registre se concentre sur un flux dominant : expliquer la boucle, montrer la preview, puis rendre l'upgrade integre.",
-      pulse: "La surface garde un chemin clair de l'upload a l'unlock payant, avec une logique produit avant le bruit.",
+        "Ce registre se concentre sur un flux dominant : expliquer la boucle, montrer la preview, puis rendre l'upgrade naturel.",
+      pulse: "La surface garde un chemin clair de l'upload au deblocage payant, avec une logique produit avant le bruit.",
       accent: "#6d8fff",
       accentSoft: "rgba(109, 143, 255, 0.2)",
       metrics: [
-        { label: "Flow", value: "Upload vers unlock" },
-        { label: "Runtime", value: "Next.js + Cloudflare" },
+        { label: "Parcours", value: "Upload vers achat" },
+        { label: "Stack", value: "Next.js + Cloudflare" },
         { label: "Conversion", value: "Un seul chemin CTA" },
       ],
-      cues: ["Offre expliquee en un pass", "Les previews reduisent la friction", "La monetisation parait native"],
+      cues: ["Offre expliquee d'un seul trait", "Les previews reduisent la friction", "La monetisation parait native"],
       modules: [
-        { label: "Input", value: "Upload" },
-        { label: "Preview", value: "Generate" },
-        { label: "Upgrade", value: "Unlock" },
+        { label: "Entree", value: "Upload" },
+        { label: "Preview", value: "Generation" },
+        { label: "Paiement", value: "Deblocage" },
       ],
     },
     {
       slug: "dashboard-meta",
       label: "App analytics",
-      eyebrow: "Produit operateur livre",
+      eyebrow: "Produit operateur deja livre",
       heroLine: "qui rendent des donnees denses lisibles a vitesse reelle.",
-      valueLine: "Diagnostics Ads / lecture de profit / contexte operateur live",
-      stageTitle: "Une app analytics livree demande plus de densite de lecture, des aretes plus franches et moins de fluff.",
+      valueLine: "Diagnostics Ads / lecture du profit / contexte operateur",
+      stageTitle: "Une application analytics livree demande plus de densite de lecture, des aretes plus franches et moins d'esbroufe.",
       stageSummary:
         "Ce registre parle de confiance operationnelle : dashboards denses, etats produit reels et surfaces de decision qui meritent leur complexite.",
-      pulse: "Le produit se lit comme un vrai outil operateur, pas comme une presentation deguisee en software.",
+      pulse: "Le produit se lit comme un vrai outil operateur, pas comme une presentation deguisee en logiciel.",
       accent: "#2fd6bb",
       accentSoft: "rgba(47, 214, 187, 0.18)",
       metrics: [
         { label: "Type", value: "App livree" },
-        { label: "Focus", value: "Ads + profit ops" },
-        { label: "Runtime", value: "Functions live" },
+        { label: "Usage", value: "Ads + profit ops" },
+        { label: "Backend", value: "Functions actives" },
       ],
       cues: ["Dense mais lisible", "Diagnostics avant decoration", "Billing et auth inclus"],
       modules: [
@@ -370,12 +372,12 @@ export const homeModesByLocale: Record<Locale, HomeMode[]> = {
       slug: "signal-desk",
       label: "Prototype interactif",
       eyebrow: "Etats produit et profondeur",
-      heroLine: "qui paraissent credibles avant meme que le backend soit live.",
-      valueLine: "Switch de modes / etats selectionnables / rythme produit explorable",
-      stageTitle: "Un bon prototype doit deja ressembler a du software avant de devenir du software en production.",
+      heroLine: "qui paraissent credibles avant meme que le backend soit actif.",
+      valueLine: "Changement de modes / etats selectionnables / rythme produit explorable",
+      stageTitle: "Un bon prototype doit deja ressembler a un vrai produit avant de devenir du software en production.",
       stageSummary:
         "Ce registre prouve la reflexion produit a travers des etats interactifs, des vues explorables et un sens plus net du comportement d'interface.",
-      pulse: "Le prototype reste honnete, mais parait maintenant assez explorable pour vendre de la profondeur produit, pas juste du polish.",
+      pulse: "Le prototype reste honnete, mais parait maintenant assez explorable pour vendre de la profondeur produit, pas seulement du polish.",
       accent: "#7be8ff",
       accentSoft: "rgba(123, 232, 255, 0.18)",
       metrics: [
@@ -383,9 +385,9 @@ export const homeModesByLocale: Record<Locale, HomeMode[]> = {
         { label: "Vues", value: "5 ecrans" },
         { label: "Focus", value: "Ops B2B" },
       ],
-      cues: ["Profondeur d'etats client-side", "Overview jusqu'a onboarding", "Rythme produit credible"],
+      cues: ["Profondeur d'etats client-side", "De l'overview a l'onboarding", "Rythme produit credible"],
       modules: [
-        { label: "Overview", value: "Selectionnable" },
+        { label: "Overview", value: "Pilotable" },
         { label: "Analytics", value: "Segmente" },
         { label: "Onboarding", value: "Guide" },
       ],
@@ -402,9 +404,9 @@ export const workPageCopy = {
   },
   fr: {
     kicker: "Archive des projets",
-    title: "Des case studies qui montrent a la fois le gout et l'execution.",
+    title: "Des projets qui montrent a la fois l'exigence et l'execution.",
     body:
-      "L'archive reste volontairement selective. Chaque projet prouve un registre different : storytelling hospitality, landing produit orientee conversion, app analytics livree et prototype produit interactif.",
+      "L'archive reste volontairement selective. Chaque projet prouve un registre distinct : marque hospitality, landing produit orientee conversion, application analytics deja livree et prototype produit interactif.",
   },
 } as const;
 
@@ -444,13 +446,13 @@ export const projectCardLabels = {
   fr: {
     caseStudy: "Etude de cas",
     shippedCase: "Projet livre",
-    conceptCase: "Concept portfolio",
-    live: "Live",
-    delivery: "Livraison",
+    conceptCase: "Prototype portfolio",
+    live: "En ligne",
+    delivery: "Client",
     prototype: "Prototype",
     view: "Voir",
-    liveDemo: "Demo live",
-    repository: "Depot",
+    liveDemo: "Voir le site",
+    repository: "Code",
   },
 } as const;
 
@@ -486,7 +488,7 @@ export const contactPageCopy = {
     kicker: "Contact",
     title: "Si la prochaine version a besoin d'un meilleur site ou d'une meilleure experience produit, c'est ici que ca commence.",
     body:
-      "Je prends des missions freelance selectives autour de sites design-led, de surfaces produit et de systemes digitaux. Le plus rapide est d'envoyer le produit actuel, l'objectif business et l'endroit ou l'experience sous-performe.",
+      "Je prends des missions freelance selectives autour de sites pilotes par le design, de surfaces produit et de systemes digitaux. Le plus rapide est d'envoyer le produit actuel, l'objectif business et l'endroit ou l'experience sous-performe.",
     primaryContact: "Contact principal",
     bookCall: "Reserver un appel",
   },
@@ -529,12 +531,12 @@ export const caseStudyCopy = {
   },
   fr: {
     topKicker: "Recit projet oriente client",
-    openLiveDemo: "Ouvrir la demo live",
-    viewRepository: "Voir le depot",
+    openLiveDemo: "Voir la version en ligne",
+    viewRepository: "Voir le code",
     discussSimilar: "Parler d'un projet similaire",
     projectFrame: "Cadre du projet",
-    portfolioConcept: "Concept portfolio",
-    clientDelivery: "Livraison client",
+    portfolioConcept: "Prototype portfolio",
+    clientDelivery: "Projet client",
     outcomeFrame: "Angle de resultat",
     outcomeBody: "Construit pour montrer comment une direction design tient une fois que l'interface doit vraiment fonctionner.",
     industry: "Secteur",
@@ -543,8 +545,8 @@ export const caseStudyCopy = {
     readingLens: "Angle de lecture",
     readingTitle: "Un recit de projet vendable, pas juste un journal de build.",
     readingBody:
-      "Chaque case study est structuree pour montrer le probleme business, le systeme d'interface et les decisions d'implementation derriere le resultat.",
-    structureTitle: "Structure du case study",
+      "Chaque etude de cas est structuree pour montrer le probleme business, le systeme d'interface et les decisions d'implementation derriere le resultat.",
+    structureTitle: "Structure de l'etude",
     structureBodyOne:
       "Challenge, role, systeme, interactions, implementation et outcome restent coherents sur chaque projet.",
     structureBodyTwo:
@@ -552,14 +554,14 @@ export const caseStudyCopy = {
     nextMove: "Suite logique",
     nextTitle: "Si tu veux le meme niveau sur un vrai produit, site ou redesign, parlons-en.",
     nextBody:
-      "Je travaille sur des projets qui ont besoin d'une meilleure direction d'interface, d'une meilleure qualite d'interaction et d'un delivery plus propre du concept a l'implementation.",
+      "Je travaille sur des projets qui ont besoin d'une meilleure direction d'interface, d'une meilleure qualite d'interaction et d'une execution plus propre du concept a l'implementation.",
     nextPrimaryCta: "Parler d'un projet",
     nextSecondaryCta: "Retour a l'archive",
     leadSurface: "Surface principale",
     mobileView: "Vue mobile",
     detailPrefix: "Detail",
     shippedCase: "Projet livre",
-    conceptCase: "Concept portfolio",
+    conceptCase: "Prototype portfolio",
   },
 } as const;
 
@@ -734,15 +736,15 @@ export const projectShowcasesByLocale: Record<Locale, Record<string, ProjectShow
     },
     animaidstudioai: {
       metrics: [
-        { label: "Flow", value: "Upload vers unlock payant" },
+        { label: "Parcours", value: "Upload vers achat payant" },
         { label: "Surface", value: "Landing produit" },
-        { label: "Runtime", value: "Next.js sur Cloudflare" },
+        { label: "Stack", value: "Next.js sur Cloudflare" },
       ],
       shots: [
         {
           src: "/work/animaid/cover.svg",
           alt: "Vue desktop de la landing AnimAid",
-          caption: "Un flow unique qui explique l'offre, la boucle de preview et le paid unlock en un seul passage.",
+          caption: "Un parcours unique qui explique l'offre, la boucle de preview et le deblocage payant en un seul passage.",
           viewport: "desktop",
         },
         {
@@ -768,26 +770,26 @@ export const projectShowcasesByLocale: Record<Locale, Record<string, ProjectShow
     "dashboard-meta": {
       metrics: [
         { label: "Type", value: "App livree" },
-        { label: "Focus", value: "Ads + profit ops" },
-        { label: "Runtime", value: "Cloudflare functions" },
+        { label: "Usage", value: "Ads + profit ops" },
+        { label: "Backend", value: "Cloudflare Functions" },
       ],
       shots: [
         {
           src: "/work/dashboard-meta/cover.svg",
           alt: "Apercu overview et operations DashboardMeta",
-          caption: "Un dashboard operationnel plus dense pense pour les diagnostics media-buying, la lecture de profit et la prise de decision recurrente dans un contexte reellement live.",
+          caption: "Un dashboard operationnel plus dense pense pour les diagnostics media-buying, la lecture du profit et la prise de decision recurrente dans un contexte deja actif.",
           viewport: "desktop",
         },
         {
           src: "/work/dashboard-meta/detail-1.svg",
           alt: "Detail analytics et diagnostics DashboardMeta",
-          caption: "Le produit equilibre visibilite des tendances, diagnostics et modules de deep-dive sans tomber dans des charts de presentation.",
+          caption: "Le produit equilibre visibilite des tendances, diagnostics et modules d'analyse detaillee sans tomber dans des charts de presentation.",
           viewport: "detail",
         },
         {
           src: "/work/dashboard-meta/detail-2.svg",
           alt: "Detail alertes et modules operationnels DashboardMeta",
-          caption: "Auth, billing, alertes et ecrans operationnels rendent le cas produit-complet plutot que front-end-only.",
+          caption: "Auth, billing, alertes et ecrans operationnels rendent le cas produit complet plutot qu'une simple facade front-end.",
           viewport: "detail",
         },
         {
@@ -808,7 +810,7 @@ export const projectShowcasesByLocale: Record<Locale, Record<string, ProjectShow
         {
           src: "/work/signal-desk/cover.svg",
           alt: "Concept overview dashboard Signal Desk",
-          caption: "Une overview de prototype interactif ou changements de modes, focus states et rythme produit plus dense se lisent comme un vrai board.",
+          caption: "Une vue d'ensemble de prototype interactif ou changements de modes, focus states et rythme produit plus dense se lisent comme un vrai board.",
           viewport: "desktop",
         },
         {

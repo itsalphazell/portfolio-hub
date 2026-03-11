@@ -40,5 +40,5 @@ npm run build
 - Case study content lives in `content/work/*.mdx`
 - Contact links intentionally hide missing social or booking data instead of rendering placeholders
 - Set `NEXT_PUBLIC_BOOKING_URL` and `NEXT_PUBLIC_LINKEDIN_URL` before building if you want those CTAs visible
-- The home page now uses `Motion` plus a mode-driven command stage, signal-band navigation, and a short techno display layer for home-only visual emphasis
+- The home page now uses `Motion`, `GSAP`, and a bounded `React Three Fiber` hero scene for the mode-driven command stage, signal-band navigation, and home-only visual emphasis
 - Cloudflare Pages is connected to the GitHub repo, so pushes to `main` trigger production deploys automatically

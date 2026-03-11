@@ -42,7 +42,9 @@ export function HomeSignalBand({ items, activeSlug, onSelect }: HomeSignalBandPr
                 whileTap={reduceMotion ? undefined : { scale: 0.98 }}
               >
                 <span className="font-signal text-[10px] uppercase tracking-[0.18em] text-[inherit]">{item.label}</span>
-                <span className={clsx("mt-1 block text-xs", active ? "text-white/76" : "text-muted")}>{item.eyebrow}</span>
+                <span className={clsx("mt-1 block max-w-[18ch] text-balance text-xs", active ? "text-white/76" : "text-muted")}>
+                  {item.eyebrow}
+                </span>
               </motion.button>
             );
           })}
@@ -54,7 +56,7 @@ export function HomeSignalBand({ items, activeSlug, onSelect }: HomeSignalBandPr
           transition={reduceMotion ? undefined : { duration: 4.5, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY }}
         >
           <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-accent-deep">{copy.currentSignalLabel}</p>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-muted">{activeItem.pulse}</p>
+          <p className="mt-2 max-w-[32rem] text-pretty text-sm leading-6 text-muted">{activeItem.pulse}</p>
         </motion.div>
       </div>
     </div>

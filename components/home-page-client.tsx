@@ -81,7 +81,7 @@ export function HomePageClient({ featuredProjectsByLocale }: HomePageClientProps
           </div>
 
           <div className="proof-stage relative overflow-hidden rounded-[2rem] border border-[rgba(73,116,255,0.18)] bg-[linear-gradient(145deg,#081130,#10245f_58%,#17398d_100%)] p-6 text-white md:p-8">
-            <div className="proof-stage-beam absolute inset-y-0 right-[-10%] w-1/2" />
+            <div className="proof-stage-beam absolute inset-y-0 right-0 w-[42%]" />
             <div className="relative">
               <p className="font-signal text-[10px] uppercase tracking-[0.2em] text-white/90">{copy.proofKicker}</p>
               <div className="mt-5 grid gap-4 md:grid-cols-3">

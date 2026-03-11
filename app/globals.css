@@ -111,6 +111,7 @@ img {
   background-color: rgba(12, 21, 54, 0.86);
   backdrop-filter: blur(10px);
   box-shadow: 0 18px 44px rgba(5, 10, 34, 0.18);
+  min-height: 100%;
 }
 
 .section-kicker {
@@ -196,10 +197,11 @@ img {
 
 .hero-stage-shell {
   background:
-    linear-gradient(180deg, rgba(12, 18, 44, 0.92), rgba(6, 12, 32, 0.92)),
-    radial-gradient(circle at top right, rgba(87, 150, 255, 0.12), transparent 16rem);
+    radial-gradient(circle at top right, rgba(123, 232, 255, 0.12), transparent 16rem),
+    radial-gradient(circle at 16% 6%, rgba(111, 143, 255, 0.14), transparent 18rem),
+    linear-gradient(180deg, rgba(9, 16, 40, 0.94), rgba(5, 12, 30, 0.98));
   background-color: #07102b;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 24px 72px rgba(4, 9, 28, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 28px 82px rgba(4, 9, 28, 0.34);
 }
 
 .hero-stage-grid {
@@ -233,6 +235,126 @@ img {
 .hero-mode-dot {
   background: color-mix(in srgb, var(--mode-accent) 82%, white 18%);
   box-shadow: 0 0 0 0.24rem color-mix(in srgb, var(--mode-accent-soft) 72%, transparent);
+}
+
+.hero-copy-measure {
+  text-wrap: pretty;
+}
+
+.hero-stage-frame {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 22px 64px rgba(2, 8, 24, 0.32);
+  transform-style: preserve-3d;
+}
+
+.hero-stage-canvas-shell {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-stage-overlay {
+  position: absolute;
+  z-index: 2;
+  max-width: min(100%, 22rem);
+}
+
+.hero-stage-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.hero-stage-pill {
+  border: 1px solid rgba(145, 180, 255, 0.16);
+  background: rgba(8, 18, 48, 0.78);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  color: rgba(233, 241, 255, 0.82);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  padding: 0.65rem 0.85rem;
+  text-transform: uppercase;
+}
+
+.hero-stage-pill-strong {
+  background: rgba(255, 255, 255, 0.92);
+  color: #08112d;
+}
+
+.hero-stage-chip {
+  border: 1px solid rgba(145, 180, 255, 0.16);
+  background: linear-gradient(180deg, rgba(7, 15, 37, 0.76), rgba(7, 15, 37, 0.56));
+  backdrop-filter: blur(10px);
+}
+
+.hero-stage-note {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    rgba(8, 18, 48, 0.68);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.hero-scene-fallback-stack {
+  position: relative;
+  width: min(100%, 22rem);
+  aspect-ratio: 1.22;
+  transform: rotateX(55deg) rotateZ(-24deg);
+  transform-style: preserve-3d;
+}
+
+.hero-scene-fallback-slab,
+.hero-scene-fallback-orb,
+.hero-scene-fallback-ring {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.hero-scene-fallback-slab {
+  border-radius: 1.7rem;
+  box-shadow: 0 24px 80px rgba(5, 10, 28, 0.34);
+}
+
+.hero-scene-fallback-slab-back {
+  width: 88%;
+  height: 62%;
+  background: linear-gradient(135deg, rgba(19, 32, 71, 0.92), rgba(13, 24, 56, 0.72));
+  transform: translate3d(-0.85rem, 0.75rem, -2rem);
+}
+
+.hero-scene-fallback-slab-mid {
+  width: 74%;
+  height: 46%;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--fallback-accent) 46%, white 12%), rgba(19, 34, 84, 0.9));
+  transform: translate3d(0.15rem, 0.1rem, 0);
+}
+
+.hero-scene-fallback-slab-front {
+  width: 62%;
+  height: 36%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), color-mix(in srgb, var(--fallback-glow) 54%, rgba(25, 44, 92, 0.82)));
+  transform: translate3d(0.95rem, -0.62rem, 1rem);
+}
+
+.hero-scene-fallback-orb {
+  width: 22%;
+  height: 22%;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 35%, white, var(--fallback-accent) 50%, color-mix(in srgb, var(--fallback-accent) 66%, #09112e 34%));
+  box-shadow: 0 0 42px color-mix(in srgb, var(--fallback-glow) 70%, transparent);
+  transform: translate3d(6.2rem, -3.1rem, 2.2rem);
+}
+
+.hero-scene-fallback-ring {
+  width: 76%;
+  height: 76%;
+  border: 2px solid color-mix(in srgb, var(--fallback-glow) 56%, rgba(255, 255, 255, 0.06));
+  border-radius: 999px;
+  opacity: 0.72;
+  transform: translate3d(0.3rem, -0.1rem, 0) rotate(28deg);
 }
 
 .hero-stage-surface {
@@ -313,6 +435,17 @@ img {
 .featured-project-card-active {
   border-color: rgba(76, 118, 255, 0.26);
   box-shadow: 0 30px 78px rgba(12, 19, 42, 0.16);
+}
+
+.card-summary-clamp {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.card-summary-clamp-featured {
+  -webkit-line-clamp: 3;
 }
 
 .featured-project-glow {
@@ -481,5 +614,19 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-stage-overlay {
+    max-width: calc(100% - 2rem);
+  }
+
+  .hero-stage-pill-grid {
+    justify-content: flex-start;
+  }
+
+  .hero-scene-fallback-stack {
+    width: min(100%, 17rem);
   }
 }
