@@ -119,14 +119,16 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
       <div className="hero-stage-grid pointer-events-none absolute inset-0 -z-10" />
 
       <div className="space-y-4">
-        <div className="hero-stage-frame relative overflow-hidden rounded-[1.85rem] border border-[rgba(137,171,255,0.14)] bg-[radial-gradient(circle_at_top_left,rgba(123,232,255,0.08),transparent_16rem),linear-gradient(180deg,rgba(8,17,42,0.96),rgba(5,12,30,0.96))]">
-          <div className="hero-stage-canvas-shell min-h-[27rem] md:min-h-[31rem] xl:min-h-[33rem]">
-            <PortfolioHeroSceneCanvas
-              activeSlug={activeMode.slug}
-              accent={activeMode.accent}
-              glow={activeMode.accent}
-              reduceMotion={reduceMotion}
-            />
+        <div className="hero-stage-frame relative min-h-[27rem] overflow-hidden rounded-[1.85rem] border border-[rgba(137,171,255,0.14)] bg-[radial-gradient(circle_at_top_left,rgba(123,232,255,0.08),transparent_16rem),linear-gradient(180deg,rgba(8,17,42,0.96),rgba(5,12,30,0.96))] md:min-h-[31rem] xl:min-h-[33rem]">
+          <div aria-hidden="true" className="hero-stage-scene-window">
+            <div className="hero-stage-canvas-shell">
+              <PortfolioHeroSceneCanvas
+                activeSlug={activeMode.slug}
+                accent={activeMode.accent}
+                glow={activeMode.accent}
+                reduceMotion={reduceMotion}
+              />
+            </div>
           </div>
 
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.08),transparent_20rem),linear-gradient(180deg,transparent,rgba(3,8,22,0.18)_76%,rgba(3,8,22,0.58))]" />

@@ -17,8 +17,8 @@ const MODE_VISUALS = {
     ringRotation: [0.86, 0.35, 0.58],
     panelOffset: 0.26,
     pulse: 0.1,
-    baseY: -1.34,
-    baseScale: 0.86,
+    baseY: -0.26,
+    baseScale: 0.9,
   },
   animaidstudioai: {
     core: "#6d8fff",
@@ -31,8 +31,8 @@ const MODE_VISUALS = {
     ringRotation: [0.24, 0.94, 0.26],
     panelOffset: 0.14,
     pulse: 0.22,
-    baseY: -1.28,
-    baseScale: 0.84,
+    baseY: -0.18,
+    baseScale: 0.88,
   },
   "dashboard-meta": {
     core: "#2fd6bb",
@@ -45,8 +45,8 @@ const MODE_VISUALS = {
     ringRotation: [1.08, 0.52, 0.12],
     panelOffset: 0.34,
     pulse: 0.16,
-    baseY: -1.2,
-    baseScale: 0.88,
+    baseY: -0.08,
+    baseScale: 0.92,
   },
   "signal-desk": {
     core: "#7be8ff",
@@ -59,8 +59,8 @@ const MODE_VISUALS = {
     ringRotation: [0.58, 1.08, -0.22],
     panelOffset: 0.18,
     pulse: 0.28,
-    baseY: -1.24,
-    baseScale: 0.84,
+    baseY: -0.12,
+    baseScale: 0.88,
   },
 } as const;
 
@@ -302,7 +302,7 @@ export function PortfolioHeroSceneCanvas({
 }) {
   return (
     <Canvas
-      camera={{ fov: 33, position: [0, 0.35, 7.8] }}
+      camera={{ fov: 32, position: [0, 0.1, 7.45] }}
       dpr={[1, 1.5]}
       fallback={<StaticFallback accent={accent} glow={glow} />}
       frameloop={reduceMotion ? "demand" : "always"}

@@ -246,8 +246,19 @@ img {
   transform-style: preserve-3d;
 }
 
+.hero-stage-scene-window {
+  position: absolute;
+  inset-inline: 0.9rem;
+  top: 5.45rem;
+  bottom: 5.6rem;
+  overflow: hidden;
+  border-radius: 1.4rem;
+  pointer-events: none;
+}
+
 .hero-stage-canvas-shell {
-  position: relative;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
   isolation: isolate;
 }
@@ -618,6 +629,12 @@ img {
 }
 
 @media (max-width: 767px) {
+  .hero-stage-scene-window {
+    inset-inline: 0.7rem;
+    top: 5.75rem;
+    bottom: 5.1rem;
+  }
+
   .hero-stage-overlay {
     max-width: calc(100% - 2rem);
   }
