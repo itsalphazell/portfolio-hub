@@ -17,6 +17,8 @@ const MODE_VISUALS = {
     ringRotation: [0.86, 0.35, 0.58],
     panelOffset: 0.26,
     pulse: 0.1,
+    baseY: -1.34,
+    baseScale: 0.86,
   },
   animaidstudioai: {
     core: "#6d8fff",
@@ -29,6 +31,8 @@ const MODE_VISUALS = {
     ringRotation: [0.24, 0.94, 0.26],
     panelOffset: 0.14,
     pulse: 0.22,
+    baseY: -1.28,
+    baseScale: 0.84,
   },
   "dashboard-meta": {
     core: "#2fd6bb",
@@ -41,6 +45,8 @@ const MODE_VISUALS = {
     ringRotation: [1.08, 0.52, 0.12],
     panelOffset: 0.34,
     pulse: 0.16,
+    baseY: -1.2,
+    baseScale: 0.88,
   },
   "signal-desk": {
     core: "#7be8ff",
@@ -53,6 +59,8 @@ const MODE_VISUALS = {
     ringRotation: [0.58, 1.08, -0.22],
     panelOffset: 0.18,
     pulse: 0.28,
+    baseY: -1.24,
+    baseScale: 0.84,
   },
 } as const;
 
@@ -140,8 +148,8 @@ function SignalSculpture({ activeSlug, reduceMotion }: { activeSlug: string; red
   const shardRefs = useRef<Array<THREE.Mesh | null>>([]);
 
   useFrame((state, delta) => {
-    const baseY = -0.94;
-    const baseScale = 0.92;
+    const baseY = visual.baseY;
+    const baseScale = visual.baseScale;
     const drift = reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.55) * 0.08;
     const pointerX = reduceMotion ? 0 : state.pointer.x * 0.18;
     const pointerY = reduceMotion ? 0 : state.pointer.y * 0.12;
@@ -294,7 +302,7 @@ export function PortfolioHeroSceneCanvas({
 }) {
   return (
     <Canvas
-      camera={{ fov: 32, position: [0, 0, 7.4] }}
+      camera={{ fov: 33, position: [0, 0.35, 7.8] }}
       dpr={[1, 1.5]}
       fallback={<StaticFallback accent={accent} glow={glow} />}
       frameloop={reduceMotion ? "demand" : "always"}

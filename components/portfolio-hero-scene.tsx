@@ -5,14 +5,13 @@ import { useEffect, useMemo, useRef } from "react";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "motion/react";
 import { useLocale } from "@/components/locale-provider";
 import { homeCopy } from "@/lib/locale-data";
 import type { HomeMode } from "@/lib/types";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 const PortfolioHeroSceneCanvas = dynamic(
   () => import("@/components/portfolio-hero-scene-canvas").then((module) => module.PortfolioHeroSceneCanvas),
@@ -75,18 +74,6 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
           stagger: 0.06,
           delay: 0.12,
         });
-
-        gsap.to("[data-hero-stage-frame]", {
-          rotateX: 3,
-          yPercent: -6,
-          scrollTrigger: {
-            trigger: rootRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.9,
-          },
-          transformPerspective: 1200,
-        });
       });
 
       mm.add("(prefers-reduced-motion: reduce)", () => {
@@ -132,8 +119,8 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
       <div className="hero-stage-grid pointer-events-none absolute inset-0 -z-10" />
 
       <div className="space-y-4">
-        <div className="hero-stage-frame relative overflow-hidden rounded-[1.85rem] border border-[rgba(137,171,255,0.14)] bg-[radial-gradient(circle_at_top_left,rgba(123,232,255,0.08),transparent_16rem),linear-gradient(180deg,rgba(8,17,42,0.96),rgba(5,12,30,0.96))]" data-hero-stage-frame>
-          <div className="hero-stage-canvas-shell min-h-[26rem] md:min-h-[30rem]">
+        <div className="hero-stage-frame relative overflow-hidden rounded-[1.85rem] border border-[rgba(137,171,255,0.14)] bg-[radial-gradient(circle_at_top_left,rgba(123,232,255,0.08),transparent_16rem),linear-gradient(180deg,rgba(8,17,42,0.96),rgba(5,12,30,0.96))]">
+          <div className="hero-stage-canvas-shell min-h-[27rem] md:min-h-[31rem] xl:min-h-[33rem]">
             <PortfolioHeroSceneCanvas
               activeSlug={activeMode.slug}
               accent={activeMode.accent}
