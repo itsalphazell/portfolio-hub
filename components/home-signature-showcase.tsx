@@ -7,7 +7,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { HeroAccentLine } from "@/components/hero-accent-line";
-import { HomeSignalBand } from "@/components/home-signal-band";
 import { useLocale } from "@/components/locale-provider";
 import { PortfolioHeroScene } from "@/components/portfolio-hero-scene";
 import { ProjectCard } from "@/components/project-card";
@@ -174,10 +173,6 @@ export function HomeSignatureShowcase({ featuredProjectsByLocale }: HomeSignatur
           <Link className="text-sm font-semibold text-accent-deep underline underline-offset-4" data-home-featured-intro href="/work">
             {copy.featuredArchiveLink}
           </Link>
-        </div>
-
-        <div data-home-featured-intro>
-          <HomeSignalBand activeSlug={deferredActiveSlug} items={homeModes} onSelect={handleActivate} />
         </div>
 
         <div className="grid gap-6 xl:grid-cols-2" data-home-featured-grid>
