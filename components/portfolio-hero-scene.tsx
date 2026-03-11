@@ -168,16 +168,24 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
           </div>
         </div>
 
-        <div className="grid gap-4 xl:grid-cols-[1.06fr_0.94fr]">
-          <div className="hero-stage-note rounded-[1.5rem] border border-[rgba(131,164,255,0.14)] px-4 py-4" data-stage-reveal data-stage-swap>
+        <div className="grid gap-4 xl:auto-rows-fr xl:grid-cols-[1.06fr_0.94fr]">
+          <div
+            className="hero-stage-note flex min-h-[18rem] flex-col rounded-[1.5rem] border border-[rgba(131,164,255,0.14)] px-4 py-4 lg:min-h-[20.75rem] xl:h-[24rem] xl:min-h-0"
+            data-stage-reveal
+            data-stage-swap
+          >
             <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-[var(--mode-accent)]">{activeMode.label}</p>
-            <h2 className="mt-3 max-w-[20ch] text-balance font-display text-[clamp(1.5rem,2.2vw,2.35rem)] leading-[0.95] tracking-[-0.04em] text-white">
+            <h2 className="mt-3 max-w-[22ch] text-balance font-display text-[clamp(1.42rem,2vw,2.15rem)] leading-[0.96] tracking-[-0.04em] text-white">
               {activeMode.stageTitle}
             </h2>
             <p className="mt-3 max-w-[34rem] text-sm leading-7 text-[rgba(232,240,255,0.8)]">{activeMode.stageSummary}</p>
           </div>
 
-          <div className="hero-stage-note rounded-[1.5rem] border border-[rgba(131,164,255,0.14)] px-4 py-4" data-stage-reveal data-stage-swap>
+          <div
+            className="hero-stage-note flex min-h-[18rem] flex-col rounded-[1.5rem] border border-[rgba(131,164,255,0.14)] px-4 py-4 lg:min-h-[20.75rem] xl:h-[24rem] xl:min-h-0"
+            data-stage-reveal
+            data-stage-swap
+          >
             <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-[var(--mode-accent)]">{copy.currentRegisterLabel}</p>
             <p className="mt-3 max-w-[32rem] text-sm leading-7 text-[rgba(235,242,255,0.84)]">{activeMode.pulse}</p>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -208,7 +216,6 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
                 key={mode.slug}
                 onClick={() => onActivate(mode.slug)}
                 onFocus={() => onActivate(mode.slug)}
-                onMouseEnter={() => onActivate(mode.slug)}
                 type="button"
               >
                 <div className="flex items-start justify-between gap-3">

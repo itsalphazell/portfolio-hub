@@ -140,6 +140,8 @@ function SignalSculpture({ activeSlug, reduceMotion }: { activeSlug: string; red
   const shardRefs = useRef<Array<THREE.Mesh | null>>([]);
 
   useFrame((state, delta) => {
+    const baseY = -0.94;
+    const baseScale = 0.92;
     const drift = reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.55) * 0.08;
     const pointerX = reduceMotion ? 0 : state.pointer.x * 0.18;
     const pointerY = reduceMotion ? 0 : state.pointer.y * 0.12;
@@ -158,7 +160,10 @@ function SignalSculpture({ activeSlug, reduceMotion }: { activeSlug: string; red
         delta,
       );
       rootRef.current.rotation.z = THREE.MathUtils.damp(rootRef.current.rotation.z, visual.groupRotation[2], 4, delta);
-      rootRef.current.position.y = THREE.MathUtils.damp(rootRef.current.position.y, drift, 4, delta);
+      rootRef.current.position.y = THREE.MathUtils.damp(rootRef.current.position.y, baseY + drift, 4, delta);
+      rootRef.current.scale.x = THREE.MathUtils.damp(rootRef.current.scale.x, baseScale, 4, delta);
+      rootRef.current.scale.y = THREE.MathUtils.damp(rootRef.current.scale.y, baseScale, 4, delta);
+      rootRef.current.scale.z = THREE.MathUtils.damp(rootRef.current.scale.z, baseScale, 4, delta);
     }
 
     if (shellRef.current) {
