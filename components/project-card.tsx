@@ -18,6 +18,7 @@ export function ProjectCard({ project, variant = "archive", active = false, onAc
   const { locale } = useLocale();
   const labels = projectCardLabels[locale];
   const tagLabels = projectTagLabels[locale];
+  const enablePreviewToggle = variant === "featured" && Boolean(onActivate);
 
   return (
     <article
@@ -26,10 +27,12 @@ export function ProjectCard({ project, variant = "archive", active = false, onAc
         variant === "featured"
           ? "featured-project-card h-full overflow-hidden border-[rgba(74,110,255,0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(247,250,255,0.92))] shadow-[0_24px_64px_rgba(18,15,12,0.12)]"
           : "shadow-[0_18px_46px_rgba(18,15,12,0.08)]",
+        enablePreviewToggle ? "cursor-pointer" : "",
         active && variant === "featured" ? "featured-project-card-active" : "",
       )}
+      onClick={enablePreviewToggle ? onActivate : undefined}
       onFocusCapture={onActivate}
-      onMouseEnter={onActivate}
+      onMouseEnter={variant === "archive" ? onActivate : undefined}
     >
       <div className="relative overflow-hidden border-b border-[rgba(22,17,13,0.08)] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.02))]">
         <img

@@ -115,7 +115,7 @@ function StaticFallback({ accent, glow }: { accent: string; glow: string }) {
   );
 }
 
-function AmbientField({ color, reduceMotion }: { color: string; reduceMotion: boolean }) {
+function AmbientField({ color, compact, reduceMotion }: { color: string; compact: boolean; reduceMotion: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
 
   useFrame((state, delta) => {
@@ -129,7 +129,11 @@ function AmbientField({ color, reduceMotion }: { color: string; reduceMotion: bo
   return (
     <group ref={groupRef}>
       {AMBIENT_NODES.map((node, index) => (
-        <mesh key={`${node.position.join("-")}-${index}`} position={node.position} scale={node.scale}>
+        <mesh
+          key={`${node.position.join("-")}-${index}`}
+          position={compact ? [node.position[0] * 0.78, node.position[1] * 0.72, node.position[2]] : node.position}
+          scale={compact ? node.scale * 0.82 : node.scale}
+        >
           <icosahedronGeometry args={[1, 0]} />
           <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.42} metalness={0.4} roughness={0.2} />
         </mesh>
@@ -138,7 +142,15 @@ function AmbientField({ color, reduceMotion }: { color: string; reduceMotion: bo
   );
 }
 
-function SignalSculpture({ activeSlug, reduceMotion }: { activeSlug: string; reduceMotion: boolean }) {
+function SignalSculpture({
+  activeSlug,
+  compact,
+  reduceMotion,
+}: {
+  activeSlug: string;
+  compact: boolean;
+  reduceMotion: boolean;
+}) {
   const visual = MODE_VISUALS[activeSlug as keyof typeof MODE_VISUALS] ?? MODE_VISUALS["signal-desk"];
   const rootRef = useRef<THREE.Group>(null);
   const shellRef = useRef<THREE.Mesh>(null);
@@ -148,9 +160,10 @@ function SignalSculpture({ activeSlug, reduceMotion }: { activeSlug: string; red
   const shardRefs = useRef<Array<THREE.Mesh | null>>([]);
 
   useFrame((state, delta) => {
-    const baseY = visual.baseY;
-    const baseScale = visual.baseScale;
-    const drift = reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.55) * 0.08;
+    const compactScale = compact ? 0.78 : 1;
+    const baseY = compact ? visual.baseY - 0.12 : visual.baseY;
+    const baseScale = visual.baseScale * compactScale;
+    const drift = reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.55) * (compact ? 0.04 : 0.08);
     const pointerX = reduceMotion ? 0 : state.pointer.x * 0.18;
     const pointerY = reduceMotion ? 0 : state.pointer.y * 0.12;
 
@@ -293,16 +306,18 @@ export function PortfolioHeroSceneCanvas({
   activeSlug,
   accent,
   glow,
+  compact,
   reduceMotion,
 }: {
   activeSlug: string;
   accent: string;
   glow: string;
+  compact: boolean;
   reduceMotion: boolean;
 }) {
   return (
     <Canvas
-      camera={{ fov: 32, position: [0, 0.1, 7.45] }}
+      camera={{ fov: compact ? 30 : 32, position: [0, compact ? 0.2 : 0.1, compact ? 8.5 : 7.45] }}
       dpr={[1, 1.5]}
       fallback={<StaticFallback accent={accent} glow={glow} />}
       frameloop={reduceMotion ? "demand" : "always"}
@@ -314,8 +329,8 @@ export function PortfolioHeroSceneCanvas({
       <pointLight color={accent} intensity={18} position={[2.6, 1.8, 2.2]} />
       <pointLight color={glow} intensity={10} position={[-2.2, -1.8, 2.4]} />
       <fog attach="fog" args={["#07102b", 9, 17]} />
-      <AmbientField color={glow} reduceMotion={reduceMotion} />
-      <SignalSculpture activeSlug={activeSlug} reduceMotion={reduceMotion} />
+      <AmbientField color={glow} compact={compact} reduceMotion={reduceMotion} />
+      <SignalSculpture activeSlug={activeSlug} compact={compact} reduceMotion={reduceMotion} />
     </Canvas>
   );
 }

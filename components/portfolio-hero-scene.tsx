@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
 import gsap from "gsap";
@@ -42,6 +42,7 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
   const copy = homeCopy[locale];
   const reduceMotion = useReducedMotion() ?? false;
   const rootRef = useRef<HTMLDivElement>(null);
+  const [compactViewport, setCompactViewport] = useState(false);
   const activeMode = modes.find((mode) => mode.slug === activeSlug) ?? modes[0];
   const compactMetrics = useMemo(() => activeMode.metrics.slice(0, 3), [activeMode.metrics]);
   const modeVars = useMemo(
@@ -52,6 +53,25 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
       }) as CSSProperties,
     [activeMode.accent, activeMode.accentSoft],
   );
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const syncViewport = () => setCompactViewport(mediaQuery.matches);
+
+    syncViewport();
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", syncViewport);
+      return () => mediaQuery.removeEventListener("change", syncViewport);
+    }
+
+    mediaQuery.addListener(syncViewport);
+    return () => mediaQuery.removeListener(syncViewport);
+  }, []);
 
   useGSAP(
     () => {
@@ -112,20 +132,30 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
 
   return (
     <div
-      className="hero-stage-shell relative overflow-hidden rounded-[2.1rem] border border-[rgba(132,162,255,0.22)] p-4 md:p-5"
+      className="hero-stage-shell relative overflow-hidden rounded-[2.1rem] border border-[rgba(132,162,255,0.22)] p-3.5 md:p-5"
       ref={rootRef}
       style={modeVars}
     >
       <div className="hero-stage-grid pointer-events-none absolute inset-0 -z-10" />
 
       <div className="space-y-4">
-        <div className="hero-stage-frame relative min-h-[27rem] overflow-hidden rounded-[1.85rem] border border-[rgba(137,171,255,0.14)] bg-[radial-gradient(circle_at_top_left,rgba(123,232,255,0.08),transparent_16rem),linear-gradient(180deg,rgba(8,17,42,0.96),rgba(5,12,30,0.96))] md:min-h-[31rem] xl:min-h-[33rem]">
+        <div className="hero-stage-mobile-panel rounded-[1.45rem] border border-[rgba(137,171,255,0.14)] px-4 py-4 md:hidden" data-stage-reveal>
+          <p className="font-signal text-[10px] uppercase tracking-[0.2em] text-[var(--mode-accent)]">{copy.commandStageLabel}</p>
+          <p className="mt-2 text-sm leading-6 text-white/82">{activeMode.valueLine}</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="hero-stage-pill hero-stage-pill-strong">{activeMode.label}</span>
+            <span className="hero-stage-pill">{activeMode.eyebrow}</span>
+          </div>
+        </div>
+
+        <div className="hero-stage-frame relative min-h-[18.75rem] overflow-hidden rounded-[1.85rem] border border-[rgba(137,171,255,0.14)] bg-[radial-gradient(circle_at_top_left,rgba(123,232,255,0.08),transparent_16rem),linear-gradient(180deg,rgba(8,17,42,0.96),rgba(5,12,30,0.96))] sm:min-h-[21rem] md:min-h-[31rem] xl:min-h-[33rem]">
           <div aria-hidden="true" className="hero-stage-scene-window">
             <div className="hero-stage-canvas-shell">
               <PortfolioHeroSceneCanvas
                 activeSlug={activeMode.slug}
                 accent={activeMode.accent}
                 glow={activeMode.accent}
+                compact={compactViewport}
                 reduceMotion={reduceMotion}
               />
             </div>
@@ -133,19 +163,19 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
 
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.08),transparent_20rem),linear-gradient(180deg,transparent,rgba(3,8,22,0.18)_76%,rgba(3,8,22,0.58))]" />
 
-          <div className="hero-stage-overlay left-4 top-4 md:left-5 md:top-5" data-stage-reveal>
+          <div className="hero-stage-overlay left-4 top-4 hidden md:block md:left-5 md:top-5" data-stage-reveal>
             <p className="font-signal text-[10px] uppercase tracking-[0.2em] text-[var(--mode-accent)]">{copy.commandStageLabel}</p>
             <p className="mt-2 max-w-[18rem] text-sm leading-6 text-white/82 md:max-w-[20rem]">{activeMode.valueLine}</p>
           </div>
 
-          <div className="hero-stage-overlay right-4 top-4 md:right-5 md:top-5" data-stage-reveal>
+          <div className="hero-stage-overlay right-4 top-4 hidden md:block md:right-5 md:top-5" data-stage-reveal>
             <div className="hero-stage-pill-grid">
               <span className="hero-stage-pill hero-stage-pill-strong">{activeMode.label}</span>
               <span className="hero-stage-pill">{activeMode.eyebrow}</span>
             </div>
           </div>
 
-          <div className="hero-stage-overlay bottom-4 left-4 right-4 md:bottom-5 md:left-5 md:right-5" data-stage-reveal>
+          <div className="hero-stage-overlay bottom-4 left-4 right-4 hidden md:block md:bottom-5 md:left-5 md:right-5" data-stage-reveal>
             <div className="grid gap-3 md:grid-cols-3">
               {compactMetrics.map((metric) => (
                 <div className="hero-stage-chip rounded-[1.1rem] px-4 py-3" key={metric.label}>
@@ -157,21 +187,32 @@ export function PortfolioHeroScene({ activeSlug, modes, onActivate }: PortfolioH
           </div>
         </div>
 
+        <div className="grid gap-3 md:hidden" data-stage-reveal>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {compactMetrics.map((metric) => (
+              <div className="hero-stage-chip rounded-[1.1rem] px-4 py-3" key={metric.label}>
+                <p className="font-signal text-[10px] uppercase tracking-[0.16em] text-white/62">{metric.label}</p>
+                <p className="mt-2 text-sm font-semibold text-white">{metric.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="grid gap-4 xl:auto-rows-fr xl:grid-cols-[1.06fr_0.94fr]">
           <div
-            className="hero-stage-note flex min-h-[18rem] flex-col rounded-[1.5rem] border border-[rgba(131,164,255,0.14)] px-4 py-4 lg:min-h-[20.75rem] xl:h-[24rem] xl:min-h-0"
+            className="hero-stage-note flex min-h-[15rem] flex-col rounded-[1.5rem] border border-[rgba(131,164,255,0.14)] px-4 py-4 sm:min-h-[17rem] lg:min-h-[20.75rem] xl:h-[24rem] xl:min-h-0"
             data-stage-reveal
             data-stage-swap
           >
             <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-[var(--mode-accent)]">{activeMode.label}</p>
-            <h2 className="mt-3 max-w-[22ch] text-balance font-display text-[clamp(1.42rem,2vw,2.15rem)] leading-[0.96] tracking-[-0.04em] text-white">
+            <h2 className="mt-3 max-w-[14ch] text-balance font-display text-[clamp(1.42rem,2vw,2.15rem)] leading-[0.96] tracking-[-0.04em] text-white sm:max-w-[18ch] lg:max-w-[22ch]">
               {activeMode.stageTitle}
             </h2>
             <p className="mt-3 max-w-[34rem] text-sm leading-7 text-[rgba(232,240,255,0.8)]">{activeMode.stageSummary}</p>
           </div>
 
           <div
-            className="hero-stage-note flex min-h-[18rem] flex-col rounded-[1.5rem] border border-[rgba(131,164,255,0.14)] px-4 py-4 lg:min-h-[20.75rem] xl:h-[24rem] xl:min-h-0"
+            className="hero-stage-note flex min-h-[15rem] flex-col rounded-[1.5rem] border border-[rgba(131,164,255,0.14)] px-4 py-4 sm:min-h-[17rem] lg:min-h-[20.75rem] xl:h-[24rem] xl:min-h-0"
             data-stage-reveal
             data-stage-swap
           >

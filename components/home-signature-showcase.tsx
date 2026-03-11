@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useDeferredValue, useMemo, useRef, useState } from "react";
+import { startTransition, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 import gsap from "gsap";
@@ -25,9 +25,8 @@ export function HomeSignatureShowcase({ featuredProjectsByLocale }: HomeSignatur
   const copy = homeCopy[locale];
   const homeModes = homeModesByLocale[locale];
   const [activeSlug, setActiveSlug] = useState<string>(homeModesByLocale.en[0].slug);
-  const deferredActiveSlug = useDeferredValue(activeSlug);
   const featuredProjects = featuredProjectsByLocale[locale];
-  const activeMode = homeModes.find((item) => item.slug === deferredActiveSlug) ?? homeModes[0];
+  const activeMode = homeModes.find((item) => item.slug === activeSlug) ?? homeModes[0];
   const orderedProjects = useMemo(
     () =>
       homeModes
@@ -153,7 +152,7 @@ export function HomeSignatureShowcase({ featuredProjectsByLocale }: HomeSignatur
             </div>
           </div>
 
-          <PortfolioHeroScene activeSlug={deferredActiveSlug} modes={homeModes} onActivate={handleActivate} />
+          <PortfolioHeroScene activeSlug={activeSlug} modes={homeModes} onActivate={handleActivate} />
         </div>
       </section>
 
@@ -178,7 +177,7 @@ export function HomeSignatureShowcase({ featuredProjectsByLocale }: HomeSignatur
         <div className="grid gap-6 xl:grid-cols-2" data-home-featured-grid>
           {orderedProjects.map((project) => (
             <ProjectCard
-              active={project.slug === deferredActiveSlug}
+              active={project.slug === activeSlug}
               key={project.slug}
               onActivate={() => handleActivate(project.slug)}
               project={project}

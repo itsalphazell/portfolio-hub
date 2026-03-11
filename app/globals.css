@@ -204,6 +204,13 @@ img {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 28px 82px rgba(4, 9, 28, 0.34);
 }
 
+.hero-stage-mobile-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    rgba(8, 18, 48, 0.62);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
 .hero-stage-grid {
   background-image:
     linear-gradient(to right, rgba(145, 180, 255, 0.08) 1px, transparent 1px),
@@ -629,10 +636,19 @@ img {
 }
 
 @media (max-width: 767px) {
+  .hero-stage-shell {
+    padding: 0.85rem;
+  }
+
+  .hero-stage-frame {
+    min-height: 18.75rem;
+  }
+
   .hero-stage-scene-window {
-    inset-inline: 0.7rem;
-    top: 5.75rem;
-    bottom: 5.1rem;
+    inset-inline: 0.35rem;
+    top: 0.85rem;
+    bottom: 0.9rem;
+    border-radius: 1.1rem;
   }
 
   .hero-stage-overlay {
@@ -644,6 +660,15 @@ img {
   }
 
   .hero-scene-fallback-stack {
-    width: min(100%, 17rem);
+    width: min(100%, 14.5rem);
+  }
+
+  .hero-stage-pill {
+    font-size: 0.62rem;
+    padding: 0.58rem 0.75rem;
+  }
+
+  .hero-stage-note {
+    min-height: 0;
   }
 }
