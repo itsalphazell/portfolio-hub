@@ -67,16 +67,18 @@ export default function CanvasScrollPortfolioShell({
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              {proof.map((item) => (
-                <span
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/68"
-                  key={item}
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+            {proof.length ? (
+              <div className="flex flex-wrap gap-3">
+                {proof.map((item) => (
+                  <span
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/68"
+                    key={item}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            ) : null}
           </div>
 
           {renderStage ? <div className="lg:hidden">{renderStage()}</div> : null}

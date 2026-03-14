@@ -206,7 +206,7 @@ export function HomeSignatureShowcase({ featuredProjectsByLocale }: HomeSignatur
           }
           primaryCta={copy.heroPrimaryCta}
           primaryHref="#selected-work"
-          proof={activeMode.cues}
+          proof={[]}
           secondaryCta={copy.heroSecondaryCta}
           secondaryHref="/contact"
           renderStage={() => (
