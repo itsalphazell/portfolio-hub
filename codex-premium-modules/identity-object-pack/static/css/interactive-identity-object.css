@@ -1,0 +1,86 @@
+.identity-object-hero {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .identity-object-hero {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+}
+
+.identity-object-kicker {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 252, 0.62);
+}
+
+.identity-object-copy h2 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  color: #f8fafc;
+}
+
+.identity-object-copy p:last-child {
+  margin-top: 1rem;
+  color: rgba(248, 250, 252, 0.72);
+  line-height: 1.7;
+}
+
+.identity-object-shell {
+  --identity-rotate-x: 0deg;
+  --identity-rotate-y: 0deg;
+  --identity-shift-x: 0px;
+  --identity-shift-y: 0px;
+  position: relative;
+  width: min(100%, 320px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  perspective: 1200px;
+}
+
+.identity-object-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(124, 92, 255, 0.28), transparent 62%);
+  filter: blur(32px);
+}
+
+.identity-object-core {
+  position: absolute;
+  inset: 12%;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
+  box-shadow: 0 24px 80px rgba(2, 8, 28, 0.45);
+  transform: rotateX(var(--identity-rotate-x)) rotateY(var(--identity-rotate-y)) translate3d(var(--identity-shift-x), var(--identity-shift-y), 0);
+  transform-style: preserve-3d;
+  transition: transform 0.28s ease-out;
+}
+
+.identity-object-core::before,
+.identity-object-core::after {
+  content: "";
+  position: absolute;
+}
+
+.identity-object-core::before {
+  inset: 14%;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #7c5cff 0%, #1d305f 44%, #0a1327 100%);
+}
+
+.identity-object-core::after {
+  inset: 18% 18% auto 18%;
+  height: 12%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  filter: blur(10px);
+}

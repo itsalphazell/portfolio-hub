@@ -53,6 +53,25 @@ JS_AUDIT_SNIPPET = r"""
 
   const parseColor = (value) => {
     if (!value) return null;
+    const hex = value.trim().match(/^#([0-9a-f]{3,8})$/i);
+    if (hex) {
+      const raw = hex[1];
+      const expand = (chunk) => (chunk.length === 1 ? chunk + chunk : chunk);
+      if (raw.length === 3 || raw.length === 4) {
+        const r = parseInt(expand(raw[0]), 16);
+        const g = parseInt(expand(raw[1]), 16);
+        const b = parseInt(expand(raw[2]), 16);
+        const a = raw.length === 4 ? parseInt(expand(raw[3]), 16) / 255 : 1;
+        return { r, g, b, a };
+      }
+      if (raw.length === 6 || raw.length === 8) {
+        const r = parseInt(raw.slice(0, 2), 16);
+        const g = parseInt(raw.slice(2, 4), 16);
+        const b = parseInt(raw.slice(4, 6), 16);
+        const a = raw.length === 8 ? parseInt(raw.slice(6, 8), 16) / 255 : 1;
+        return { r, g, b, a };
+      }
+    }
     const m = value.replace(/\s+/g, '').match(/rgba?\((\d+),(\d+),(\d+)(?:,(\d*\.?\d+))?\)/i);
     if (!m) return null;
     return {
@@ -73,21 +92,72 @@ JS_AUDIT_SNIPPET = r"""
 
   const contrastRatio = (fg, bg) => {
     if (!fg || !bg) return null;
-    const l1 = luminance(fg);
+    const effectiveFg = fg.a !== undefined && fg.a < 1 ? compositeColors(fg, bg) : fg;
+    const l1 = luminance(effectiveFg);
     const l2 = luminance(bg);
     const lighter = Math.max(l1, l2);
     const darker = Math.min(l1, l2);
     return (lighter + 0.05) / (darker + 0.05);
   };
 
+  const compositeColors = (fg, bg) => {
+    const alpha = fg.a === undefined ? 1 : fg.a;
+    const inverse = 1 - alpha;
+    return {
+      r: Math.round((fg.r * alpha) + (bg.r * inverse)),
+      g: Math.round((fg.g * alpha) + (bg.g * inverse)),
+      b: Math.round((fg.b * alpha) + (bg.b * inverse)),
+      a: 1,
+    };
+  };
+
   const findBackground = (el) => {
+    const layers = [];
     let node = el;
     while (node) {
+      const declared = node.getAttribute && node.getAttribute('data-audit-bg');
+      const declaredColor = parseColor(declared);
+      if (declaredColor && declaredColor.a > 0) layers.push(declaredColor);
       const color = parseColor(window.getComputedStyle(node).backgroundColor);
-      if (color && color.a > 0) return color;
+      if (color && color.a > 0) layers.push(color);
       node = node.parentElement;
     }
-    return { r: 255, g: 255, b: 255, a: 1 };
+    let result = { r: 255, g: 255, b: 255, a: 1 };
+    for (let i = layers.length - 1; i >= 0; i -= 1) {
+      result = compositeColors(layers[i], result);
+    }
+    return result;
+  };
+
+  const getOverlayRoots = (el) => {
+    const roots = [];
+    let node = el;
+    while (node) {
+      if (node.matches && node.matches('[data-audit-overlay-root]')) {
+        roots.push(node);
+      }
+      node = node.parentElement;
+    }
+    return roots;
+  };
+  const sameOverlayRoot = (a, b) => {
+    const rootsA = getOverlayRoots(a);
+    if (!rootsA.length) return false;
+    const rootsB = new Set(getOverlayRoots(b));
+    return rootsA.some((root) => rootsB.has(root));
+  };
+
+  const hasOwnVisibleText = (el) => {
+    const directText = Array.from(el.childNodes || [])
+      .filter((node) => node.nodeType === Node.TEXT_NODE)
+      .map((node) => (node.textContent || '').trim())
+      .join(' ')
+      .trim();
+    if (directText) return true;
+    if (el.childElementCount === 0) {
+      return Boolean((el.textContent || '').trim());
+    }
+    return false;
   };
 
   const overflowHorizontal = document.documentElement.scrollWidth > (window.innerWidth + 2);
@@ -99,7 +169,7 @@ JS_AUDIT_SNIPPET = r"""
     return {
       tag: el.tagName.toLowerCase(),
       size,
-      truncated: el.scrollWidth > el.clientWidth + 1,
+      truncated: !el.closest('[data-audit-ignore-truncation]') && el.scrollWidth > el.clientWidth + 1,
       text: (el.textContent || '').trim().slice(0, 120),
     };
   });
@@ -133,6 +203,7 @@ JS_AUDIT_SNIPPET = r"""
     for (let j = i + 1; j < candidates.length; j += 1) {
       const b = candidates[j];
       if (a.contains(b) || b.contains(a)) continue;
+      if (sameOverlayRoot(a, b)) continue;
       const rb = b.getBoundingClientRect();
       const overlapX = Math.max(0, Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left));
       const overlapY = Math.max(0, Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top));
@@ -145,7 +216,11 @@ JS_AUDIT_SNIPPET = r"""
     if (overlapCount >= 8) break;
   }
 
-  const textCandidates = Array.from(document.querySelectorAll('p,li,a,button,h1,h2,h3,h4,span,strong,label')).filter(isVisible).slice(0, 160);
+  const textCandidates = Array.from(document.querySelectorAll('p,li,a,button,h1,h2,h3,h4,span,strong,label'))
+    .filter(isVisible)
+    .filter((el) => !el.closest('[data-audit-ignore-contrast]'))
+    .filter(hasOwnVisibleText)
+    .slice(0, 160);
   let lowContrastCount = 0;
   for (const el of textCandidates) {
     const style = window.getComputedStyle(el);
@@ -572,9 +647,7 @@ def audit_with_playwright(
                     )
 
                 overlap_count = int(metrics.get("overlap_count") or 0)
-                # Layered premium layouts can generate a handful of benign overlaps.
-                # Keep the warning for noisier pages instead of failing on decorative staging.
-                if overlap_count > 8:
+                if overlap_count > 0:
                     findings.append(
                         build_finding(
                             "overlap-detected",
@@ -611,9 +684,7 @@ def audit_with_playwright(
                     )
 
                 low_contrast_count = int(metrics.get("low_contrast_count") or 0)
-                # Gradient-heavy dark heroes can trigger a handful of false positives
-                # because the heuristic reads simplified backgrounds instead of the full composed scene.
-                if low_contrast_count > 5:
+                if low_contrast_count > 1:
                     findings.append(
                         build_finding(
                             "contrast-low",

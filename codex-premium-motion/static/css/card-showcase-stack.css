@@ -1,0 +1,100 @@
+﻿.card-showcase-stack {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
+  background: #020617;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 40px 120px rgba(2, 6, 23, 0.5);
+}
+
+.card-showcase-stack__eyebrow {
+  display: inline-flex;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.82);
+}
+
+.card-showcase-stack h2 {
+  max-width: 14ch;
+  margin: 1rem 0 0;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 0.96;
+}
+
+.card-showcase-stack__inner {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+@media (min-width: 960px) {
+  .card-showcase-stack__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  }
+}
+
+.card-showcase-stack__stage {
+  position: relative;
+  min-height: 24rem;
+}
+
+.card-showcase-stack__card {
+  position: absolute;
+  left: 0;
+  right: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease;
+}
+
+.card-showcase-stack__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.82);
+}
+
+.card-showcase-stack__card h3 {
+  margin: 0.85rem 0 0;
+  font-size: 1.65rem;
+}
+
+.card-showcase-stack__card p {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(226, 232, 240, 0.76);
+}
+
+.card-showcase-stack__controls {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.card-showcase-stack__controls button {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem 1.25rem;
+  color: #fff;
+  text-align: left;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.card-showcase-stack__controls button.is-active,
+.card-showcase-stack__controls button:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+}

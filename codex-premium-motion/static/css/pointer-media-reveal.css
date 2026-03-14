@@ -1,0 +1,121 @@
+﻿.pointer-media-reveal {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
+  background: #020617;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 40px 120px rgba(2, 6, 23, 0.5);
+}
+
+.pointer-media-reveal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(99, 102, 241, 0.16), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.14), transparent 38%);
+}
+
+.pointer-media-reveal__inner {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 960px) {
+  .pointer-media-reveal__inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+  }
+}
+
+.pointer-media-reveal__list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pointer-media-reveal__button {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem 1.25rem;
+  color: #e2e8f0;
+  text-align: left;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.pointer-media-reveal__button.is-active,
+.pointer-media-reveal__button:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pointer-media-reveal__button span {
+  display: block;
+}
+
+.pointer-media-reveal__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.82);
+}
+
+.pointer-media-reveal__title {
+  margin-top: 0.55rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.pointer-media-reveal__stage {
+  position: relative;
+  min-height: 24rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.pointer-media-reveal__background,
+.pointer-media-reveal__focus {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pointer-media-reveal__background {
+  opacity: 0.3;
+}
+
+.pointer-media-reveal__focus-shell {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 13rem;
+  height: 13rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 20px 80px rgba(15, 23, 42, 0.55);
+}
+
+.pointer-media-reveal__footer {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(2, 6, 23, 0.94), rgba(2, 6, 23, 0.7), transparent);
+}
+
+.pointer-media-reveal__body {
+  margin-top: 0.55rem;
+  max-width: 34rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(226, 232, 240, 0.76);
+}

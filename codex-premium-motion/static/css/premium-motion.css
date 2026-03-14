@@ -1,0 +1,28 @@
+.premium-motion-hero {
+  max-width: 52rem;
+  padding: 4rem 1.5rem;
+}
+
+.premium-kicker {
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.premium-motion-hero h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 7vw, 5.75rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  color: #f8fafc;
+}
+
+.premium-copy {
+  max-width: 38rem;
+  margin-top: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(248, 250, 252, 0.72);
+}

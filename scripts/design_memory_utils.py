@@ -23,7 +23,7 @@ DEFAULT_THRESHOLDS = {
 }
 
 PROFILE_CHOICES = {"general", "app-saas", "marketing-landing"}
-MODE_CHOICES = {"standard", "premium-web"}
+MODE_CHOICES = {"standard", "premium-web", "premium-immersive"}
 COMPONENT_CHOICES = {"hero", "navbar", "card", "pricing", "faq", "section", "page", "other"}
 
 STOP_WORDS = {

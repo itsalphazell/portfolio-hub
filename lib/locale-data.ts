@@ -1,4 +1,4 @@
-import type { HomeMode, Locale, ProjectShowcase, ServiceCard } from "@/lib/types";
+import type { HomeMode, HomeStageChapter, Locale, ProjectShowcase, ServiceCard } from "@/lib/types";
 
 export const localeOptions: Array<{ value: Locale; label: string }> = [
   { value: "en", label: "EN" },
@@ -10,16 +10,16 @@ export const siteShellCopy = {
     nav: { home: "Home", work: "Work", contact: "Contact" },
     cta: "Start a project",
     ctaMobile: "Contact",
-    strapline: "UI, UX & product engineering",
-    footerLine: "Design-led products, launches, and digital systems.",
+    strapline: "Design-led websites and product systems",
+    footerLine: "Design-led websites, launches, and product systems built to scan fast and ship cleanly.",
     languageLabel: "Language",
   },
   fr: {
     nav: { home: "Accueil", work: "Projets", contact: "Contact" },
     cta: "Demarrer un projet",
     ctaMobile: "Contact",
-    strapline: "UI, UX et ingenierie produit",
-    footerLine: "Sites, produits et experiences digitales, du cadrage a la mise en ligne.",
+    strapline: "Sites design-led et systemes produit",
+    footerLine: "Sites, lancements et systemes produit penses pour se lire vite et s'executer proprement.",
     languageLabel: "Langue",
   },
 } as const;
@@ -33,6 +33,10 @@ export const homeCopy = {
       "I design and build launches, product UI, and digital systems that need sharper message hierarchy, stronger interaction logic, and a cleaner production path.",
     heroPrimaryCta: "Browse case studies",
     heroSecondaryCta: "Discuss a project",
+    stageNarrativeKicker: "Canvas scroll narrative",
+    stageNarrativeTitle: "One immersive stage. Four very different kinds of digital work.",
+    stageNarrativeBody:
+      "The first scroll is stage-led on purpose. Each chapter changes the reading of the same scene, then hands off to clearer proof, featured work, and a cleaner archive.",
     capabilities: [
       { label: "Launches", body: "Rebrands and public pages that sell faster and feel more considered." },
       { label: "Products", body: "Dashboards, onboarding, and analytics with real interface depth." },
@@ -59,6 +63,7 @@ export const homeCopy = {
     commandStageLabel: "Command stage",
     currentRegisterLabel: "Current register",
     linkedCaseLabel: "Linked case",
+    linkedCaseCta: "Open case study",
     finalKicker: "Next step",
     finalTitle: "If the project needs stronger direction and sharper execution, I can help shape it.",
     finalBody:
@@ -74,6 +79,10 @@ export const homeCopy = {
       "Je concois et je realise des sites, des lancements et des interfaces produit quand le message doit gagner en clarte, l'experience en precision et la livraison en solidite.",
     heroPrimaryCta: "Voir les etudes de cas",
     heroSecondaryCta: "Discuter du projet",
+    stageNarrativeKicker: "Narration canvas",
+    stageNarrativeTitle: "Une seule scene immersive. Quatre registres de travail tres differents.",
+    stageNarrativeBody:
+      "Le premier scroll est volontairement pilote par la scene. Chaque chapitre change la lecture du meme stage, puis laisse la place a la preuve, aux projets et a une archive plus claire.",
     capabilities: [
       { label: "Lancements", body: "Refontes et pages publiques qui clarifient l'offre et renforcent la desirabilite." },
       { label: "Produits", body: "Tableaux de bord, onboarding et analytics qui paraissent solides, pas simplement jolis." },
@@ -100,6 +109,7 @@ export const homeCopy = {
     commandStageLabel: "Scene directrice",
     currentRegisterLabel: "Registre actif",
     linkedCaseLabel: "Projet associe",
+    linkedCaseCta: "Ouvrir l'etude de cas",
     finalKicker: "Etape suivante",
     finalTitle: "Si le projet a besoin de plus de direction et d'une execution plus juste, je peux aider.",
     finalBody:
@@ -132,7 +142,7 @@ export const servicesByLocale: Record<Locale, ServiceCard[]> = {
   ],
   fr: [
     {
-      title: "Landing / repositionnement",
+      title: "Landing / refonte",
       deliverable: "Des pages publiques plus nettes pour des marques de service, des lancements et des repositionnements qui sous-vendent encore leur vraie valeur.",
       fit: "A viser quand le business est solide mais que le site parait date, trop generique ou trop faible sur la confiance et la hierarchie CTA.",
       ctaLabel: "Recaler le signal public",
@@ -195,6 +205,85 @@ export const processStepsByLocale = {
     },
   ],
 } as const;
+
+export const homeStageChaptersByLocale: Record<Locale, HomeStageChapter[]> = {
+  en: [
+    {
+      slug: "coconut-paradise-spa",
+      chapter: "01",
+      chapterLabel: "Hospitality brand",
+      headline: "Atmosphere, trust, and booking clarity can live in the same premium surface.",
+      body:
+        "This chapter is about quiet luxury without vagueness. The public face still needs to sell, reassure, and move people toward action.",
+      valueCue: "Hospitality-led trust and multilingual clarity.",
+    },
+    {
+      slug: "animaidstudioai",
+      chapter: "02",
+      chapterLabel: "AI-oriented conversion",
+      headline: "A product landing should collapse the path from curiosity to paid action.",
+      body:
+        "The surface stays focused on one conversion loop: input, preview, unlock. The scene shifts, but the selling logic stays sharp.",
+      valueCue: "Single CTA path with cleaner monetization framing.",
+    },
+    {
+      slug: "dashboard-meta",
+      chapter: "03",
+      chapterLabel: "Analytics app",
+      headline: "Operator software needs denser reading, stronger hierarchy, and less presentation fluff.",
+      body:
+        "This chapter shows the more operational side of the portfolio: analytics, alerts, and profit reading that already behave like a real product.",
+      valueCue: "Shipped analytics product with live operator depth.",
+    },
+    {
+      slug: "signal-desk",
+      chapter: "04",
+      chapterLabel: "Interactive prototype",
+      headline: "A convincing prototype should already feel explorable before the backend is live.",
+      body:
+        "The goal here is not fake polish. It is product rhythm, state depth, and enough interaction logic to make the concept believable.",
+      valueCue: "Interactive product prototype with credible state behavior.",
+    },
+  ],
+  fr: [
+    {
+      slug: "coconut-paradise-spa",
+      chapter: "01",
+      chapterLabel: "Marque hospitality",
+      headline: "Atmosphere, confiance et clarte de reservation peuvent cohabiter dans une meme surface premium.",
+      body:
+        "Ce chapitre traite d'un luxe sobre, sans flou. La facade publique doit rester desirable, rassurante et orientee vers l'action.",
+      valueCue: "Confiance hospitality et clarte multilingue.",
+    },
+    {
+      slug: "animaidstudioai",
+      chapter: "02",
+      chapterLabel: "Conversion IA",
+      headline: "Une landing produit doit raccourcir le chemin entre la curiosite et l'action payante.",
+      body:
+        "La surface reste concentree sur une seule boucle de conversion : entree, apercu, deblocage. La scene evolue, mais la logique de vente reste nette.",
+      valueCue: "Un seul chemin CTA avec une monetisation plus propre.",
+    },
+    {
+      slug: "dashboard-meta",
+      chapter: "03",
+      chapterLabel: "Application analytics",
+      headline: "Un logiciel operateur demande plus de densite de lecture, une hierarchie plus dure et moins d'esbroufe.",
+      body:
+        "Ce chapitre montre la facette la plus operationnelle du portfolio : analytics, alertes et lecture du profit qui se comportent deja comme un vrai produit.",
+      valueCue: "Produit analytics livre avec une vraie profondeur operateur.",
+    },
+    {
+      slug: "signal-desk",
+      chapter: "04",
+      chapterLabel: "Prototype interactif",
+      headline: "Un prototype convaincant doit deja se laisser explorer avant meme que le backend soit actif.",
+      body:
+        "Ici, l'objectif n'est pas une belle facade. C'est un rythme produit, des etats credibles et assez de logique d'interface pour rendre le concept convaincant.",
+      valueCue: "Prototype produit interactif avec de vrais etats credibles.",
+    },
+  ],
+};
 
 export const homeModesByLocale: Record<Locale, HomeMode[]> = {
   en: [
@@ -398,15 +487,15 @@ export const homeModesByLocale: Record<Locale, HomeMode[]> = {
 export const workPageCopy = {
   en: {
     kicker: "Work archive",
-    title: "Case studies that show both taste and execution.",
+    title: "A curated archive of shipped work and product-facing concepts.",
     body:
-      "The archive stays selective on purpose. Each project proves a different register: hospitality storytelling, conversion-led product landing, a shipped analytics app, and an interactive product prototype.",
+      "The archive stays selective on purpose. Each case shows a different register, but the same standard of hierarchy, motion discipline, and production-minded implementation.",
   },
   fr: {
     kicker: "Archive des projets",
-    title: "Des projets qui montrent a la fois l'exigence et la realisation.",
+    title: "Une archive curatoriale de projets livres et de concepts produits.",
     body:
-      "L'archive reste volontairement selective. Chaque projet montre un registre distinct : marque de service, landing produit orientee conversion, application analytics deja en ligne et prototype produit interactif.",
+      "L'archive reste volontairement selective. Chaque projet montre un registre distinct, avec un meme niveau d'exigence sur la hierarchie, la motion et la qualite d'execution.",
   },
 } as const;
 
@@ -478,17 +567,17 @@ export const projectTagLabels = {
 export const contactPageCopy = {
   en: {
     kicker: "Contact",
-    title: "If the next release needs a stronger website or product experience, start here.",
+    title: "If the next release needs stronger direction, cleaner execution, or a sharper surface, start here.",
     body:
-      "I take on selective freelance work across design-led websites, product surfaces, and digital systems. The fastest path is to send the current product, the business goal, and where the experience is underperforming.",
+      "I take on selective freelance work across design-led websites, product surfaces, and digital systems. The fastest path is to share the current product, the commercial goal, and where the experience is still underperforming.",
     primaryContact: "Primary contact",
     bookCall: "Book a call",
   },
   fr: {
     kicker: "Contact",
-    title: "Si la prochaine version a besoin d'un meilleur site ou d'une meilleure experience produit, c'est ici que cela commence.",
+    title: "Si la prochaine version a besoin de plus de direction, d'une meilleure execution ou d'une surface plus juste, c'est ici que cela commence.",
     body:
-      "Je prends des missions freelance selectives autour de sites pilotes par le design, de surfaces produit et de systemes digitaux. Le plus simple est d'envoyer le produit actuel, l'objectif business et l'endroit ou l'experience perd en clarte ou en performance.",
+      "Je prends des missions freelance selectives autour de sites pilotes par le design, de surfaces produit et de systemes digitaux. Le plus simple est d'envoyer le produit actuel, l'objectif commercial et l'endroit ou l'experience perd encore en clarte ou en performance.",
     primaryContact: "Contact principal",
     bookCall: "Planifier un appel",
   },
@@ -509,7 +598,7 @@ export const caseStudyCopy = {
     status: "Status",
     stack: "Stack",
     readingLens: "Reading lens",
-    readingTitle: "A sellable project story, not just a build log.",
+    readingTitle: "A client-facing project story, not just a build log.",
     readingBody:
       "Each case study is structured to show the business problem, the interface system, and the implementation decisions behind the outcome.",
     structureTitle: "Case structure",
@@ -518,7 +607,7 @@ export const caseStudyCopy = {
     structureBodyTwo:
       "That makes it easier to compare different project types without losing the business story behind the visuals.",
     nextMove: "Next move",
-    nextTitle: "If you need the same standard on a real product, website, or redesign, let's talk.",
+    nextTitle: "If the next product, launch, or redesign needs the same standard, let's talk.",
     nextBody:
       "I work on projects that need stronger interface direction, better interaction quality, and cleaner delivery from concept through implementation.",
     nextPrimaryCta: "Discuss a project",
@@ -543,7 +632,7 @@ export const caseStudyCopy = {
     status: "Statut",
     stack: "Stack",
     readingLens: "Angle de lecture",
-    readingTitle: "Une etude de cas qui se vend, pas un simple journal de conception.",
+    readingTitle: "Une etude de cas pensee pour un client, pas un simple journal de conception.",
     readingBody:
       "Chaque etude de cas est structuree pour montrer le probleme business, le systeme d'interface et les decisions d'implementation qui soutiennent le resultat.",
     structureTitle: "Structure",
@@ -552,7 +641,7 @@ export const caseStudyCopy = {
     structureBodyTwo:
       "Cela permet de comparer des types de projets differents sans perdre l'histoire business derriere les visuels.",
     nextMove: "Suite logique",
-    nextTitle: "Si vous cherchez ce niveau d'exigence pour un vrai produit, un site ou une refonte, parlons-en.",
+    nextTitle: "Si le prochain produit, site ou redesign demande ce niveau d'exigence, parlons-en.",
     nextBody:
       "J'interviens sur des projets qui ont besoin d'une direction d'interface plus nette, d'interactions mieux pensees et d'une execution plus propre du concept a l'implementation.",
     nextPrimaryCta: "Discuter du projet",

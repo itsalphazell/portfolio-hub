@@ -1,0 +1,177 @@
+.cyber-terminal-hero {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  color: #fff;
+  background:
+    radial-gradient(circle at top, rgba(34, 211, 238, 0.14), transparent 40%),
+    #050816;
+}
+
+@media (min-width: 960px) {
+  .cyber-terminal-hero {
+    grid-template-columns: minmax(0, 0.95fr) minmax(22rem, 0.88fr);
+    min-height: min(100vh, 920px);
+  }
+}
+
+.cyber-terminal-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.1);
+  color: #b6f6ff;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.cyber-terminal-hero__copy h1 {
+  max-width: 11ch;
+  margin: 1.4rem 0 0;
+  font-size: clamp(3rem, 8vw, 5.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.cyber-terminal-hero__copy p {
+  max-width: 42rem;
+  margin: 1.4rem 0 0;
+  color: #c7d2fe;
+  line-height: 1.85;
+}
+
+.cyber-terminal-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.cyber-terminal-hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.cyber-terminal-hero__button--primary {
+  border-color: transparent;
+  background: #67e8f9;
+  color: #020617;
+  font-weight: 700;
+}
+
+.cyber-terminal-hero__metrics {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .cyber-terminal-hero__metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cyber-terminal-hero__metrics div {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cyber-terminal-hero__metrics span {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.cyber-terminal-hero__metrics strong {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.6rem;
+}
+
+.cyber-terminal-hero__panel {
+  overflow: hidden;
+  padding: 1.25rem;
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at top, rgba(34, 211, 238, 0.16), transparent 40%),
+    linear-gradient(180deg, rgba(5, 8, 22, 0.98), rgba(3, 7, 18, 0.94));
+  box-shadow: 0 40px 120px rgba(2, 6, 23, 0.72);
+}
+
+.cyber-terminal-hero__window {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.65rem;
+}
+
+.cyber-terminal-hero__window span {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+}
+
+.cyber-terminal-hero__window span:nth-child(1) { background: #fb7185; }
+.cyber-terminal-hero__window span:nth-child(2) { background: #fbbf24; }
+.cyber-terminal-hero__window span:nth-child(3) { background: #4ade80; }
+.cyber-terminal-hero__window small { margin-left: auto; }
+
+.cyber-terminal-hero__terminal {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  background: #020617;
+}
+
+.cyber-terminal-hero__line {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background:
+    linear-gradient(110deg, transparent 0%, transparent 30%, rgba(34, 211, 238, 0.16) 48%, transparent 64%, transparent 100%),
+    rgba(255, 255, 255, 0.03);
+  background-repeat: no-repeat;
+  background-size: 220% 100%;
+  background-position-x: -120%;
+  color: #dbeafe;
+  animation: cyber-terminal-line 3.6s linear infinite;
+}
+
+.cyber-terminal-hero__line:nth-child(2) { animation-delay: 0.15s; }
+.cyber-terminal-hero__line:nth-child(3) { animation-delay: 0.3s; }
+.cyber-terminal-hero__line:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes cyber-terminal-line {
+  from { background-position-x: -120%; }
+  to { background-position-x: 160%; }
+}

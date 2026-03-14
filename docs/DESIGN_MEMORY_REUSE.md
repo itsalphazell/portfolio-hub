@@ -51,3 +51,4 @@ python scripts/design_memory_add_entry.py --root . --provider 21st --query "Drea
 1. This kit does not sync Magic Console history automatically.
 2. Import legacy generations manually with `design_memory_add_entry.py`.
 3. Use `--force-generate` only when reuse is clearly not suitable.
+4. `--mode` also accepts `premium-immersive` for immersive-tier projects.

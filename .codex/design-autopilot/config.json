@@ -3,6 +3,11 @@
   "key_pages": [
     "/",
     "/work",
-    "/contact"
+    "/contact",
+    "/work/dashboard-meta"
+  ],
+  "viewports": [
+    "desktop",
+    "mobile"
   ]
 }

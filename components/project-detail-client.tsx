@@ -29,32 +29,34 @@ export function ProjectDetailClient({
   return (
     <SiteShell>
       <main className="page-shell space-y-12 pb-12 pt-12">
-        <section className="relative overflow-hidden rounded-[2.6rem] border border-[rgba(22,17,13,0.08)] px-6 py-8 soft-grid md:px-10 md:py-10">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(255,255,255,0.88),rgba(255,247,239,0.68))]" />
+        <section
+          className="case-study-hero-shell relative overflow-hidden rounded-[2.6rem] border border-[rgba(38,54,108,0.12)] px-6 py-8 md:px-10 md:py-10"
+          data-audit-bg="rgba(7,16,43,1)"
+        >
           <div className="grid gap-8 xl:grid-cols-[1.16fr_0.84fr] xl:items-end">
             <div className="space-y-6">
               <div className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.16em] text-muted">
-                <span className="rounded-full border border-[rgba(22,17,13,0.08)] bg-white/84 px-3 py-1.5">
+                <span className="rounded-full border border-white/12 bg-white/8 px-3 py-1.5 text-white/84">
                   {project.type === "concept" ? copy.conceptCase : copy.shippedCase}
                 </span>
-                <span className="rounded-full border border-[rgba(22,17,13,0.08)] bg-white/84 px-3 py-1.5">
+                <span className="rounded-full border border-white/12 bg-white/8 px-3 py-1.5 text-white/84">
                   {project.industry}
                 </span>
-                <span className="rounded-full border border-[rgba(22,17,13,0.08)] bg-white/84 px-3 py-1.5">
+                <span className="rounded-full border border-white/12 bg-white/8 px-3 py-1.5 text-white/84">
                   {project.status}
                 </span>
               </div>
 
               <div className="space-y-5">
-                <p className="section-kicker">{copy.topKicker}</p>
-                <h1 className="section-title max-w-4xl">{project.title}</h1>
-                <p className="max-w-3xl text-lg leading-8 text-muted">{project.summary}</p>
+                <p className="hero-dark-kicker">{copy.topKicker}</p>
+                <h1 className="section-title max-w-4xl text-white">{project.title}</h1>
+                <p className="max-w-3xl text-lg leading-8 text-white/78">{project.summary}</p>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
-                    className="rounded-full border border-[rgba(16,36,95,0.14)] bg-[rgba(16,36,95,0.94)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white"
+                    className="rounded-full border border-white/12 bg-[rgba(12,20,45,0.72)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white"
                     key={tag}
                   >
                     {tagLabels[tag as keyof typeof tagLabels] ?? tag}
@@ -65,7 +67,7 @@ export function ProjectDetailClient({
               <div className="flex flex-wrap gap-3">
                 {project.liveUrl ? (
                   <Link
-                    className="inline-flex cursor-pointer items-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-[rgb(255_255_255)]"
+                    className="inline-flex cursor-pointer items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink"
                     href={project.liveUrl}
                     rel="noreferrer"
                     target="_blank"
@@ -75,7 +77,7 @@ export function ProjectDetailClient({
                 ) : null}
                 {project.repoUrl ? (
                   <Link
-                    className="inline-flex cursor-pointer items-center rounded-full border border-[rgba(22,17,13,0.12)] bg-white/80 px-5 py-3 text-sm font-semibold text-ink"
+                    className="inline-flex cursor-pointer items-center rounded-full border border-white/16 bg-white/8 px-5 py-3 text-sm font-semibold text-white"
                     href={project.repoUrl}
                     rel="noreferrer"
                     target="_blank"
@@ -84,7 +86,7 @@ export function ProjectDetailClient({
                   </Link>
                 ) : null}
                 <Link
-                  className="inline-flex cursor-pointer items-center rounded-full border border-[rgba(22,17,13,0.12)] bg-white/70 px-5 py-3 text-sm font-semibold text-ink"
+                  className="inline-flex cursor-pointer items-center rounded-full border border-white/16 bg-white/8 px-5 py-3 text-sm font-semibold text-white"
                   href="/contact"
                 >
                   {copy.discussSimilar}
@@ -92,44 +94,44 @@ export function ProjectDetailClient({
               </div>
             </div>
 
-            <div className="glass-panel rounded-[2.1rem] p-6 md:p-7">
+            <div className="case-study-side-panel rounded-[2.1rem] p-6 md:p-7">
               <div className="space-y-5">
-                <div className="flex items-center justify-between text-sm text-muted">
+                <div className="flex items-center justify-between text-sm text-white/70">
                   <span>{copy.projectFrame}</span>
                   <span>{project.type === "concept" ? copy.portfolioConcept : copy.clientDelivery}</span>
                 </div>
-                <div className="rounded-[1.55rem] bg-[rgba(16,36,95,0.95)] p-5 text-white shadow-[var(--shadow-strong)]">
+                <div className="rounded-[1.55rem] bg-[rgba(255,255,255,0.08)] p-5 text-white shadow-[var(--shadow-strong)]">
                   <p className="text-xs uppercase tracking-[0.16em] text-white/84">{copy.outcomeFrame}</p>
                   <p className="mt-3 font-display text-3xl leading-[0.98]">{copy.outcomeBody}</p>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-[1.4rem] bg-white/90 p-5">
-                    <p className="text-xs uppercase tracking-[0.16em] text-muted">{copy.industry}</p>
-                    <p className="mt-2 text-sm leading-7 text-ink">{project.industry}</p>
+                  <div className="rounded-[1.4rem] bg-white/8 p-5">
+                    <p className="text-xs uppercase tracking-[0.16em] text-white/58">{copy.industry}</p>
+                    <p className="mt-2 text-sm leading-7 text-white">{project.industry}</p>
                   </div>
-                  <div className="rounded-[1.4rem] bg-white/90 p-5">
-                    <p className="text-xs uppercase tracking-[0.16em] text-muted">{copy.status}</p>
-                    <p className="mt-2 text-sm leading-7 text-ink">{project.status}</p>
+                  <div className="rounded-[1.4rem] bg-white/8 p-5">
+                    <p className="text-xs uppercase tracking-[0.16em] text-white/58">{copy.status}</p>
+                    <p className="mt-2 text-sm leading-7 text-white">{project.status}</p>
                   </div>
                 </div>
                 {projectMetrics.length ? (
                   <div className="grid gap-3 sm:grid-cols-3">
                     {projectMetrics.map((metric) => (
                       <div
-                        className="rounded-[1.35rem] border border-[rgba(22,17,13,0.08)] bg-white/86 p-4"
+                        className="rounded-[1.35rem] border border-white/10 bg-white/7 p-4"
                         key={metric.label}
                       >
-                        <p className="text-[11px] uppercase tracking-[0.18em] text-muted">{metric.label}</p>
-                        <p className="mt-3 font-display text-2xl leading-none text-ink">{metric.value}</p>
+                        <p className="text-[11px] uppercase tracking-[0.18em] text-white/58">{metric.label}</p>
+                        <p className="mt-3 font-display text-2xl leading-none text-white">{metric.value}</p>
                       </div>
                     ))}
                   </div>
                 ) : null}
                 <div>
-                  <p className="text-xs uppercase tracking-[0.16em] text-muted">{copy.stack}</p>
+                  <p className="text-xs uppercase tracking-[0.16em] text-white/58">{copy.stack}</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {project.stack.map((entry) => (
-                      <span className="rounded-full border border-[rgba(22,17,13,0.1)] px-3 py-1.5 text-sm" key={entry}>
+                      <span className="rounded-full border border-white/12 bg-white/7 px-3 py-1.5 text-sm text-white/88" key={entry}>
                         {entry}
                       </span>
                     ))}
@@ -163,7 +165,10 @@ export function ProjectDetailClient({
           </article>
         </section>
 
-        <section className="rounded-[2.3rem] border border-[rgba(22,17,13,0.08)] bg-[#14100d] bg-[linear-gradient(135deg,#14100d,#2a221c_55%,#10245f)] px-6 py-8 text-white md:px-8 md:py-10">
+        <section
+          className="signature-cta-shell rounded-[2.3rem] border border-[rgba(22,17,13,0.08)] px-6 py-8 text-white md:px-8 md:py-10"
+          data-audit-bg="rgba(10,17,47,1)"
+        >
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/90">{copy.nextMove}</p>

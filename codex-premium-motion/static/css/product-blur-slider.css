@@ -1,0 +1,128 @@
+﻿.product-blur-slider {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
+  background: #050816;
+  padding: 2rem;
+  color: #fff;
+  box-shadow: 0 40px 140px rgba(2, 6, 23, 0.55);
+}
+
+.product-blur-slider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.2), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.16), transparent 40%);
+}
+
+.product-blur-slider__inner {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .product-blur-slider__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    min-height: 34rem;
+  }
+}
+
+.product-blur-slider__copy {
+  max-width: 34rem;
+}
+
+.product-blur-slider__eyebrow {
+  display: inline-flex;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.82);
+}
+
+.product-blur-slider__title {
+  margin: 1rem 0 0.5rem;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 0.94;
+}
+
+.product-blur-slider__description {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.74);
+  line-height: 1.8;
+}
+
+.product-blur-slider__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.product-blur-slider__price {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.product-blur-slider__cta,
+.product-blur-slider__nav button {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-blur-slider__cta {
+  padding: 0.9rem 1.35rem;
+}
+
+.product-blur-slider__nav {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.product-blur-slider__nav button {
+  padding: 0.75rem 1rem;
+}
+
+.product-blur-slider__stage {
+  position: relative;
+  min-height: 22rem;
+}
+
+.product-blur-slider__slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 700ms ease, filter 700ms ease;
+}
+
+.product-blur-slider__halo {
+  position: absolute;
+  inset: 2.5rem;
+  border-radius: 999px;
+  filter: blur(64px);
+  opacity: 0.2;
+}
+
+.product-blur-slider__slide img {
+  position: relative;
+  max-width: min(22rem, 72%);
+  border-radius: 1.5rem;
+  object-fit: cover;
+  box-shadow: 0 35px 120px rgba(2, 6, 23, 0.45);
+}

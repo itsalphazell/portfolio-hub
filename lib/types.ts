@@ -64,3 +64,12 @@ export interface HomeMode {
   cues: string[];
   modules: Array<{ label: string; value: string }>;
 }
+
+export interface HomeStageChapter {
+  slug: string;
+  chapter: string;
+  chapterLabel: string;
+  headline: string;
+  body: string;
+  valueCue: string;
+}

@@ -34,15 +34,15 @@ export function WorkArchive({ projectsByLocale }: WorkArchiveProps) {
 
   return (
     <div className="space-y-8">
-      <div className="flex flex-wrap gap-3">
+      <div className="work-filter-shell flex flex-wrap gap-3 rounded-[1.8rem] border border-[rgba(22,17,13,0.08)] bg-white/80 p-4 shadow-[0_18px_42px_rgba(18,15,12,0.06)]">
         {filterOrder.map((filter) => (
           <button
             aria-pressed={activeFilter === filter}
             className={clsx(
               "cursor-pointer rounded-full px-4 py-2 text-sm font-semibold capitalize transition-colors duration-200",
               activeFilter === filter
-                ? "bg-ink text-white"
-                : "border border-[rgba(22,17,13,0.12)] bg-white/80 text-muted hover:text-ink",
+                ? "bg-ink text-white shadow-[0_14px_28px_rgba(12,20,45,0.12)]"
+                : "border border-[rgba(22,17,13,0.12)] bg-white text-muted hover:text-ink",
             )}
             key={filter}
             onClick={() => setActiveFilter(filter)}

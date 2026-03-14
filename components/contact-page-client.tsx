@@ -19,7 +19,7 @@ export function ContactPageClient() {
   return (
     <SiteShell>
       <main className="page-shell space-y-10 pb-12 pt-12">
-        <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <section className="contact-hero-shell grid gap-8 overflow-hidden rounded-[2.6rem] border border-[rgba(63,91,170,0.12)] px-6 py-8 md:px-8 md:py-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-5">
             <p className="section-kicker">{copy.kicker}</p>
             <h1 className="section-title max-w-4xl">{copy.title}</h1>
@@ -69,21 +69,21 @@ export function ContactPageClient() {
           </div>
         </section>
 
-        <section className="grid gap-5">
+        <section className="grid gap-5 md:grid-cols-3">
           {services.map((service) => (
             <article
-              className="rounded-[1.8rem] border border-[rgba(22,17,13,0.08)] bg-white/80 p-6 shadow-[0_18px_42px_rgba(18,15,12,0.07)]"
+              className="service-stage-card rounded-[1.8rem] border p-6 shadow-[0_18px_42px_rgba(18,15,12,0.07)]"
               key={service.title}
             >
-              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <div className="space-y-2">
-                  <h2 className="font-display text-3xl leading-none text-ink">{service.title}</h2>
-                  <p className="max-w-3xl text-base leading-7 text-muted">{service.deliverable}</p>
-                  <p className="max-w-3xl text-sm leading-7 text-muted">{service.fit}</p>
-                </div>
-                <span className="rounded-full border border-[rgba(16,36,95,0.22)] bg-accent-deep px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+              <div className="space-y-4">
+                <span className="inline-flex rounded-full border border-[rgba(16,36,95,0.12)] bg-white/84 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-deep">
                   {service.ctaLabel}
                 </span>
+                <div className="space-y-2">
+                  <h2 className="font-display text-3xl leading-none text-ink">{service.title}</h2>
+                  <p className="text-base leading-7 text-muted">{service.deliverable}</p>
+                  <p className="text-sm leading-7 text-muted">{service.fit}</p>
+                </div>
               </div>
             </article>
           ))}

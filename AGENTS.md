@@ -38,62 +38,51 @@
    - visual identity is consistent across sections
    - the result feels premium rather than noisy
 14. A `premium-web` overlay may extend these rules with Stitch MCP, 21st Magic MCP, and bolder visual exploration while preserving message clarity.
-15. After UI edits, run Playwright smoke checks before push, then CI full checks before merge.
-16. Keep auto-correction bounded:
+15. A `premium-immersive` overlay may add GSAP, ScrollTrigger, and React Three Fiber for one cinematic hero or showcase moment when the project justifies it.
+16. After UI edits, run Playwright smoke checks before push, then CI full checks before merge.
+17. Keep auto-correction bounded:
    - max 2 local smoke autofix iterations
    - max 3 autopilot iterations
    - stop immediately on no-diff
-17. Prioritize readability, CTA clarity, accessibility, and performance over decorative effects during auto-fixes.
-18. If autopilot changes are generated, publish only through branch + PR.
+18. Prioritize readability, CTA clarity, accessibility, and performance over decorative effects during auto-fixes.
+19. If autopilot changes are generated, publish only through branch + PR.
 
-## Premium Web Design Mode
+## Premium Immersive Design Mode
 
-When `premium-web` mode is active:
+When `premium-immersive` mode is active:
 
-1. Keep `ui-ux-pro-max` as the primary visual authority.
-2. Use Stitch MCP to explore full page structures, screen concepts, section rhythm, and higher-end landing composition.
-3. Use 21st Magic MCP as a secondary source for polished components, sections, and faster visual exploration.
-4. Use React Bits for selected visual moments:
-   - hero sections
-   - animated backgrounds
-   - standout showcases
-   - text emphasis
-5. Treat React Bits as adaptable source material. Pull in only the pieces that strengthen the page, then harmonize them with the project's typography, spacing, motion language, and conversion structure.
-6. Deliberately push for:
-   - stronger identity
-   - richer motion
-   - more memorable layout structure
-   - premium landing composition
-   - clearer visual drama without hurting readability
-7. Keep one strong visual idea per page rather than stacking many effects.
-8. Never merge multiple UI systems without harmonizing:
-   - typography
-   - spacing
-   - color
-   - motion
-   - surface treatment
-9. Avoid:
-   - noisy effect stacking
-   - generic SaaS landing output
-   - decorative gimmicks that dilute message clarity
-10. Preserve conversion clarity, CTA hierarchy, and fast mobile scanning.
-11. If a React Bits pattern weakens message clarity, slows the page, or muddies CTA hierarchy, simplify it or discard it.
-12. Apply a reuse-first policy before generating new paid variants:
-   - check existing Stitch screens/variants for a reusable candidate
-   - check existing 21st-generated components/snippets already in the repo
-   - generate new variants only if no existing option can be adapted cleanly
-   - run `python scripts/design_reuse_guard.py ...` before any `21st_magic_component_builder` call
-   - if result is `reuse_required` and no explicit `--force-generate`, do not generate
-13. If external generated ideas weaken the offer or trust signals, simplify or discard them.
-14. `Nano Banana Pro` is allowed as a secondary visual exploration tool for:
-   - hero concept imagery
-   - campaign atmosphere
-   - section mood references
-   - visual storytelling support
-15. Use it to strengthen emotional impact and brand world, not to replace message clarity, conversion structure, or design-system coherence.
-16. Run Playwright visual checks after premium changes to confirm CTA clarity, mobile scanning, contrast, and motion behavior.
-17. Keep auto-fix bounded:
+1. Keep `ui-ux-pro-max` as the primary visual authority for brand, typography, spacing, and conversion structure.
+2. Use `premium-motion-system` for text choreography and section pacing so the page still reads like a premium landing page, not only a demo.
+3. Use `immersive-3d-pipeline` for asset prep, lighting, camera, and mobile degradation decisions.
+4. Use `premium-immersive-qa` as the acceptance layer for CTA visibility, reduced motion, and mobile fallback quality.
+5. Use GSAP for premium motion choreography and timeline control.
+6. Use ScrollTrigger through GSAP for scrollytelling, reveal orchestration, and section staging.
+7. Use React Three Fiber only for isolated 3D moments:
+   - hero stage
+   - intro sequence
+   - one showcase section
+8. Treat 3D as art direction, not as the default page rendering layer.
+9. React Bits may still be used for supporting motion or accent moments, but it is not the foundation of immersive work.
+10. Stitch MCP and 21st Magic MCP remain valid for layout and component exploration, but not as the authority for premium 3D direction.
+11. One spectacle moment per page is the default. Do not stack several competing immersive sections.
+12. Protect conversion clarity at all times:
+   - primary CTA remains visible and understandable
+   - message hierarchy stays readable
+   - trust blocks still scan quickly on mobile
+13. Shader and smooth-scroll packs are optional extensions. Physics and postfx remain explicit opt-ins only.
+14. Require reduced-motion fallbacks for immersive sections.
+15. Require lazy loading or code-splitting for 3D scenes and heavy motion bundles.
+16. Provide a simplified mobile fallback when the full immersive experience would hurt performance or readability.
+17. If an immersive effect hurts performance, clarity, or accessibility, simplify it or remove it.
+18. Prefer one memorable world-building idea over a collection of disconnected effects.
+19. Use Playwright checks after immersive changes to confirm:
+   - CTA visibility
+   - mobile scan quality
+   - no blocking overflow/overlap
+   - motion discipline
+   - reduced-motion behavior
+20. Keep automatic correction bounded:
    - max 2 local smoke iterations
-   - max 3 dedicated autopilot iterations
-18. Publish autopilot-generated corrections only through branch + PR.
-19. After successful new 21st generation, record the variant with `python scripts/design_memory_add_entry.py ...` to reduce future credit usage.
+   - max 3 autopilot iterations
+21. Publish autopilot corrections through branch + PR only.
+22. If the repo does not support the full immersive stack cleanly, keep the guidance and fallback starter docs but do not force-install the stack.

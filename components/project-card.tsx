@@ -23,16 +23,16 @@ export function ProjectCard({ project, variant = "archive", active = false, onAc
   return (
     <article
       className={clsx(
-        "group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-[rgba(22,17,13,0.08)] bg-white/80 transition-transform duration-300 hover:-translate-y-1",
+        "group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-[rgba(22,17,13,0.08)] transition-transform duration-300 hover:-translate-y-1",
         variant === "featured"
-          ? "featured-project-card h-full overflow-hidden border-[rgba(74,110,255,0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(247,250,255,0.92))] shadow-[0_24px_64px_rgba(18,15,12,0.12)]"
-          : "shadow-[0_18px_46px_rgba(18,15,12,0.08)]",
+          ? "featured-project-card h-full overflow-hidden border-[rgba(74,110,255,0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(245,249,255,0.94))] shadow-[0_24px_64px_rgba(18,15,12,0.12)]"
+          : "archive-project-card bg-[linear-gradient(180deg,rgba(255,255,255,0.97),rgba(247,249,253,0.92))] shadow-[0_18px_46px_rgba(18,15,12,0.08)]",
         enablePreviewToggle ? "cursor-pointer" : "",
         active && variant === "featured" ? "featured-project-card-active" : "",
       )}
+      data-audit-overlay-root
       onClick={enablePreviewToggle ? onActivate : undefined}
       onFocusCapture={onActivate}
-      onMouseEnter={variant === "archive" ? onActivate : undefined}
     >
       <div className="relative overflow-hidden border-b border-[rgba(22,17,13,0.08)] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.02))]">
         <img
@@ -124,7 +124,7 @@ export function ProjectCard({ project, variant = "archive", active = false, onAc
         </div>
         <div className="flex flex-wrap gap-2 text-sm text-muted">
           {project.stack.map((entry) => (
-            <span className="rounded-full border border-[rgba(22,17,13,0.08)] px-3 py-1.5" key={entry}>
+            <span className="rounded-full border border-[rgba(22,17,13,0.08)] bg-white/74 px-3 py-1.5" key={entry}>
               {entry}
             </span>
           ))}
