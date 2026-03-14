@@ -18,7 +18,7 @@ const MODE_VISUALS = {
     panelOffset: 0.26,
     pulse: 0.1,
     baseY: -0.02,
-    baseScale: 1.16,
+    baseScale: 0.94,
   },
   animaidstudioai: {
     core: "#6d8fff",
@@ -32,7 +32,7 @@ const MODE_VISUALS = {
     panelOffset: 0.14,
     pulse: 0.22,
     baseY: 0,
-    baseScale: 1.18,
+    baseScale: 0.96,
   },
   "dashboard-meta": {
     core: "#2fd6bb",
@@ -40,13 +40,13 @@ const MODE_VISUALS = {
     shell: "#176d74",
     plane: "#8be9de",
     groupRotation: [-0.2, 0.16, 0.22],
-    orbPosition: [1.18, -0.62, 1.14],
-    orbScale: 0.82,
+    orbPosition: [1.02, -0.54, 1.04],
+    orbScale: 0.72,
     ringRotation: [1.08, 0.52, 0.12],
     panelOffset: 0.34,
     pulse: 0.16,
-    baseY: 0.08,
-    baseScale: 1.16,
+    baseY: -0.06,
+    baseScale: 0.84,
   },
   "signal-desk": {
     core: "#7be8ff",
@@ -60,7 +60,7 @@ const MODE_VISUALS = {
     panelOffset: 0.18,
     pulse: 0.28,
     baseY: 0.04,
-    baseScale: 1.18,
+    baseScale: 0.96,
   },
 } as const;
 
@@ -250,8 +250,8 @@ function SignalSculpture({
 
   return (
     <group ref={rootRef}>
-      <mesh position={[0, -0.32, -1.24]} ref={shellRef}>
-        <boxGeometry args={[4.35, 2.7, 0.08]} />
+      <mesh position={[0, -0.28, -1.18]} ref={shellRef}>
+        <boxGeometry args={[4.05, 2.46, 0.08]} />
         <meshStandardMaterial emissiveIntensity={0.42} metalness={0.72} roughness={0.28} />
       </mesh>
 
@@ -263,7 +263,7 @@ function SignalSculpture({
             plateRefs.current[index] = node;
           }}
         >
-          <boxGeometry args={[3.18 - index * 0.28, 1.92 - index * 0.12, 0.18]} />
+          <boxGeometry args={[2.96 - index * 0.24, 1.76 - index * 0.1, 0.18]} />
           <meshPhysicalMaterial
             clearcoat={1}
             clearcoatRoughness={0.1}
@@ -277,24 +277,24 @@ function SignalSculpture({
       ))}
 
       <mesh ref={ringRef}>
-        <torusGeometry args={[1.82, 0.08, 22, 96]} />
+        <torusGeometry args={[1.68, 0.08, 22, 96]} />
         <meshStandardMaterial emissiveIntensity={1.1} metalness={0.66} roughness={0.12} />
       </mesh>
 
       <mesh ref={orbRef}>
-        <sphereGeometry args={[0.78, 42, 42]} />
+        <sphereGeometry args={[0.72, 42, 42]} />
         <meshPhysicalMaterial clearcoat={1} emissiveIntensity={0.64} metalness={0.78} roughness={0.08} />
       </mesh>
 
       {[-1, 0, 1].map((direction, index) => (
         <mesh
           key={`shard-${direction}`}
-          position={[direction * 1.08, direction * 0.48, 1.42 - index * 0.22]}
+          position={[direction * 0.98, direction * 0.42, 1.26 - index * 0.2]}
           ref={(node) => {
             shardRefs.current[index] = node;
           }}
         >
-          <boxGeometry args={[0.18, 1.38 - index * 0.2, 0.12]} />
+          <boxGeometry args={[0.16, 1.22 - index * 0.18, 0.12]} />
           <meshStandardMaterial emissiveIntensity={1.18} metalness={0.58} roughness={0.16} transparent opacity={0.98} />
         </mesh>
       ))}
@@ -317,7 +317,7 @@ export function PortfolioHeroSceneCanvas({
 }) {
   return (
     <Canvas
-      camera={{ fov: compact ? 31 : 28, position: [0, compact ? 0.12 : 0.06, compact ? 7.7 : 6.1] }}
+      camera={{ fov: compact ? 33 : 30, position: [0, compact ? 0.06 : 0.02, compact ? 8.4 : 7.2] }}
       dpr={[1, 1.5]}
       fallback={<StaticFallback accent={accent} glow={glow} />}
       frameloop={reduceMotion ? "demand" : "always"}
