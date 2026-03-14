@@ -16,10 +16,10 @@ export const siteShellCopy = {
   },
   fr: {
     nav: { home: "Accueil", work: "Projets", contact: "Contact" },
-    cta: "Demarrer un projet",
+    cta: "Lancer un projet",
     ctaMobile: "Contact",
     strapline: "Sites design-led et systemes produit",
-    footerLine: "Sites, lancements et systemes produit penses pour se lire vite et s'executer proprement.",
+    footerLine: "Sites, lancements et systemes produit concus pour se lire vite et se deployer proprement.",
     languageLabel: "Langue",
   },
 } as const;
@@ -28,15 +28,15 @@ export const homeCopy = {
   en: {
     badge: "UI designer, product engineer, full-stack aware",
     kicker: "Thomas / Editorial x product portfolio",
-    heroTitle: "Websites and product surfaces",
+    heroTitle: "Websites and product systems",
     heroBody:
-      "I design and build launches, product UI, and digital systems that need sharper message hierarchy, stronger interaction logic, and a cleaner production path.",
+      "I design and build launches, product UI, and digital systems that need stronger hierarchy, better interaction logic, and a cleaner path to production.",
     heroPrimaryCta: "Browse case studies",
     heroSecondaryCta: "Discuss a project",
     stageNarrativeKicker: "Canvas scroll narrative",
     stageNarrativeTitle: "One immersive stage. Four very different kinds of digital work.",
     stageNarrativeBody:
-      "The first scroll is stage-led on purpose. Each chapter changes the reading of the same scene, then hands off to clearer proof, featured work, and a cleaner archive.",
+      "The first scroll is stage-led on purpose. Each chapter reframes the same scene, then hands off to proof, featured work, and a cleaner archive.",
     capabilities: [
       { label: "Launches", body: "Rebrands and public pages that sell faster and feel more considered." },
       { label: "Products", body: "Dashboards, onboarding, and analytics with real interface depth." },
@@ -48,9 +48,9 @@ export const homeCopy = {
       "Hospitality branding, conversion-led AI, a shipped analytics app, and an interactive B2B prototype. The grid stays tight, but each case reads with its own role and value.",
     featuredArchiveLink: "See the full archive",
     servicesKicker: "Services",
-    servicesTitle: "Three offers shaped for the right level of clarity, polish, and depth.",
+    servicesTitle: "Three offers shaped for the right level of clarity, polish, and product depth.",
     servicesBody:
-      "The public launch, the campaign page, and the product surface do not need the same treatment. The offer is split so the structure, motion, and product discipline match the job.",
+      "A public launch, a campaign page, and a product surface do not need the same treatment. The offer is split so the structure, motion, and product discipline match the job.",
     processKicker: "Process",
     proofKicker: "Proof",
     toolingTitle: "Tooling in the stack",
@@ -73,19 +73,19 @@ export const homeCopy = {
   },
   fr: {
     badge: "Designer UI, ingenierie produit, execution full-stack",
-    kicker: "Thomas / portfolio editorial et produit",
-    heroTitle: "Sites web et surfaces produit",
+    kicker: "Thomas / portfolio editorial x produit",
+    heroTitle: "Sites web et systemes produit",
     heroBody:
-      "Je concois et je realise des sites, des lancements et des interfaces produit quand le message doit gagner en clarte, l'experience en precision et la livraison en solidite.",
+      "Je concois et je developpe des sites, des lancements et des interfaces produit quand le message doit gagner en clarte, l'experience en precision et la livraison en solidite.",
     heroPrimaryCta: "Voir les etudes de cas",
     heroSecondaryCta: "Discuter du projet",
     stageNarrativeKicker: "Narration canvas",
     stageNarrativeTitle: "Une seule scene immersive. Quatre registres de travail tres differents.",
     stageNarrativeBody:
-      "Le premier scroll est volontairement pilote par la scene. Chaque chapitre change la lecture du meme stage, puis laisse la place a la preuve, aux projets et a une archive plus claire.",
+      "Le premier scroll est volontairement porte par la scene. Chaque chapitre recadre le meme stage, puis laisse la place aux preuves, aux projets et a une archive plus claire.",
     capabilities: [
       { label: "Lancements", body: "Refontes et pages publiques qui clarifient l'offre et renforcent la desirabilite." },
-      { label: "Produits", body: "Tableaux de bord, onboarding et analytics qui paraissent solides, pas simplement jolis." },
+      { label: "Produits", body: "Tableaux de bord, onboarding et analytics qui paraissent solides, pas juste jolis." },
       { label: "Livraison", body: "Une execution de bout en bout quand l'interface doit tenir jusqu'a la mise en ligne." },
     ],
     featuredKicker: "Projets mis en avant",
@@ -94,9 +94,9 @@ export const homeCopy = {
       "Marque de service, landing IA orientee conversion, application analytics deja en ligne et prototype B2B interactif. Quatre registres differents, un meme niveau de direction et de realisation.",
     featuredArchiveLink: "Voir toute l'archive",
     servicesKicker: "Services",
-    servicesTitle: "Trois offres, selon le niveau de clarte, de mise en scene et de profondeur dont le projet a besoin.",
+    servicesTitle: "Trois offres selon le niveau de clarte, de mise en scene et de profondeur produit dont le projet a besoin.",
     servicesBody:
-      "Un site de lancement, une page de campagne et une interface produit ne demandent pas le meme traitement. L'offre est donc structuree pour que la forme, la motion et la discipline produit collent au vrai besoin.",
+      "Un site de lancement, une page de campagne et une interface produit ne demandent pas le meme traitement. L'offre est donc structuree pour que la forme, la motion et la discipline produit collent au besoin reel.",
     processKicker: "Process",
     proofKicker: "Preuves",
     toolingTitle: "Stack et livraison",
@@ -249,11 +249,11 @@ export const homeStageChaptersByLocale: Record<Locale, HomeStageChapter[]> = {
     {
       slug: "coconut-paradise-spa",
       chapter: "01",
-      chapterLabel: "Marque hospitality",
+      chapterLabel: "Marque de service",
       headline: "Atmosphere, confiance et clarte de reservation peuvent cohabiter dans une meme surface premium.",
       body:
         "Ce chapitre traite d'un luxe sobre, sans flou. La facade publique doit rester desirable, rassurante et orientee vers l'action.",
-      valueCue: "Confiance hospitality et clarte multilingue.",
+      valueCue: "Confiance hoteliere et clarte multilingue.",
     },
     {
       slug: "animaidstudioai",
@@ -267,7 +267,7 @@ export const homeStageChaptersByLocale: Record<Locale, HomeStageChapter[]> = {
     {
       slug: "dashboard-meta",
       chapter: "03",
-      chapterLabel: "Application analytics",
+      chapterLabel: "App analytics",
       headline: "Un logiciel operateur demande plus de densite de lecture, une hierarchie plus dure et moins d'esbroufe.",
       body:
         "Ce chapitre montre la facette la plus operationnelle du portfolio : analytics, alertes et lecture du profit qui se comportent deja comme un vrai produit.",
@@ -493,9 +493,9 @@ export const workPageCopy = {
   },
   fr: {
     kicker: "Archive des projets",
-    title: "Une archive curatoriale de projets livres et de concepts produits.",
+    title: "Une archive curatoriale de projets livres et de concepts produit.",
     body:
-      "L'archive reste volontairement selective. Chaque projet montre un registre distinct, avec un meme niveau d'exigence sur la hierarchie, la motion et la qualite d'execution.",
+      "L'archive reste volontairement selective. Chaque projet montre un registre distinct, avec le meme niveau d'exigence sur la hierarchie, la motion et la qualite d'execution.",
   },
 } as const;
 
@@ -541,7 +541,7 @@ export const projectCardLabels = {
     prototype: "Prototype",
     view: "Ouvrir",
     liveDemo: "Voir le site",
-    repository: "Depot",
+    repository: "Depot Git",
   },
 } as const;
 
@@ -577,7 +577,7 @@ export const contactPageCopy = {
     kicker: "Contact",
     title: "Si la prochaine version a besoin de plus de direction, d'une meilleure execution ou d'une surface plus juste, c'est ici que cela commence.",
     body:
-      "Je prends des missions freelance selectives autour de sites pilotes par le design, de surfaces produit et de systemes digitaux. Le plus simple est d'envoyer le produit actuel, l'objectif commercial et l'endroit ou l'experience perd encore en clarte ou en performance.",
+      "Je prends des missions freelance selectives autour de sites design-led, de surfaces produit et de systemes digitaux. Le plus simple est d'envoyer le produit actuel, l'objectif commercial et l'endroit ou l'experience perd encore en clarte ou en performance.",
     primaryContact: "Contact principal",
     bookCall: "Planifier un appel",
   },
@@ -621,7 +621,7 @@ export const caseStudyCopy = {
   fr: {
     topKicker: "Lecture du projet",
     openLiveDemo: "Voir la version en ligne",
-    viewRepository: "Voir le depot",
+    viewRepository: "Voir le depot Git",
     discussSimilar: "Discuter d'un projet similaire",
     projectFrame: "Cadre du projet",
     portfolioConcept: "Prototype de portfolio",

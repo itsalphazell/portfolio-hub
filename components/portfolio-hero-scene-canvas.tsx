@@ -17,8 +17,8 @@ const MODE_VISUALS = {
     ringRotation: [0.86, 0.35, 0.58],
     panelOffset: 0.26,
     pulse: 0.1,
-    baseY: -0.26,
-    baseScale: 0.9,
+    baseY: -0.08,
+    baseScale: 0.98,
   },
   animaidstudioai: {
     core: "#6d8fff",
@@ -31,8 +31,8 @@ const MODE_VISUALS = {
     ringRotation: [0.24, 0.94, 0.26],
     panelOffset: 0.14,
     pulse: 0.22,
-    baseY: -0.18,
-    baseScale: 0.88,
+    baseY: -0.02,
+    baseScale: 0.98,
   },
   "dashboard-meta": {
     core: "#2fd6bb",
@@ -45,8 +45,8 @@ const MODE_VISUALS = {
     ringRotation: [1.08, 0.52, 0.12],
     panelOffset: 0.34,
     pulse: 0.16,
-    baseY: -0.08,
-    baseScale: 0.92,
+    baseY: 0.04,
+    baseScale: 1,
   },
   "signal-desk": {
     core: "#7be8ff",
@@ -59,8 +59,8 @@ const MODE_VISUALS = {
     ringRotation: [0.58, 1.08, -0.22],
     panelOffset: 0.18,
     pulse: 0.28,
-    baseY: -0.12,
-    baseScale: 0.88,
+    baseY: 0,
+    baseScale: 0.98,
   },
 } as const;
 
@@ -160,8 +160,8 @@ function SignalSculpture({
   const shardRefs = useRef<Array<THREE.Mesh | null>>([]);
 
   useFrame((state, delta) => {
-    const compactScale = compact ? 0.78 : 1;
-    const baseY = compact ? visual.baseY - 0.12 : visual.baseY;
+    const compactScale = compact ? 0.82 : 1;
+    const baseY = compact ? visual.baseY - 0.1 : visual.baseY;
     const baseScale = visual.baseScale * compactScale;
     const drift = reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.55) * (compact ? 0.04 : 0.08);
     const pointerX = reduceMotion ? 0 : state.pointer.x * 0.18;
@@ -317,7 +317,7 @@ export function PortfolioHeroSceneCanvas({
 }) {
   return (
     <Canvas
-      camera={{ fov: compact ? 30 : 32, position: [0, compact ? 0.2 : 0.1, compact ? 8.5 : 7.45] }}
+      camera={{ fov: compact ? 32 : 30, position: [0, compact ? 0.08 : 0.02, compact ? 8.2 : 6.85] }}
       dpr={[1, 1.5]}
       fallback={<StaticFallback accent={accent} glow={glow} />}
       frameloop={reduceMotion ? "demand" : "always"}

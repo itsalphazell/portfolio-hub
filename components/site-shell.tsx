@@ -20,17 +20,19 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="relative min-h-screen pb-16">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] overflow-hidden">
-        <div className="floating-orb left-[8%] top-18 h-48 w-48 bg-[rgba(42,91,255,0.14)]" />
-        <div className="floating-orb right-[10%] top-12 h-60 w-60 bg-[rgba(112,150,255,0.12)]" />
-        <div className="floating-orb left-[40%] top-44 h-36 w-36 bg-[rgba(123,232,255,0.12)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[34rem] overflow-hidden">
+        <div className="floating-orb left-[6%] top-12 h-44 w-44 bg-[rgba(42,91,255,0.11)]" />
+        <div className="floating-orb right-[8%] top-6 h-56 w-56 bg-[rgba(112,150,255,0.1)]" />
+        <div className="floating-orb left-[44%] top-32 h-36 w-36 bg-[rgba(123,232,255,0.12)]" />
       </div>
-      <header className="page-shell sticky top-0 z-40 pt-4">
-        <div className="site-header-shell flex items-center justify-between gap-3 rounded-[1.8rem] px-4 py-3 md:px-6">
-          <Link className="link-reset flex min-w-0 flex-col justify-center gap-0.5" href="/">
-            <span className="font-display text-xl text-ink">Thomas</span>
+
+      <header className="page-shell sticky top-0 z-50 pt-4">
+        <div className="site-header-shell flex items-center justify-between gap-3 rounded-[1.9rem] px-4 py-3 md:px-6">
+          <Link className="link-reset flex min-w-0 flex-col justify-center gap-1" href="/">
+            <span className="font-display text-[1.7rem] leading-none text-ink">Thomas</span>
             <span className="hidden truncate text-[11px] uppercase tracking-[0.18em] text-muted lg:block">{copy.strapline}</span>
           </Link>
+
           <div className="hidden items-center gap-4 md:flex">
             <nav className="site-nav-shell flex items-center gap-1 rounded-full px-2 py-1 text-sm text-muted">
               {navigation.map((item) => (
@@ -45,12 +47,14 @@ export function SiteShell({ children }: { children: ReactNode }) {
             </nav>
             <LanguageSwitcher />
           </div>
+
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="md:hidden">
               <LanguageSwitcher />
             </div>
             <Link
-              className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full bg-accent px-3 py-2 text-xs font-semibold text-[rgb(255_255_255)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 sm:gap-2 sm:px-4 sm:text-sm"
+              className="site-header-cta inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 sm:gap-2 sm:px-4 sm:text-sm"
+              data-audit-bg="rgb(40,90,240)"
               href={contactLinks.bookingUrl || "/contact"}
               rel={contactLinks.bookingUrl ? "noreferrer" : undefined}
               target={contactLinks.bookingUrl ? "_blank" : undefined}
@@ -62,11 +66,16 @@ export function SiteShell({ children }: { children: ReactNode }) {
           </div>
         </div>
       </header>
+
       {children}
-      <footer className="page-shell mt-20">
-        <div className="site-footer-shell grid gap-6 rounded-[2.1rem] px-6 py-8 text-sm text-muted md:grid-cols-[1fr_auto] md:items-end md:px-8">
-          <div className="space-y-3">
-            <p className="font-display text-2xl text-ink">Thomas</p>
+
+      <footer className="page-shell mt-24">
+        <div className="site-footer-shell grid gap-6 rounded-[2.2rem] px-6 py-8 text-sm text-muted md:grid-cols-[1fr_auto] md:items-end md:px-8">
+          <div className="space-y-4">
+            <div className="space-y-1">
+              <p className="font-display text-[1.9rem] leading-none text-ink">Thomas</p>
+              <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-accent-deep">{copy.strapline}</p>
+            </div>
             <p className="max-w-[34rem] leading-7">{copy.footerLine}</p>
           </div>
           <div className="flex flex-wrap items-center gap-4 md:justify-end">
@@ -74,22 +83,12 @@ export function SiteShell({ children }: { children: ReactNode }) {
               {contactLinks.email}
             </Link>
             {contactLinks.github ? (
-              <Link
-                className="link-reset transition-colors hover:text-ink"
-                href={contactLinks.github}
-                rel="noreferrer"
-                target="_blank"
-              >
+              <Link className="link-reset transition-colors hover:text-ink" href={contactLinks.github} rel="noreferrer" target="_blank">
                 GitHub
               </Link>
             ) : null}
             {contactLinks.linkedin ? (
-              <Link
-                className="link-reset transition-colors hover:text-ink"
-                href={contactLinks.linkedin}
-                rel="noreferrer"
-                target="_blank"
-              >
+              <Link className="link-reset transition-colors hover:text-ink" href={contactLinks.linkedin} rel="noreferrer" target="_blank">
                 LinkedIn
               </Link>
             ) : null}
