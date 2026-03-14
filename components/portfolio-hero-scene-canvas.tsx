@@ -9,58 +9,58 @@ const MODE_VISUALS = {
   "coconut-paradise-spa": {
     core: "#f2b36a",
     glow: "#ffd9af",
-    shell: "#14244a",
-    plane: "#284684",
+    shell: "#264789",
+    plane: "#c39159",
     groupRotation: [-0.28, 0.44, 0.1],
     orbPosition: [1.4, 0.65, 0.8],
     orbScale: 0.74,
     ringRotation: [0.86, 0.35, 0.58],
     panelOffset: 0.26,
     pulse: 0.1,
-    baseY: -0.08,
-    baseScale: 0.98,
+    baseY: -0.02,
+    baseScale: 1.16,
   },
   animaidstudioai: {
     core: "#6d8fff",
     glow: "#96b8ff",
-    shell: "#101f46",
-    plane: "#3359bf",
+    shell: "#2851b4",
+    plane: "#8ea9ff",
     groupRotation: [-0.32, 0.62, -0.06],
     orbPosition: [1.65, -0.08, 0.92],
     orbScale: 0.64,
     ringRotation: [0.24, 0.94, 0.26],
     panelOffset: 0.14,
     pulse: 0.22,
-    baseY: -0.02,
-    baseScale: 0.98,
+    baseY: 0,
+    baseScale: 1.18,
   },
   "dashboard-meta": {
     core: "#2fd6bb",
     glow: "#7cf0da",
-    shell: "#0f2030",
-    plane: "#0f6f71",
+    shell: "#176d74",
+    plane: "#8be9de",
     groupRotation: [-0.2, 0.16, 0.22],
     orbPosition: [1.18, -0.62, 1.14],
     orbScale: 0.82,
     ringRotation: [1.08, 0.52, 0.12],
     panelOffset: 0.34,
     pulse: 0.16,
-    baseY: 0.04,
-    baseScale: 1,
+    baseY: 0.08,
+    baseScale: 1.16,
   },
   "signal-desk": {
     core: "#7be8ff",
     glow: "#b6f4ff",
-    shell: "#0f1b3a",
-    plane: "#2e7dc1",
+    shell: "#2f76c5",
+    plane: "#c9f6ff",
     groupRotation: [-0.4, 0.78, -0.18],
     orbPosition: [1.92, 0.22, 1.26],
     orbScale: 0.58,
     ringRotation: [0.58, 1.08, -0.22],
     panelOffset: 0.18,
     pulse: 0.28,
-    baseY: 0,
-    baseScale: 0.98,
+    baseY: 0.04,
+    baseScale: 1.18,
   },
 } as const;
 
@@ -160,8 +160,8 @@ function SignalSculpture({
   const shardRefs = useRef<Array<THREE.Mesh | null>>([]);
 
   useFrame((state, delta) => {
-    const compactScale = compact ? 0.82 : 1;
-    const baseY = compact ? visual.baseY - 0.1 : visual.baseY;
+    const compactScale = compact ? 0.9 : 1;
+    const baseY = compact ? visual.baseY - 0.04 : visual.baseY;
     const baseScale = visual.baseScale * compactScale;
     const drift = reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.55) * (compact ? 0.04 : 0.08);
     const pointerX = reduceMotion ? 0 : state.pointer.x * 0.18;
@@ -252,7 +252,7 @@ function SignalSculpture({
     <group ref={rootRef}>
       <mesh position={[0, -0.32, -1.24]} ref={shellRef}>
         <boxGeometry args={[4.35, 2.7, 0.08]} />
-        <meshStandardMaterial emissiveIntensity={0.22} metalness={0.78} roughness={0.42} />
+        <meshStandardMaterial emissiveIntensity={0.42} metalness={0.72} roughness={0.28} />
       </mesh>
 
       {[-1, 0, 1].map((depth, index) => (
@@ -267,10 +267,10 @@ function SignalSculpture({
           <meshPhysicalMaterial
             clearcoat={1}
             clearcoatRoughness={0.1}
-            emissiveIntensity={0.24}
-            metalness={0.46}
-            opacity={0.92}
-            roughness={0.16}
+            emissiveIntensity={0.48}
+            metalness={0.3}
+            opacity={0.97}
+            roughness={0.1}
             transparent
           />
         </mesh>
@@ -278,12 +278,12 @@ function SignalSculpture({
 
       <mesh ref={ringRef}>
         <torusGeometry args={[1.82, 0.08, 22, 96]} />
-        <meshStandardMaterial emissiveIntensity={0.64} metalness={0.7} roughness={0.18} />
+        <meshStandardMaterial emissiveIntensity={1.1} metalness={0.66} roughness={0.12} />
       </mesh>
 
       <mesh ref={orbRef}>
         <sphereGeometry args={[0.78, 42, 42]} />
-        <meshPhysicalMaterial clearcoat={1} emissiveIntensity={0.32} metalness={0.84} roughness={0.1} />
+        <meshPhysicalMaterial clearcoat={1} emissiveIntensity={0.64} metalness={0.78} roughness={0.08} />
       </mesh>
 
       {[-1, 0, 1].map((direction, index) => (
@@ -295,7 +295,7 @@ function SignalSculpture({
           }}
         >
           <boxGeometry args={[0.18, 1.38 - index * 0.2, 0.12]} />
-          <meshStandardMaterial emissiveIntensity={0.72} metalness={0.66} roughness={0.22} transparent opacity={0.94} />
+          <meshStandardMaterial emissiveIntensity={1.18} metalness={0.58} roughness={0.16} transparent opacity={0.98} />
         </mesh>
       ))}
     </group>
@@ -317,18 +317,19 @@ export function PortfolioHeroSceneCanvas({
 }) {
   return (
     <Canvas
-      camera={{ fov: compact ? 32 : 30, position: [0, compact ? 0.08 : 0.02, compact ? 8.2 : 6.85] }}
+      camera={{ fov: compact ? 31 : 28, position: [0, compact ? 0.12 : 0.06, compact ? 7.7 : 6.1] }}
       dpr={[1, 1.5]}
       fallback={<StaticFallback accent={accent} glow={glow} />}
       frameloop={reduceMotion ? "demand" : "always"}
       gl={{ alpha: true, antialias: true }}
       performance={{ min: 0.65 }}
     >
-      <ambientLight intensity={0.95} />
-      <directionalLight color={glow} intensity={2.8} position={[4.5, 5.2, 6]} />
-      <pointLight color={accent} intensity={18} position={[2.6, 1.8, 2.2]} />
-      <pointLight color={glow} intensity={10} position={[-2.2, -1.8, 2.4]} />
-      <fog attach="fog" args={["#07102b", 9, 17]} />
+      <ambientLight intensity={1.18} />
+      <hemisphereLight args={["#d9ecff", "#07102b", 1.2]} />
+      <directionalLight color={glow} intensity={4.4} position={[4.5, 5.2, 6]} />
+      <pointLight color={accent} intensity={24} position={[2.6, 1.8, 2.2]} />
+      <pointLight color={glow} intensity={14} position={[-2.2, -1.8, 2.4]} />
+      <fog attach="fog" args={["#07102b", 13, 24]} />
       <AmbientField color={glow} compact={compact} reduceMotion={reduceMotion} />
       <SignalSculpture activeSlug={activeSlug} compact={compact} reduceMotion={reduceMotion} />
     </Canvas>

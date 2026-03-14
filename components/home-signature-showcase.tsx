@@ -298,25 +298,11 @@ export function HomeSignatureShowcase({ featuredProjectsByLocale }: HomeSignatur
       </section>
 
       <section className="page-shell space-y-7" data-home-featured-section id="selected-work">
-        <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-end">
+        <div className="space-y-3">
           <div className="space-y-3" data-home-featured-head>
             <p className="section-kicker">{copy.featuredKicker}</p>
             <h2 className="section-subtitle max-w-[16ch] text-balance">{copy.featuredTitle}</h2>
             <p className="max-w-[42rem] text-base leading-7 text-muted">{copy.featuredBody}</p>
-          </div>
-          <div className="featured-current-panel rounded-[1.7rem] p-5 shadow-[0_18px_42px_rgba(14,18,36,0.08)]" data-home-featured-head>
-            <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-accent-deep">{copy.currentSignalLabel}</p>
-            <p className="mt-3 text-sm leading-7 text-muted">{activeMode.stageSummary}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {activeMode.cues.map((cue) => (
-                <span className="canvas-inline-pill" key={cue}>
-                  {cue}
-                </span>
-              ))}
-            </div>
-            <Link className="mt-4 inline-flex text-sm font-semibold text-accent-deep underline underline-offset-4" href="/work">
-              {copy.featuredArchiveLink}
-            </Link>
           </div>
         </div>
 

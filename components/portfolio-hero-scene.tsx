@@ -4,8 +4,6 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import PremiumImmersiveStage from "@/codex-premium-immersive/components/PremiumImmersiveStage";
 import PremiumSceneFallback from "@/codex-premium-immersive/components/PremiumSceneFallback";
 import { useImmersiveCapability } from "@/codex-premium-immersive/lib/premiumMotion";
@@ -27,31 +25,10 @@ export function PortfolioHeroScene({ activeSlug, activeChapter, modes, onActivat
   const { reducedMotion, compactViewport } = useImmersiveCapability();
   const activeMode = modes.find((mode) => mode.slug === activeSlug) ?? modes[0];
 
-  useGSAP(
-    () => {
-      if (reducedMotion) {
-        return undefined;
-      }
-
-      const context = gsap.context(() => {
-        gsap.from("[data-stage-block]", {
-          opacity: 0,
-          y: 18,
-          duration: 0.68,
-          stagger: 0.08,
-          ease: "power3.out",
-        });
-      });
-
-      return () => context.revert();
-    },
-    { dependencies: [activeSlug, reducedMotion] },
-  );
-
   return (
     <aside className="canvas-stage-panel" style={{ "--mode-accent": activeMode.accent } as CSSProperties}>
       <div className="canvas-stage-shell" data-audit-bg="rgb(8,17,39)" data-audit-overlay-root>
-        <div className="canvas-stage-header" data-stage-block>
+        <div className="canvas-stage-header">
           <div className="space-y-2">
             <p className="font-signal text-[10px] uppercase tracking-[0.2em] text-[var(--mode-accent)]">
               {copy.commandStageLabel}
@@ -65,7 +42,7 @@ export function PortfolioHeroScene({ activeSlug, activeChapter, modes, onActivat
           </div>
         </div>
 
-        <div className="canvas-stage-frame" data-audit-bg="rgba(7,16,43,1)" data-audit-overlay-root data-stage-block>
+        <div className="canvas-stage-frame" data-audit-bg="rgba(7,16,43,1)" data-audit-overlay-root>
           <PremiumImmersiveStage
             backdrop={
               <>
@@ -105,7 +82,7 @@ export function PortfolioHeroScene({ activeSlug, activeChapter, modes, onActivat
           </div>
         </div>
 
-        <div className="canvas-stage-summary-grid" data-stage-block>
+        <div className="canvas-stage-summary-grid">
           <div className="canvas-stage-copy-card">
             <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-[var(--mode-accent)]">{activeMode.label}</p>
             <h3 className="mt-4 max-w-[15ch] text-balance font-display text-[clamp(2rem,2.7vw,2.9rem)] leading-[0.96] tracking-[-0.04em] text-white">
@@ -139,7 +116,7 @@ export function PortfolioHeroScene({ activeSlug, activeChapter, modes, onActivat
           </div>
         </div>
 
-        <div className="canvas-stage-rail" data-stage-block>
+        <div className="canvas-stage-rail">
           {modes.map((mode, index) => {
             const active = mode.slug === activeSlug;
 
@@ -148,7 +125,7 @@ export function PortfolioHeroScene({ activeSlug, activeChapter, modes, onActivat
                 aria-pressed={active}
                 className={clsx("canvas-stage-tab", active ? "canvas-stage-tab-active" : "")}
                 key={mode.slug}
-                onClick={() => onActivate(mode.slug, { scroll: true })}
+                onClick={() => onActivate(mode.slug)}
                 type="button"
               >
                 <span className="font-signal text-[10px] uppercase tracking-[0.18em]">{String(index + 1).padStart(2, "0")}</span>

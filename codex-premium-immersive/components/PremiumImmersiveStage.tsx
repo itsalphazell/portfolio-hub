@@ -31,20 +31,20 @@ export default function PremiumImmersiveStage({
 
   return (
     <div
-      className="relative min-h-[420px] overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))] shadow-[0_30px_90px_rgba(2,8,28,0.4)]"
+      className="relative min-h-[420px] overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.035))] shadow-[0_30px_90px_rgba(2,8,28,0.4)]"
       aria-hidden="true"
     >
       {backdrop ?? <DefaultStageBackdrop />}
       <LazySceneGate fallback={fallbackNode}>
         {allowScene ? (
           <Suspense fallback={fallbackNode}>
-            {scene ?? <PremiumSceneCanvas />}
+            <div className="absolute inset-0 z-10">{scene ?? <PremiumSceneCanvas />}</div>
           </Suspense>
         ) : (
           fallbackNode
         )}
       </LazySceneGate>
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(5,8,22,0.24)_68%,rgba(5,8,22,0.5)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_42%,transparent_0%,transparent_28%,rgba(5,8,22,0.08)_72%,rgba(5,8,22,0.2)_100%),linear-gradient(180deg,rgba(255,255,255,0.02)_0%,rgba(5,8,22,0.08)_72%,rgba(5,8,22,0.2)_100%)]" />
     </div>
   );
 }
