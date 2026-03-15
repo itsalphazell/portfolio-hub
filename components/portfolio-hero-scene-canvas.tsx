@@ -115,20 +115,33 @@ function StaticFallback({ accent, glow }: { accent: string; glow: string }) {
   );
 }
 
-function AmbientField({ color, compact, reduceMotion }: { color: string; compact: boolean; reduceMotion: boolean }) {
+function AmbientField({
+  color,
+  compact,
+  mobileLite,
+  reduceMotion,
+}: {
+  color: string;
+  compact: boolean;
+  mobileLite: boolean;
+  reduceMotion: boolean;
+}) {
   const groupRef = useRef<THREE.Group>(null);
+  const nodes = mobileLite ? AMBIENT_NODES.slice(0, 5) : AMBIENT_NODES;
 
   useFrame((state, delta) => {
     if (!groupRef.current || reduceMotion) return;
 
-    groupRef.current.rotation.y = THREE.MathUtils.damp(groupRef.current.rotation.y, state.pointer.x * 0.12, 3, delta);
-    groupRef.current.rotation.x = THREE.MathUtils.damp(groupRef.current.rotation.x, -state.pointer.y * 0.08, 3, delta);
-    groupRef.current.rotation.z += delta * 0.02;
+    const targetY = state.pointer.x * (mobileLite ? 0.06 : 0.12);
+    const targetX = -state.pointer.y * (mobileLite ? 0.04 : 0.08);
+    groupRef.current.rotation.y = THREE.MathUtils.damp(groupRef.current.rotation.y, targetY, 3, delta);
+    groupRef.current.rotation.x = THREE.MathUtils.damp(groupRef.current.rotation.x, targetX, 3, delta);
+    groupRef.current.rotation.z += delta * (mobileLite ? 0.01 : 0.02);
   });
 
   return (
     <group ref={groupRef}>
-      {AMBIENT_NODES.map((node, index) => (
+      {nodes.map((node, index) => (
         <mesh
           key={`${node.position.join("-")}-${index}`}
           position={compact ? [node.position[0] * 0.78, node.position[1] * 0.72, node.position[2]] : node.position}
@@ -145,10 +158,12 @@ function AmbientField({ color, compact, reduceMotion }: { color: string; compact
 function SignalSculpture({
   activeSlug,
   compact,
+  mobileLite,
   reduceMotion,
 }: {
   activeSlug: string;
   compact: boolean;
+  mobileLite: boolean;
   reduceMotion: boolean;
 }) {
   const visual = MODE_VISUALS[activeSlug as keyof typeof MODE_VISUALS] ?? MODE_VISUALS["signal-desk"];
@@ -158,14 +173,27 @@ function SignalSculpture({
   const ringRef = useRef<THREE.Mesh>(null);
   const orbRef = useRef<THREE.Mesh>(null);
   const shardRefs = useRef<Array<THREE.Mesh | null>>([]);
+  const shellSize = mobileLite ? ([3.3, 2.0, 0.08] as const) : ([4.05, 2.46, 0.08] as const);
+  const panelSizes = mobileLite
+    ? [
+        [2.62, 1.56, 0.16] as const,
+        [2.34, 1.42, 0.16] as const,
+        [2.08, 1.24, 0.16] as const,
+      ]
+    : [
+        [2.96, 1.76, 0.18] as const,
+        [2.72, 1.66, 0.18] as const,
+        [2.48, 1.56, 0.18] as const,
+      ];
+  const shardDirections = mobileLite ? [-1, 1] : [-1, 0, 1];
 
   useFrame((state, delta) => {
-    const compactScale = compact ? 0.9 : 1;
-    const baseY = compact ? visual.baseY - 0.04 : visual.baseY;
+    const compactScale = compact ? (mobileLite ? 0.74 : 0.9) : 1;
+    const baseY = compact ? visual.baseY - (mobileLite ? 0.12 : 0.04) : visual.baseY;
     const baseScale = visual.baseScale * compactScale;
-    const drift = reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.55) * (compact ? 0.04 : 0.08);
-    const pointerX = reduceMotion ? 0 : state.pointer.x * 0.18;
-    const pointerY = reduceMotion ? 0 : state.pointer.y * 0.12;
+    const drift = reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.55) * (compact ? (mobileLite ? 0.02 : 0.04) : 0.08);
+    const pointerX = reduceMotion ? 0 : state.pointer.x * (mobileLite ? 0.09 : 0.18);
+    const pointerY = reduceMotion ? 0 : state.pointer.y * (mobileLite ? 0.06 : 0.12);
 
     if (rootRef.current) {
       rootRef.current.rotation.x = THREE.MathUtils.damp(
@@ -218,12 +246,12 @@ function SignalSculpture({
       orbRef.current.position.x = THREE.MathUtils.damp(orbRef.current.position.x, visual.orbPosition[0], 4, delta);
       orbRef.current.position.y = THREE.MathUtils.damp(
         orbRef.current.position.y,
-        visual.orbPosition[1] + (reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 1.1) * 0.22),
+        visual.orbPosition[1] + (reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 1.1) * (mobileLite ? 0.12 : 0.22)),
         4,
         delta,
       );
       orbRef.current.position.z = THREE.MathUtils.damp(orbRef.current.position.z, visual.orbPosition[2], 4, delta);
-      const orbScale = visual.orbScale + (reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.9) * 0.03);
+      const orbScale = (mobileLite ? visual.orbScale * 0.88 : visual.orbScale) + (reduceMotion ? 0 : Math.sin(state.clock.elapsedTime * 0.9) * (mobileLite ? 0.015 : 0.03));
       orbRef.current.scale.setScalar(THREE.MathUtils.damp(orbRef.current.scale.x, orbScale, 4, delta));
       dampColor(orbRef.current.material, visual.core, delta, visual.glow);
     }
@@ -251,7 +279,7 @@ function SignalSculpture({
   return (
     <group ref={rootRef}>
       <mesh position={[0, -0.28, -1.18]} ref={shellRef}>
-        <boxGeometry args={[4.05, 2.46, 0.08]} />
+        <boxGeometry args={shellSize} />
         <meshStandardMaterial emissiveIntensity={0.42} metalness={0.72} roughness={0.28} />
       </mesh>
 
@@ -263,7 +291,7 @@ function SignalSculpture({
             plateRefs.current[index] = node;
           }}
         >
-          <boxGeometry args={[2.96 - index * 0.24, 1.76 - index * 0.1, 0.18]} />
+          <boxGeometry args={panelSizes[index]} />
           <meshPhysicalMaterial
             clearcoat={1}
             clearcoatRoughness={0.1}
@@ -277,24 +305,24 @@ function SignalSculpture({
       ))}
 
       <mesh ref={ringRef}>
-        <torusGeometry args={[1.68, 0.08, 22, 96]} />
+        <torusGeometry args={[mobileLite ? 1.42 : 1.68, mobileLite ? 0.06 : 0.08, mobileLite ? 18 : 22, mobileLite ? 72 : 96]} />
         <meshStandardMaterial emissiveIntensity={1.1} metalness={0.66} roughness={0.12} />
       </mesh>
 
       <mesh ref={orbRef}>
-        <sphereGeometry args={[0.72, 42, 42]} />
+        <sphereGeometry args={[mobileLite ? 0.58 : 0.72, mobileLite ? 28 : 42, mobileLite ? 28 : 42]} />
         <meshPhysicalMaterial clearcoat={1} emissiveIntensity={0.64} metalness={0.78} roughness={0.08} />
       </mesh>
 
-      {[-1, 0, 1].map((direction, index) => (
+      {shardDirections.map((direction, index) => (
         <mesh
           key={`shard-${direction}`}
-          position={[direction * 0.98, direction * 0.42, 1.26 - index * 0.2]}
+          position={[direction * (mobileLite ? 0.9 : 0.98), direction * 0.42, 1.26 - index * 0.2]}
           ref={(node) => {
             shardRefs.current[index] = node;
           }}
         >
-          <boxGeometry args={[0.16, 1.22 - index * 0.18, 0.12]} />
+          <boxGeometry args={[0.16, (mobileLite ? 1 : 1.22) - index * 0.18, 0.12]} />
           <meshStandardMaterial emissiveIntensity={1.18} metalness={0.58} roughness={0.16} transparent opacity={0.98} />
         </mesh>
       ))}
@@ -307,31 +335,36 @@ export function PortfolioHeroSceneCanvas({
   accent,
   glow,
   compact,
+  mobileLite = false,
   reduceMotion,
 }: {
   activeSlug: string;
   accent: string;
   glow: string;
   compact: boolean;
+  mobileLite?: boolean;
   reduceMotion: boolean;
 }) {
   return (
     <Canvas
-      camera={{ fov: compact ? 33 : 30, position: [0, compact ? 0.06 : 0.02, compact ? 8.4 : 7.2] }}
-      dpr={[1, 1.5]}
+      camera={{
+        fov: mobileLite ? 42 : compact ? 33 : 30,
+        position: [0, mobileLite ? -0.08 : compact ? 0.06 : 0.02, mobileLite ? 9.6 : compact ? 8.4 : 7.2],
+      }}
+      dpr={[1, mobileLite ? 1.15 : 1.5]}
       fallback={<StaticFallback accent={accent} glow={glow} />}
       frameloop={reduceMotion ? "demand" : "always"}
       gl={{ alpha: true, antialias: true }}
-      performance={{ min: 0.65 }}
+      performance={{ min: mobileLite ? 0.5 : 0.65 }}
     >
-      <ambientLight intensity={1.18} />
-      <hemisphereLight args={["#d9ecff", "#07102b", 1.2]} />
-      <directionalLight color={glow} intensity={4.4} position={[4.5, 5.2, 6]} />
-      <pointLight color={accent} intensity={24} position={[2.6, 1.8, 2.2]} />
-      <pointLight color={glow} intensity={14} position={[-2.2, -1.8, 2.4]} />
-      <fog attach="fog" args={["#07102b", 13, 24]} />
-      <AmbientField color={glow} compact={compact} reduceMotion={reduceMotion} />
-      <SignalSculpture activeSlug={activeSlug} compact={compact} reduceMotion={reduceMotion} />
+      <ambientLight intensity={mobileLite ? 1.3 : 1.18} />
+      <hemisphereLight args={["#d9ecff", "#07102b", mobileLite ? 1.35 : 1.2]} />
+      <directionalLight color={glow} intensity={mobileLite ? 4.9 : 4.4} position={[4.5, 5.2, 6]} />
+      <pointLight color={accent} intensity={mobileLite ? 18 : 24} position={[2.6, 1.8, 2.2]} />
+      <pointLight color={glow} intensity={mobileLite ? 10 : 14} position={[-2.2, -1.8, 2.4]} />
+      <fog attach="fog" args={["#07102b", mobileLite ? 14 : 13, mobileLite ? 28 : 24]} />
+      <AmbientField color={glow} compact={compact} mobileLite={mobileLite} reduceMotion={reduceMotion} />
+      <SignalSculpture activeSlug={activeSlug} compact={compact} mobileLite={mobileLite} reduceMotion={reduceMotion} />
     </Canvas>
   );
 }

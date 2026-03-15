@@ -396,6 +396,31 @@ img {
     linear-gradient(145deg, #060d24, #0b1532 52%, #11285d 100%);
 }
 
+.canvas-stage-mobile-scene {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(145, 180, 255, 0.12);
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.05), transparent 16rem),
+    linear-gradient(145deg, #060d24, #0b1532 52%, #11285d 100%);
+}
+
+.canvas-stage-mobile-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.canvas-stage-mobile-scene-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 42%, transparent 0%, transparent 34%, rgba(5, 8, 22, 0.05) 72%, rgba(5, 8, 22, 0.18) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(5, 8, 22, 0.08) 72%, rgba(5, 8, 22, 0.16) 100%);
+}
+
 .canvas-stage-mobile-plate-glow {
   position: absolute;
   border-radius: 999px;
@@ -767,6 +792,11 @@ img {
   }
 
   .canvas-stage-frame > div:first-child {
+    min-height: 15.5rem;
+  }
+
+  .canvas-stage-mobile-scene,
+  .canvas-stage-mobile-plate {
     min-height: 15.5rem;
   }
 
