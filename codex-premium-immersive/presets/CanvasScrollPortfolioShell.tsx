@@ -37,9 +37,9 @@ export default function CanvasScrollPortfolioShell({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(120,98,255,0.18),transparent_0,transparent_34%),radial-gradient(circle_at_bottom_right,rgba(24,210,192,0.14),transparent_0,transparent_28%)]" />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-8 px-6 py-8 lg:grid-cols-[minmax(0,0.76fr)_minmax(480px,0.94fr)] lg:gap-10 lg:px-8 lg:py-10">
-        <div className="space-y-8">
-          <div className="space-y-6">
+      <div className="relative mx-auto grid max-w-7xl gap-7 px-6 py-7 lg:grid-cols-[minmax(0,0.76fr)_minmax(440px,0.94fr)] lg:gap-8 lg:px-8 lg:py-8">
+        <div className="space-y-6">
+          <div className="space-y-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/72">
               <span className="h-2 w-2 rounded-full bg-[#7c5cff]" />
               {eyebrow}

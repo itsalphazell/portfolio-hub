@@ -37,22 +37,22 @@ export function ProjectCard({ project, variant = "archive", active = false }: Pr
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,14,34,0.04),rgba(8,14,34,0.2))]" />
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-          <span className="rounded-full border border-white/18 bg-[rgba(7,12,28,0.84)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+          <span className="max-w-full break-words rounded-full border border-white/18 bg-[rgba(7,12,28,0.84)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] leading-4 text-white">
             {project.type === "concept" ? labels.conceptCase : labels.shippedCase}
           </span>
           <span
-            className="rounded-full border border-white/18 bg-white/92 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink"
+            className="max-w-full break-words rounded-full border border-white/18 bg-white/92 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] leading-4 text-ink"
           >
             {project.industry}
           </span>
         </div>
         <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
           <div
-            className="rounded-[1.1rem] border border-white/16 bg-[rgba(7,12,28,0.84)] px-3 py-2 text-white"
+            className="max-w-[9.5rem] rounded-[1.1rem] border border-white/16 bg-[rgba(7,12,28,0.84)] px-3 py-2 text-white"
             data-audit-bg="rgba(7,12,28,0.84)"
           >
             <p className="font-signal text-[9px] uppercase tracking-[0.18em] text-white/72">{labels.delivery}</p>
-            <p className="mt-1 text-xs font-semibold text-white">{project.status}</p>
+            <p className="mt-1 break-words text-xs font-semibold leading-4 text-white">{project.status}</p>
           </div>
           <span className="rounded-full border border-white/18 bg-white/92 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink">
             {String(project.order).padStart(2, "0")}
@@ -101,7 +101,7 @@ export function ProjectCard({ project, variant = "archive", active = false }: Pr
           {project.tags.map((tag) => (
             <span
               className={clsx(
-                "rounded-full border px-3 py-1 text-xs font-medium",
+                "max-w-full break-words rounded-full border px-3 py-1 text-xs font-medium leading-4",
                 variant === "featured"
                   ? "border-[rgba(16,36,95,0.12)] bg-[rgba(16,36,95,0.96)] text-white"
                   : "border-[rgba(22,17,13,0.1)] bg-white/88 text-ink",
