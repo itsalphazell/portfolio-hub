@@ -15,7 +15,12 @@ export function ensurePremiumPlugins(): void {
 }
 
 export function useReducedMotion(): boolean {
-  const [reduced, setReduced] = useState(false);
+  const [reduced, setReduced] = useState(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      return false;
+    }
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
@@ -32,7 +37,12 @@ export function useReducedMotion(): boolean {
 }
 
 export function useIsCompactViewport(maxWidth: number = 767): boolean {
-  const [compact, setCompact] = useState(false);
+  const [compact, setCompact] = useState(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      return false;
+    }
+    return window.matchMedia(`(max-width: ${maxWidth}px)`).matches;
+  });
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") {

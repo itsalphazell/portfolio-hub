@@ -382,6 +382,61 @@ img {
   color: #08112d;
 }
 
+.canvas-stage-mobile-plate {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(145, 180, 255, 0.12);
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.05), transparent 16rem),
+    linear-gradient(145deg, #060d24, #0b1532 52%, #11285d 100%);
+}
+
+.canvas-stage-mobile-plate-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(34px);
+  opacity: 0.68;
+}
+
+.canvas-stage-mobile-plate-glow-a {
+  left: 8%;
+  top: 10%;
+  width: 7rem;
+  height: 7rem;
+  background: color-mix(in srgb, var(--fallback-accent) 40%, transparent);
+}
+
+.canvas-stage-mobile-plate-glow-b {
+  right: 9%;
+  bottom: 10%;
+  width: 9rem;
+  height: 6rem;
+  background: color-mix(in srgb, var(--fallback-glow) 34%, transparent);
+}
+
+.canvas-stage-mobile-stack {
+  width: min(100%, 13rem);
+}
+
+.canvas-stage-mobile-meta-grid {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.canvas-stage-mobile-card,
+.canvas-stage-mobile-copy-card {
+  border: 1px solid rgba(136, 167, 255, 0.12);
+  border-radius: 1.2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  padding: 0.95rem;
+}
+
 .canvas-story-card {
   --mode-accent: #9fb7ff;
   border: 1px solid rgba(136, 167, 255, 0.12);
@@ -694,11 +749,8 @@ img {
   }
 
   .canvas-stage-header {
+    flex-direction: column;
     gap: 0.75rem;
-  }
-
-  .canvas-stage-rail {
-    grid-template-columns: 1fr;
   }
 
   .canvas-story-card {
@@ -711,16 +763,25 @@ img {
   }
 
   .canvas-stage-frame {
-    margin-top: 1.25rem;
+    margin-top: 0.85rem;
   }
 
   .canvas-stage-frame > div:first-child {
-    min-height: 22rem;
+    min-height: 15.5rem;
   }
 
   .canvas-stage-overlay-left,
   .canvas-stage-overlay-right {
     display: none;
+  }
+
+  .canvas-stage-rail,
+  .canvas-stage-rail-mobile {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-stage-mobile-copy-card h3 {
+    max-width: 12ch;
   }
 
   .hero-scene-fallback-stack {

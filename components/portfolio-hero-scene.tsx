@@ -19,11 +19,116 @@ interface PortfolioHeroSceneProps {
   onActivate: (slug: string, options?: { scroll?: boolean }) => void;
 }
 
+function CompactScenePlate({ accent, glow }: { accent: string; glow: string }) {
+  return (
+    <div
+      className="canvas-stage-mobile-plate"
+      style={
+        {
+          "--fallback-accent": accent,
+          "--fallback-glow": glow,
+        } as CSSProperties
+      }
+    >
+      <div className="canvas-stage-mobile-plate-glow canvas-stage-mobile-plate-glow-a" />
+      <div className="canvas-stage-mobile-plate-glow canvas-stage-mobile-plate-glow-b" />
+      <div className="hero-scene-fallback-stack canvas-stage-mobile-stack">
+        <div className="hero-scene-fallback-slab hero-scene-fallback-slab-back" />
+        <div className="hero-scene-fallback-slab hero-scene-fallback-slab-mid" />
+        <div className="hero-scene-fallback-slab hero-scene-fallback-slab-front" />
+        <div className="hero-scene-fallback-orb" />
+        <div className="hero-scene-fallback-ring" />
+      </div>
+    </div>
+  );
+}
+
 export function PortfolioHeroScene({ activeSlug, activeChapter, modes, onActivate }: PortfolioHeroSceneProps) {
   const { locale } = useLocale();
   const copy = homeCopy[locale];
   const { reducedMotion, compactViewport } = useImmersiveCapability();
   const activeMode = modes.find((mode) => mode.slug === activeSlug) ?? modes[0];
+
+  if (compactViewport) {
+    return (
+      <aside className="canvas-stage-panel" style={{ "--mode-accent": activeMode.accent } as CSSProperties}>
+        <div className="canvas-stage-shell" data-audit-bg="rgb(8,17,39)" data-audit-overlay-root>
+          <div className="canvas-stage-header">
+            <div className="space-y-2">
+              <p className="font-signal text-[10px] uppercase tracking-[0.2em] text-[var(--mode-accent)]">
+                {copy.commandStageLabel}
+              </p>
+              <p className="max-w-full text-[0.88rem] leading-5 text-white/76">{activeMode.valueLine}</p>
+            </div>
+
+            <div className="canvas-stage-header-pills">
+              <span className="hero-stage-pill hero-stage-pill-strong">{activeChapter.chapter}</span>
+              <span className="hero-stage-pill">{activeMode.label}</span>
+            </div>
+          </div>
+
+          <div className="canvas-stage-frame canvas-stage-frame-mobile" data-audit-bg="rgba(7,16,43,1)">
+            <CompactScenePlate accent={activeMode.accent} glow={activeMode.accent} />
+          </div>
+
+          <div className="canvas-stage-mobile-meta-grid">
+            <div className="canvas-stage-mobile-card">
+              <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-white/58">{copy.currentSignalLabel}</p>
+              <p className="mt-2 text-sm leading-6 text-white/84">{activeChapter.valueCue}</p>
+            </div>
+            <div className="canvas-stage-mobile-card">
+              <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-white/58">{copy.linkedCaseLabel}</p>
+              <p className="mt-2 text-sm leading-6 text-white">{activeMode.eyebrow}</p>
+            </div>
+          </div>
+
+          <div className="canvas-stage-mobile-copy-card">
+            <p className="font-signal text-[10px] uppercase tracking-[0.18em] text-[var(--mode-accent)]">{activeMode.label}</p>
+            <h3 className="mt-3 max-w-[13ch] text-balance font-display text-[clamp(1.55rem,8vw,2.2rem)] leading-[0.98] tracking-[-0.04em] text-white">
+              {activeMode.stageTitle}
+            </h3>
+            <p className="mt-3 text-[0.92rem] leading-6 text-white/78">{activeMode.pulse}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {activeMode.metrics.slice(0, 3).map((metric) => (
+                <span className="canvas-inline-pill canvas-inline-pill-dark" key={metric.label}>
+                  {metric.label}: {metric.value}
+                </span>
+              ))}
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink"
+                href={`/work/${activeSlug}`}
+              >
+                {copy.linkedCaseCta}
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="canvas-stage-rail canvas-stage-rail-mobile">
+            {modes.map((mode, index) => {
+              const active = mode.slug === activeSlug;
+
+              return (
+                <button
+                  aria-pressed={active}
+                  className={clsx("canvas-stage-tab", active ? "canvas-stage-tab-active" : "")}
+                  key={mode.slug}
+                  onClick={() => onActivate(mode.slug)}
+                  type="button"
+                >
+                  <span className="font-signal text-[10px] uppercase tracking-[0.18em]">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="canvas-stage-tab-title mt-1.5 block text-[0.82rem] font-semibold leading-5 text-white">{mode.label}</span>
+                  <span className="canvas-stage-tab-caption mt-1 block text-[10px] leading-4 text-white/62">{mode.eyebrow}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </aside>
+    );
+  }
 
   return (
     <aside className="canvas-stage-panel" style={{ "--mode-accent": activeMode.accent } as CSSProperties}>
